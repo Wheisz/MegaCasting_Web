@@ -1,0 +1,149 @@
+<?php
+
+namespace MC\MegaCastingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Offre
+ *
+ * @ORM\Table(name="Offre", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Offre", columns={"Reference"})}, indexes={@ORM\Index(name="IFK_Offre_Domaine", columns={"IdDomaine"}), @ORM\Index(name="IFK_Offre_Metier", columns={"IdMetier"}), @ORM\Index(name="IFK_Offre_TypeContrat", columns={"IdTypeContrat"}), @ORM\Index(name="IFK_Offre_Annonceur", columns={"IdAnnonceur"})})
+ * @ORM\Entity
+ */
+class Offre
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Intitule", type="string", length=100, nullable=false)
+     */
+    private $intitule;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Reference", type="string", length=100, nullable=false)
+     */
+    private $reference;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DatePublication", type="datetime", nullable=false)
+     */
+    private $datepublication;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="DureeDiffusion", type="integer", nullable=false)
+     */
+    private $dureediffusion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateDebutContrat", type="date", nullable=false)
+     */
+    private $datedebutcontrat;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NbPoste", type="integer", nullable=false)
+     */
+    private $nbposte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LocalisationLattitude", type="string", length=50, nullable=false)
+     */
+    private $localisationlattitude;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LocalisationLongitude", type="string", length=50, nullable=false)
+     */
+    private $localisationlongitude;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DescriptionPoste", type="string", length=0, nullable=false)
+     */
+    private $descriptionposte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DescriptionProfil", type="string", length=0, nullable=false)
+     */
+    private $descriptionprofil;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Telephone", type="string", length=50, nullable=false)
+     */
+    private $telephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Email", type="string", length=50, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var \Annonceur
+     *
+     * @ORM\ManyToOne(targetEntity="Annonceur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdAnnonceur", referencedColumnName="Id")
+     * })
+     */
+    private $idannonceur;
+
+    /**
+     * @var \Typecontrat
+     *
+     * @ORM\ManyToOne(targetEntity="Typecontrat")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdTypeContrat", referencedColumnName="Id")
+     * })
+     */
+    private $idtypecontrat;
+
+    /**
+     * @var \Domaine
+     *
+     * @ORM\ManyToOne(targetEntity="Domaine")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdDomaine", referencedColumnName="Id")
+     * })
+     */
+    private $iddomaine;
+
+    /**
+     * @var \Metier
+     *
+     * @ORM\ManyToOne(targetEntity="Metier")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdMetier", referencedColumnName="Id")
+     * })
+     */
+    private $idmetier;
+
+
+}

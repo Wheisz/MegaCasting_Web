@@ -1,0 +1,14 @@
+# This file is a "template" of what your parameters.yml file should look like
+parameters:
+    database_driver: pdo_sqlsrv
+    database_host: 127.0.0.1
+    database_port: 1433
+    database_name: MegaCastingCL
+    database_user: sa
+    database_password: not24get
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: fr
+    secret: ThisTokenIsNotSoSecretChangeIt

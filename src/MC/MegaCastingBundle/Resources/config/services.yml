@@ -1,0 +1,4 @@
+services:
+#    mc_mega_casting.example:
+#        class: MC\MegaCastingBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

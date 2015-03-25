@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Offre" table="Offre">
+    <indexes>
+      <index name="IFK_Offre_Domaine" columns="IdDomaine"/>
+      <index name="IFK_Offre_Metier" columns="IdMetier"/>
+      <index name="IFK_Offre_TypeContrat" columns="IdTypeContrat"/>
+      <index name="IFK_Offre_Annonceur" columns="IdAnnonceur"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="UK_Offre" columns="Reference"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="intitule" type="string" column="Intitule" length="100" nullable="false"/>
+    <field name="reference" type="string" column="Reference" length="100" nullable="false"/>
+    <field name="datepublication" type="datetime" column="DatePublication" nullable="false"/>
+    <field name="dureediffusion" type="integer" column="DureeDiffusion" nullable="false"/>
+    <field name="datedebutcontrat" type="date" column="DateDebutContrat" nullable="false"/>
+    <field name="nbposte" type="integer" column="NbPoste" nullable="false"/>
+    <field name="localisationlattitude" type="string" column="LocalisationLattitude" length="50" nullable="false"/>
+    <field name="localisationlongitude" type="string" column="LocalisationLongitude" length="50" nullable="false"/>
+    <field name="descriptionposte" type="string" column="DescriptionPoste" length="0" nullable="false"/>
+    <field name="descriptionprofil" type="string" column="DescriptionProfil" length="0" nullable="false"/>
+    <field name="telephone" type="string" column="Telephone" length="50" nullable="false"/>
+    <field name="email" type="string" column="Email" length="50" nullable="false"/>
+    <many-to-one field="idmetier" target-entity="Metier">
+      <join-columns>
+        <join-column name="IdMetier" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="iddomaine" target-entity="Domaine">
+      <join-columns>
+        <join-column name="IdDomaine" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idtypecontrat" target-entity="Typecontrat">
+      <join-columns>
+        <join-column name="IdTypeContrat" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idannonceur" target-entity="Annonceur">
+      <join-columns>
+        <join-column name="IdAnnonceur" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Societe" table="Societe">
+    <indexes>
+      <index name="IFK_Societe_Adresse" columns="IdAdresse"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="UK_Societe" columns="RaisonSociale"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="numerosiret" type="bigint" column="NumeroSiret" nullable="false"/>
+    <field name="raisonsociale" type="string" column="RaisonSociale" length="100" nullable="false"/>
+    <field name="email" type="string" column="Email" length="50" nullable="false"/>
+    <field name="telephone" type="string" column="Telephone" length="50" nullable="false"/>
+    <many-to-one field="idadresse" target-entity="Adresse">
+      <join-columns>
+        <join-column name="IdAdresse" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

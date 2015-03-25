@@ -1,0 +1,53 @@
+<?php
+
+namespace MC\MegaCastingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Adresse
+ *
+ * @ORM\Table(name="Adresse", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Adresse", columns={"Numero", "Rue", "CodePostal", "Ville"})})
+ * @ORM\Entity
+ */
+class Adresse
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Numero", type="integer", nullable=false)
+     */
+    private $numero;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Rue", type="string", length=250, nullable=false)
+     */
+    private $rue;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="CodePostal", type="integer", nullable=false)
+     */
+    private $codepostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Ville", type="string", length=100, nullable=false)
+     */
+    private $ville;
+
+
+}

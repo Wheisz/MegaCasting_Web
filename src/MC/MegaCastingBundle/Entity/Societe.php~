@@ -1,0 +1,63 @@
+<?php
+
+namespace MC\MegaCastingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Societe
+ *
+ * @ORM\Table(name="Societe", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Societe", columns={"RaisonSociale"})}, indexes={@ORM\Index(name="IFK_Societe_Adresse", columns={"IdAdresse"})})
+ * @ORM\Entity
+ */
+class Societe
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NumeroSiret", type="bigint", nullable=false)
+     */
+    private $numerosiret;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RaisonSociale", type="string", length=100, nullable=false)
+     */
+    private $raisonsociale;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Email", type="string", length=50, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Telephone", type="string", length=50, nullable=false)
+     */
+    private $telephone;
+
+    /**
+     * @var \Adresse
+     *
+     * @ORM\ManyToOne(targetEntity="Adresse")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdAdresse", referencedColumnName="Id")
+     * })
+     */
+    private $idadresse;
+
+
+}

@@ -1,0 +1,28 @@
+<?php
+
+namespace MC\MegaCastingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Annonceur
+ *
+ * @ORM\Table(name="Annonceur")
+ * @ORM\Entity
+ */
+class Annonceur
+{
+    /**
+     * @var \Societe
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Societe")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Id", referencedColumnName="Id")
+     * })
+     */
+    private $id;
+
+
+}
