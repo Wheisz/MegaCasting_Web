@@ -1,0 +1,11 @@
+{# views/Metier/liste #}
+<u1>
+    Liste des metiers
+</u1>
+<ul>
+  {% for metier in liste_metiers %}
+    <li>{{ metier.Libelle }}</li>
+  {% else %}
+    <li>Pas de métiers trouvé.</li>
+  {% endfor %}
+</ul>

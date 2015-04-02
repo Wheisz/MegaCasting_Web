@@ -1,3 +1,36 @@
 mc_mega_casting_homepage:
     path:     /
     defaults: { _controller: MCMegaCastingBundle:Default:index }
+
+mc_mega_casting_Offre_All:
+    path:     /Offre
+    defaults: { _controller: MCMegaCastingBundle:Offre:index }
+    
+mc_mega_casting_Offre_view:
+    path:     /Offre/{id_offre}
+    defaults: { _controller: MCMegaCastingBundle:Offre:view }
+    requirements:
+        id_offre: \d+
+        
+mc_mega_casting_Offre_Add:
+    path:     /Offre/Add
+    defaults: { _controller: MCMegaCastingBundle:Offre:add }
+
+mc_mega_casting_Offre_Domaine:
+    path:     /Offre/{libelle_domaine}
+    defaults: { _controller: MCMegaCastingBundle:Offre:domaine }
+
+mc_mega_casting_Offre_Domaine_Metier:
+    path:     /Offre/{libelle_domaine}/{libelle_metier}
+    defaults: { _controller: MCMegaCastingBundle:Offre:domaine_metier }
+    
+mc_mega_casting_Annonceur:
+    path:     /EspacePro
+    defaults: { _controller: MCMegaCastingBundle:Annonceur:index }
+    
+mc_mega_casting_Artiste:
+    path:     /EspacePerso
+    defaults: { _controller: MCMegaCastingBundle:Artiste:index }
+    
+
+   

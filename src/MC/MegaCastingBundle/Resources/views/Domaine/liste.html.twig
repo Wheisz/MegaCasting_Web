@@ -1,0 +1,12 @@
+{# views/Domaine/liste #}
+<u1>
+    Liste des domaines
+</u1>
+<select>
+    <option></option>
+  {% for domaine in liste_domaines %}
+    <option value="{{ domaine.Libelle }}">{{ domaine.Libelle }}</option>
+  {% else %}
+    <li>Pas de domaines trouvé.</li>
+  {% endfor %}
+</select>
