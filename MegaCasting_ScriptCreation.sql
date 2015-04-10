@@ -153,3 +153,62 @@ GO
 
 CREATE INDEX IUK_Offre ON Offre (Reference)
 GO
+
+CREATE TABLE Sexe
+(
+	Id BIGINT NOT NULL IDENTITY,
+	Libelle NVARCHAR(100) NOT NULL,
+	CONSTRAINT PK_Sexe PRIMARY KEY (Id),
+	CONSTRAINT UK_Sexe_Libelle UNIQUE (Libelle)
+)
+GO
+
+CREATE INDEX IUK_Sexe_Libelle ON Sexe (Libelle)
+GO
+
+CREATE TABLE CaracteristiquePhysique
+(
+	Id BIGINT NOT NULL IDENTITY,
+	Taille int NULL,
+	Poids int NULL,
+	CouleurYeux NVARCHAR(50) NULL,
+	CouleurCheveux NVARCHAR(50) NULL,
+	CONSTRAINT PK_CaracteristiquePhysique PRIMARY KEY (Id)
+)
+GO
+
+CREATE TABLE Artiste
+(
+	Id BIGINT NOT NULL IDENTITY,
+	DateNaissance DATETIME2 NOT NULL,
+	IdSexe BIGINT,
+	IdUtilisateur BIGINT,
+	IdCaracteristiquePhysique BIGINT,
+	CONSTRAINT PK_Artiste PRIMARY KEY (Id),
+	CONSTRAINT FK_Artiste_Sexe FOREIGN KEY (IdSexe) REFERENCES Sexe (Id),
+	CONSTRAINT FK_Artiste_Utilisateur FOREIGN KEY (IdUtilisateur) REFERENCES Utilisateur (id),
+	CONSTRAINT FK_Artiste_CaracPhysique FOREIGN KEY (IdCaracteristiquePhysique) REFERENCES CaracteristiquePhysique (Id)
+)
+GO
+
+CREATE INDEX IFK_Artiste_Sexe ON Artiste (IdSexe)
+GO
+CREATE INDEX IFK_Artiste_Utilisateur ON Artiste (IdUtilisateur)
+GO
+CREATE INDEX IFK_Artiste_CaracPhysique ON Artiste (IdCaracteristiquePhysique)
+GO
+
+CREATE TABLE Artiste_Metier
+(
+	IdArtiste BIGINT NOT NULL,
+	IdMetier BIGINT NOT NULL,
+	CONSTRAINT PK_Artiste_Metier PRIMARY KEY (IdArtiste, IdMetier),
+	CONSTRAINT FK_Artiste_Metier_IdArtiste FOREIGN KEY (IdArtiste) REFERENCES Artiste (Id),
+	CONSTRAINT FK_Artiste_Metier_IdMetier FOREIGN KEY (IdMetier) REFERENCES Metier (id)
+)
+GO
+
+CREATE INDEX IFK_Artiste_Metier_IdArtiste ON Artiste_Metier (IdArtiste)
+GO
+CREATE INDEX IFK_Artiste_Metier_IdMetier ON Artiste_Metier (IdMetier)
+GO
