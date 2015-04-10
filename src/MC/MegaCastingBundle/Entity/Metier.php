@@ -38,6 +38,20 @@ class Metier
      */
     private $iddomaine;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Artiste", mappedBy="idmetier")
+     */
+    private $idartiste;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idartiste = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -94,5 +108,38 @@ class Metier
     public function getIddomaine()
     {
         return $this->iddomaine;
+    }
+
+    /**
+     * Add idartiste
+     *
+     * @param \MC\MegaCastingBundle\Entity\Artiste $idartiste
+     * @return Metier
+     */
+    public function addIdartiste(\MC\MegaCastingBundle\Entity\Artiste $idartiste)
+    {
+        $this->idartiste[] = $idartiste;
+
+        return $this;
+    }
+
+    /**
+     * Remove idartiste
+     *
+     * @param \MC\MegaCastingBundle\Entity\Artiste $idartiste
+     */
+    public function removeIdartiste(\MC\MegaCastingBundle\Entity\Artiste $idartiste)
+    {
+        $this->idartiste->removeElement($idartiste);
+    }
+
+    /**
+     * Get idartiste
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIdartiste()
+    {
+        return $this->idartiste;
     }
 }

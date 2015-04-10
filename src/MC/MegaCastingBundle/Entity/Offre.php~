@@ -106,26 +106,6 @@ class Offre
     private $email;
 
     /**
-     * @var \Annonceur
-     *
-     * @ORM\ManyToOne(targetEntity="Annonceur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdAnnonceur", referencedColumnName="Id")
-     * })
-     */
-    private $idannonceur;
-
-    /**
-     * @var \Typecontrat
-     *
-     * @ORM\ManyToOne(targetEntity="Typecontrat")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdTypeContrat", referencedColumnName="Id")
-     * })
-     */
-    private $idtypecontrat;
-
-    /**
      * @var \Domaine
      *
      * @ORM\ManyToOne(targetEntity="Domaine")
@@ -144,6 +124,26 @@ class Offre
      * })
      */
     private $idmetier;
+
+    /**
+     * @var \Typecontrat
+     *
+     * @ORM\ManyToOne(targetEntity="Typecontrat")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdTypeContrat", referencedColumnName="Id")
+     * })
+     */
+    private $idtypecontrat;
+
+    /**
+     * @var \Annonceur
+     *
+     * @ORM\ManyToOne(targetEntity="Annonceur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdAnnonceur", referencedColumnName="Id")
+     * })
+     */
+    private $idannonceur;
 
 
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Caracteristiquephysique" table="CaracteristiquePhysique">
+    <id name="id" type="bigint" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="taille" type="integer" column="Taille" nullable="true"/>
+    <field name="poids" type="integer" column="Poids" nullable="true"/>
+    <field name="couleuryeux" type="string" column="CouleurYeux" length="50" nullable="true"/>
+    <field name="couleurcheveux" type="string" column="CouleurCheveux" length="50" nullable="true"/>
+  </entity>
+</doctrine-mapping>

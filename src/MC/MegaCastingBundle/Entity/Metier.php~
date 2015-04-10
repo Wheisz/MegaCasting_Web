@@ -38,5 +38,19 @@ class Metier
      */
     private $iddomaine;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Artiste", mappedBy="idmetier")
+     */
+    private $idartiste;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idartiste = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 }

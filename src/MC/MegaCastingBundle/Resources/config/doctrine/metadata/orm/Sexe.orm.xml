@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="Metier" table="Metier">
-    <indexes>
-      <index name="IDX_560C08BAEAE7E39D" columns="IdDomaine"/>
-    </indexes>
+  <entity name="Sexe" table="Sexe">
     <unique-constraints>
-      <unique-constraint name="UK_Metier" columns="Libelle"/>
+      <unique-constraint name="UK_Sexe_Libelle" columns="Libelle"/>
     </unique-constraints>
     <id name="id" type="bigint" column="Id">
       <generator strategy="IDENTITY"/>
     </id>
     <field name="libelle" type="string" column="Libelle" length="100" nullable="false"/>
-    <many-to-one field="iddomaine" target-entity="Domaine">
-      <join-columns>
-        <join-column name="IdDomaine" referenced-column-name="Id"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-many field="idartiste" target-entity="Artiste" mapped-by="idmetier"/>
   </entity>
 </doctrine-mapping>

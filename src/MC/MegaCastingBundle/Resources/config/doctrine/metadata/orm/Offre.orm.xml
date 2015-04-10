@@ -25,6 +25,16 @@
     <field name="descriptionprofil" type="string" column="DescriptionProfil" length="0" nullable="false"/>
     <field name="telephone" type="string" column="Telephone" length="50" nullable="false"/>
     <field name="email" type="string" column="Email" length="50" nullable="false"/>
+    <many-to-one field="idannonceur" target-entity="Annonceur">
+      <join-columns>
+        <join-column name="IdAnnonceur" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idtypecontrat" target-entity="Typecontrat">
+      <join-columns>
+        <join-column name="IdTypeContrat" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
     <many-to-one field="idmetier" target-entity="Metier">
       <join-columns>
         <join-column name="IdMetier" referenced-column-name="Id"/>
@@ -33,16 +43,6 @@
     <many-to-one field="iddomaine" target-entity="Domaine">
       <join-columns>
         <join-column name="IdDomaine" referenced-column-name="Id"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="idtypecontrat" target-entity="Typecontrat">
-      <join-columns>
-        <join-column name="IdTypeContrat" referenced-column-name="Id"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="idannonceur" target-entity="Annonceur">
-      <join-columns>
-        <join-column name="IdAnnonceur" referenced-column-name="Id"/>
       </join-columns>
     </many-to-one>
   </entity>

@@ -1,0 +1,84 @@
+<?php
+
+namespace MC\MegaCastingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Artiste
+ *
+ * @ORM\Table(name="Artiste", indexes={@ORM\Index(name="IFK_Artiste_Sexe", columns={"IdSexe"}), @ORM\Index(name="IFK_Artiste_Utilisateur", columns={"IdUtilisateur"}), @ORM\Index(name="IFK_Artiste_CaracPhysique", columns={"IdCaracteristiquePhysique"})})
+ * @ORM\Entity
+ */
+class Artiste
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateNaissance", type="datetime", nullable=false)
+     */
+    private $datenaissance;
+
+    /**
+     * @var \Sexe
+     *
+     * @ORM\ManyToOne(targetEntity="Sexe")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdSexe", referencedColumnName="Id")
+     * })
+     */
+    private $idsexe;
+
+    /**
+     * @var \Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdUtilisateur", referencedColumnName="id")
+     * })
+     */
+    private $idutilisateur;
+
+    /**
+     * @var \Caracteristiquephysique
+     *
+     * @ORM\ManyToOne(targetEntity="Caracteristiquephysique")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdCaracteristiquePhysique", referencedColumnName="Id")
+     * })
+     */
+    private $idcaracteristiquephysique;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Metier", inversedBy="idartiste")
+     * @ORM\JoinTable(name="artiste_metier",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="IdArtiste", referencedColumnName="Id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="IdMetier", referencedColumnName="Id")
+     *   }
+     * )
+     */
+    private $idmetier;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idmetier = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

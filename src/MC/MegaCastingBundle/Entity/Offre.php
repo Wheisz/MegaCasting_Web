@@ -106,26 +106,6 @@ class Offre
     private $email;
 
     /**
-     * @var \Annonceur
-     *
-     * @ORM\ManyToOne(targetEntity="Annonceur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdAnnonceur", referencedColumnName="Id")
-     * })
-     */
-    private $idannonceur;
-
-    /**
-     * @var \Typecontrat
-     *
-     * @ORM\ManyToOne(targetEntity="Typecontrat")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdTypeContrat", referencedColumnName="Id")
-     * })
-     */
-    private $idtypecontrat;
-
-    /**
      * @var \Domaine
      *
      * @ORM\ManyToOne(targetEntity="Domaine")
@@ -144,6 +124,26 @@ class Offre
      * })
      */
     private $idmetier;
+
+    /**
+     * @var \Typecontrat
+     *
+     * @ORM\ManyToOne(targetEntity="Typecontrat")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdTypeContrat", referencedColumnName="Id")
+     * })
+     */
+    private $idtypecontrat;
+
+    /**
+     * @var \Annonceur
+     *
+     * @ORM\ManyToOne(targetEntity="Annonceur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdAnnonceur", referencedColumnName="Id")
+     * })
+     */
+    private $idannonceur;
 
 
 
@@ -434,52 +434,6 @@ class Offre
     }
 
     /**
-     * Set idannonceur
-     *
-     * @param \MC\MegaCastingBundle\Entity\Annonceur $idannonceur
-     * @return Offre
-     */
-    public function setIdannonceur(\MC\MegaCastingBundle\Entity\Annonceur $idannonceur = null)
-    {
-        $this->idannonceur = $idannonceur;
-
-        return $this;
-    }
-
-    /**
-     * Get idannonceur
-     *
-     * @return \MC\MegaCastingBundle\Entity\Annonceur 
-     */
-    public function getIdannonceur()
-    {
-        return $this->idannonceur;
-    }
-
-    /**
-     * Set idtypecontrat
-     *
-     * @param \MC\MegaCastingBundle\Entity\Typecontrat $idtypecontrat
-     * @return Offre
-     */
-    public function setIdtypecontrat(\MC\MegaCastingBundle\Entity\Typecontrat $idtypecontrat = null)
-    {
-        $this->idtypecontrat = $idtypecontrat;
-
-        return $this;
-    }
-
-    /**
-     * Get idtypecontrat
-     *
-     * @return \MC\MegaCastingBundle\Entity\Typecontrat 
-     */
-    public function getIdtypecontrat()
-    {
-        return $this->idtypecontrat;
-    }
-
-    /**
      * Set iddomaine
      *
      * @param \MC\MegaCastingBundle\Entity\Domaine $iddomaine
@@ -523,5 +477,51 @@ class Offre
     public function getIdmetier()
     {
         return $this->idmetier;
+    }
+
+    /**
+     * Set idtypecontrat
+     *
+     * @param \MC\MegaCastingBundle\Entity\Typecontrat $idtypecontrat
+     * @return Offre
+     */
+    public function setIdtypecontrat(\MC\MegaCastingBundle\Entity\Typecontrat $idtypecontrat = null)
+    {
+        $this->idtypecontrat = $idtypecontrat;
+
+        return $this;
+    }
+
+    /**
+     * Get idtypecontrat
+     *
+     * @return \MC\MegaCastingBundle\Entity\Typecontrat 
+     */
+    public function getIdtypecontrat()
+    {
+        return $this->idtypecontrat;
+    }
+
+    /**
+     * Set idannonceur
+     *
+     * @param \MC\MegaCastingBundle\Entity\Annonceur $idannonceur
+     * @return Offre
+     */
+    public function setIdannonceur(\MC\MegaCastingBundle\Entity\Annonceur $idannonceur = null)
+    {
+        $this->idannonceur = $idannonceur;
+
+        return $this;
+    }
+
+    /**
+     * Get idannonceur
+     *
+     * @return \MC\MegaCastingBundle\Entity\Annonceur 
+     */
+    public function getIdannonceur()
+    {
+        return $this->idannonceur;
     }
 }
