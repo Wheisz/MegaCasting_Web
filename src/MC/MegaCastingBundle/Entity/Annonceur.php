@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Annonceur
  *
- * @ORM\Table(name="Annonceur")
+ * @ORM\Table(name="Annonceur", indexes={@ORM\Index(name="IFK_Annonceur_Utilisateur", columns={"IdUtilisateur"})})
  * @ORM\Entity
  */
 class Annonceur
@@ -23,6 +23,16 @@ class Annonceur
      * })
      */
     private $id;
+
+    /**
+     * @var \Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdUtilisateur", referencedColumnName="id")
+     * })
+     */
+    private $idutilisateur;
 
 
 
@@ -47,5 +57,28 @@ class Annonceur
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set idutilisateur
+     *
+     * @param \MC\MegaCastingBundle\Entity\Utilisateur $idutilisateur
+     * @return Annonceur
+     */
+    public function setIdutilisateur(\MC\MegaCastingBundle\Entity\Utilisateur $idutilisateur = null)
+    {
+        $this->idutilisateur = $idutilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get idutilisateur
+     *
+     * @return \MC\MegaCastingBundle\Entity\Utilisateur 
+     */
+    public function getIdutilisateur()
+    {
+        return $this->idutilisateur;
     }
 }

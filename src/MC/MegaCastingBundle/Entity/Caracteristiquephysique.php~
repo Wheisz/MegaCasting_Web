@@ -50,4 +50,106 @@ class Caracteristiquephysique
     private $couleurcheveux;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set taille
+     *
+     * @param integer $taille
+     * @return Caracteristiquephysique
+     */
+    public function setTaille($taille)
+    {
+        $this->taille = $taille;
+
+        return $this;
+    }
+
+    /**
+     * Get taille
+     *
+     * @return integer 
+     */
+    public function getTaille()
+    {
+        return $this->taille;
+    }
+
+    /**
+     * Set poids
+     *
+     * @param integer $poids
+     * @return Caracteristiquephysique
+     */
+    public function setPoids($poids)
+    {
+        $this->poids = $poids;
+
+        return $this;
+    }
+
+    /**
+     * Get poids
+     *
+     * @return integer 
+     */
+    public function getPoids()
+    {
+        return $this->poids;
+    }
+
+    /**
+     * Set couleuryeux
+     *
+     * @param string $couleuryeux
+     * @return Caracteristiquephysique
+     */
+    public function setCouleuryeux($couleuryeux)
+    {
+        $this->couleuryeux = $couleuryeux;
+
+        return $this;
+    }
+
+    /**
+     * Get couleuryeux
+     *
+     * @return string 
+     */
+    public function getCouleuryeux()
+    {
+        return $this->couleuryeux;
+    }
+
+    /**
+     * Set couleurcheveux
+     *
+     * @param string $couleurcheveux
+     * @return Caracteristiquephysique
+     */
+    public function setCouleurcheveux($couleurcheveux)
+    {
+        $this->couleurcheveux = $couleurcheveux;
+
+        return $this;
+    }
+
+    /**
+     * Get couleurcheveux
+     *
+     * @return string 
+     */
+    public function getCouleurcheveux()
+    {
+        return $this->couleurcheveux;
+    }
 }
