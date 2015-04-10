@@ -13,9 +13,15 @@ class DefaultController extends Controller
         $liste_domaines = $manager
                             ->getRepository('MCMegaCastingBundle:Domaine')
                             ->findAll();
+        
+        $liste_offres = $manager
+                            ->getRepository('MCMegaCastingBundle:Offre')
+                            ->findBy(array(),
+                                    array('datepublication' => 'desc'), 5);
  
         return $this->render('MCMegaCastingBundle:Default:index.html.twig', 
                 array(  'liste_domaines' => $liste_domaines,
+                        'liste_offres' => $liste_offres
                         ));
     }
 }
