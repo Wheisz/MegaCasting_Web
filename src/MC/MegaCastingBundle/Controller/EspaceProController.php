@@ -4,7 +4,7 @@ namespace MC\MegaCastingBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class ArtisteController extends Controller
+class EspaceProController extends Controller
 {
     public function indexAction()
     {
@@ -14,7 +14,7 @@ class ArtisteController extends Controller
                             ->getRepository('MCMegaCastingBundle:Domaine')
                             ->findAll();
         
-        return $this->render('MCMegaCastingBundle:Artiste:index.html.twig',
+        return $this->render('MCMegaCastingBundle:EspacePro:index.html.twig',
                 array('liste_domaines' => $liste_domaines));
     }
 }

@@ -24,12 +24,16 @@ mc_mega_casting_Offre_Domaine:
     path:     /Offre/{libelle_domaine}
     defaults: { _controller: MCMegaCastingBundle:Offre:domaine }
     
-mc_mega_casting_Annonceur:
+mc_mega_casting_EspacePro:
     path:     /EspacePro
-    defaults: { _controller: MCMegaCastingBundle:Annonceur:index }
+    defaults: { _controller: MCMegaCastingBundle:EspacePro:index }
+    
+mc_mega_casting_EspacePerso:
+    path:     /EspacePerso
+    defaults: { _controller: MCMegaCastingBundle:EspacePerso:index }
     
 mc_mega_casting_Artiste:
-    path:     /EspacePerso
+    path:     /Artiste
     defaults: { _controller: MCMegaCastingBundle:Artiste:index }
     
     
