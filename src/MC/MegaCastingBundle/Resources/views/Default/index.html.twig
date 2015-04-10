@@ -1,1 +1,121 @@
-Hello {{ name }}!
+{# src/MC/MegaCastingBundle/Resources/views/Default/index.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="mainConteneur">
+        <div class="slider">
+            <ul class="rslides">
+              <li><img src="{{asset('bundles/mcmegacasting/img/slider/ange.png')}}" /></li>
+              <li><img src="{{asset('bundles/mcmegacasting/img/slider/bioshock.png')}}" /></li>
+              <li><img src="{{asset('bundles/mcmegacasting/img/slider/design.png')}}" /></li>
+              <li><img src="{{asset('bundles/mcmegacasting/img/slider/robot.png')}}" /></li>
+            </ul>
+        </div>
+        <div id="sub-main">
+            <section id="artistes">
+                <h3>Artistes</h3>
+                <div class="artiste">
+                    <a href="#" class="artiste_picture">
+                        <img src="img/anonyme.jpg" height="auto" width="100px" alt="Artiste" />
+                    </a>
+                    <div class="artiste_info">
+                        <span class="artiste_name">Hervé Villard</span>
+                        <span class="artiste_domaine">Mannequin, Chanteur</span>
+                        <span class="artiste_age">33 ans </span>
+                    </div>
+                </div>
+                <div class="artiste">
+                    <a href="#" class="artiste_picture">
+                        <img src="img/anonyme.jpg" height="100px" width="100px" alt="Artiste" />
+                    </a>
+                    <div class="artiste_info">
+                        <span class="artiste_name">Hervé Villard</span>
+                        <span class="artiste_domaine">Mannequin, Chanteur</span>
+                        <span class="artiste_age">33 ans </span>
+                    </div>
+                </div>
+                <div class="artiste">
+                    <a href="#" class="artiste_picture">
+                        <img src="img/anonyme.jpg" height="100px" width="100px" alt="Artiste" />
+                    </a>
+                    <div class="artiste_info">
+                        <span class="artiste_name">Hervé Villard</span>
+                        <span class="artiste_domaine">Mannequin, Chanteur</span>
+                        <span class="artiste_age">33 ans </span>
+                    </div>
+                </div>
+                <div class="artiste">
+                    <a href="#" class="artiste_picture">
+                        <img src="img/anonyme.jpg" height="100px" width="100px" alt="Artiste" />
+                    </a>
+                    <div class="artiste_info">
+                        <span class="artiste_name">Hervé Villard</span>
+                        <span class="artiste_domaine">Mannequin, Chanteur</span>
+                        <span class="artiste_age">33 ans </span>
+                    </div>
+                </div>
+                <div class="artiste">
+                    <a href="#" class="artiste_picture">
+                        <img src="img/anonyme.jpg" height="100px" width="100px" alt="Artiste" />
+                    </a>
+                    <div class="artiste_info">
+                        <span class="artiste_name">Hervé Villard</span>
+                        <span class="artiste_domaine">Mannequin, Chanteur</span>
+                        <span class="artiste_age">33 ans </span>
+                    </div>
+                </div>
+                <div class="artiste">
+                    <a href="#" class="artiste_picture">
+                        <img src="img/anonyme.jpg" height="100px" width="100px" alt="Artiste" />
+                    </a>
+                    <div class="artiste_info">
+                        <span class="artiste_name">Hervé Villard</span>
+                        <span class="artiste_domaine">Mannequin, Chanteur</span>
+                        <span class="artiste_age">33 ans </span>
+                    </div>
+                </div>
+            </section>
+            <section id="castings">
+                <h3>Derniers Castings</h3>
+                    <a href="#" class="casting">
+                        <span class="title"></span>
+                        <span class="info">
+                            <span class="domaine"></span>
+                            <span class="date"></span>
+                        </span>
+                    </a>
+            </section>
+        </div>
+        <section class="clear" id="partenaires">
+            <h4>Voici les partenaires qui nous font confiance</h4>
+            <div id="list">
+                <a class="partenaire">
+                    <img src="{{ asset('bundles/mcmegacasting/img/partenaires/FRANCE4.jpg')}}" height="50px" width="50px" />
+                </a>
+                <a class="partenaire">
+                    <img src="{{ asset('bundles/mcmegacasting/img/partenaires/TF1jpg.jpg')}}" height="50px" width="50px" />
+                </a>
+                <a class="partenaire">
+                    <img src="{{ asset('bundles/mcmegacasting/img/partenaires/direct8.jpg')}}" height="50px" width="50px" />
+                </a>
+                <a class="partenaire">
+                    <img src="{{ asset('bundles/mcmegacasting/img/partenaires/w9.jpg')}}" height="50px" width="50px" />
+                </a>
+            </div>
+        </section>
+    </div>
+    
+{% endblock %}
+
+{% block javascripts %}
+    {# Inclue le script javascript de la page parente #}
+    {{ parent() }}
+        <script src="{{ asset('bundles/mcmegacasting/js/ResponsiveSlides.js-master/responsiveslides.min.js')}}"></script>
+        <script>
+            $(function() {
+              $(".rslides").responsiveSlides({
+                  speed : 1000
+              });
+            });
+        </script>
+{% endblock %}

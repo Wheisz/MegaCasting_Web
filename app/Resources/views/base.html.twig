@@ -3,11 +3,65 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/mcmegacasting/css/index.css')}}" rel="stylesheet" type="text/css" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <div class="container">
+            <header>
+                <!-- Top-header -->
+                <div class="row" id="top-header">
+                    <div id='logo'></div>
+                    <nav>
+                        <ul>
+                            <li><a href="{{ path('mc_mega_casting_Offre_All')}}">Offre</a></li>
+                            <li><a href="{{ path('mc_mega_casting_Offre_All')}}">Artiste</a></li>
+                            <li><a href="{{ path('mc_mega_casting_Annonceur')}}">Espace Pro</a></li>
+                            <li><a href="{{ path('mc_mega_casting_Artiste')}}">Espace Perso</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Connexion -->
+                <div class="row clear" id="Connexion">
+                    <input type="text" name='login' placeholder="Login">
+                    <input type="password" name="password"  placeholder="password">
+                    <input type="submit" value="Connexion">
+                </div>
+                <!-- Sub-header-->
+                <div class="row" id='sub-header'>
+                    <ul>
+                        {% for domaine in liste_domaines %}
+                        <li class='{{ domaine.Libelle }}'><a href="#">{{ domaine.Libelle }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </header>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+            <footer>
+                <!-- Footer left -->
+                <div class="footer-left">
+                    <span>Mentions légales <br/>
+                          Copyright@ 2015 <br/>
+                          MegaCasting
+                    </span>
+                </div>
+                <!-- Footer-right -->
+                <div class="footer-right">
+                    <span>Suivez nous sur les réseaux sociaux</span>
+                    <div class="rs_logo">
+                        <a href="#"><img src="{{asset('bundles/mcmegacasting/img/socialNetwork/rs_f.png')}}" alt="facebook" /></a>
+                        <a href="#"><img src="{{asset('bundles/mcmegacasting/img/socialNetwork/rs_t.png')}}" alt="twitter" /></a>
+                        <a href="#"><img src="{{asset('bundles/mcmegacasting/img/socialNetwork/rs_g.png')}}" alt="google+" /></a>
+                    </div>
+                </div>
+            </footer> 
+        {% block javascripts %}
+            <!-- jQuery library (served from Google) -->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        {% endblock %}
+        
+        </div>
     </body>
 </html>

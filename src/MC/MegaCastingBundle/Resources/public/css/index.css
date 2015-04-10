@@ -1,0 +1,328 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26 mars 2015, 09:42:24
+    Author     : kevin
+*/
+
+*{
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          
+  box-sizing: border-box;
+          
+  /* background-color: #731443; */
+}
+
+@font-face {
+    font-family: "Allura_Regular";
+    src: url('../font-face/Allura-Regular.otf');
+}
+@font-face{
+    font-family: "Bentham";
+    src: url('../font-face/Bentham/Bentham.otf');
+}
+.clear{
+   clear: both;
+}
+
+body{
+    margin: 0; padding: 0;
+    background-image: url('../img/bkg-body.png');
+}
+
+header{
+    background-color: #731443;
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+    /* border-left: 2px solid; */
+    /* border-right: 2px solid black; */
+}
+
+
+
+.row{
+    width: 100%;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#top-header{
+    float: left;
+    position: relative;
+}
+
+#logo{
+    background-image: url("../img/Logo_V01.png");
+    background-size: cover;
+    width: 75px;
+    height: 75px;
+    float: left;
+}
+.row nav ul{
+    margin: 0; padding: 0;
+    height: 75px;
+    color: white;
+    font-family: Allura_Regular;
+    font-size: 2.5em;
+}
+
+.row nav li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 75px;
+    line-height: 75px;
+    font-size: 25px;
+}
+
+.row nav li a{
+    text-decoration: none;
+    color: white;
+}
+
+/*
+*     Ligne Connection 
+*/
+
+#Connexion{
+    text-align: right;
+}
+
+#Connexion input:focus{
+    outline: 0;
+}
+
+#sub-header{
+  margin: 0;   padding: 0;
+}
+
+#sub-header ul{
+  width: 100%;
+  margin: 0;   padding: 0;
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+  background-color: #282828;
+  font-family: Bentham;
+}
+
+#sub-header ul li{
+    display: inline-block;
+    width: 13.5%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+}
+
+#sub-header li.music{
+    background-image: url('../img/domain/music.jpg');
+}
+#sub-header li.cinema{
+    background-image: url('../img/domain/cinema.jpg');
+}
+#sub-header li.child{
+    background-image: url('../img/domain/child.jpg');
+}
+#sub-header li.spectacle{
+    background-image: url('../img/domain/dance.jpg');
+}
+#sub-header li.divers{
+    background-image: url('../img/domain/others.jpg');
+}
+
+#sub-header ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-decoration: none;
+    box-sizing: border-box;
+    line-height: 10.2em;
+}
+
+#sub-header ul li a:hover {
+    text-decoration: underline;
+}
+
+
+
+/*
+    Main Conteneur
+*/
+
+.mainConteneur{
+    width: 100%;
+    background-color: white;
+}
+
+
+/* Responsive Slider */
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+  
+  
+  /* Sub Main */
+  #sub-main{
+      width: 100%;
+      float: left;  
+      background-color: white;
+}
+  
+  h3{
+      text-align: center;
+      padding: 5px;
+      border-bottom: 2px solid black;
+      margin: 0;
+      background-color: #731443;
+      color: white;
+}
+/* Section Artistes*/
+#sub-main #artistes{
+    float: left;
+    width: 50%;
+    border-left: 2px solid black;
+    /* display: block; */
+    /* width: 100%; */
+}
+
+.artiste{
+    float: left;
+    /* border-right: 1px solid black; */
+    /* border-bottom: 1px solid black; */
+    /* width: 50%; */
+    /* height: 128px; */
+}
+
+.artiste .artiste_picture img{
+     display: block;
+     margin: 0 auto;
+}
+
+.artiste .artiste_picture img:hover{
+    border: 1px solid #731443;
+}
+
+.artiste .artiste_info{
+    padding: 10px 10px 3px 10px;
+}
+.artiste_name,.artiste_age, .artiste_domaine{
+    display: block;
+}
+
+/* Section Castings */
+#sub-main #castings{
+    float: left;
+    /* display: block; */
+    width: 50%;
+    border-right: 2px solid black;
+    border-left: 1px solid black;
+}
+
+.casting{
+  display: block;
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+}
+
+.casting:hover{
+    background-color: lightgray;
+}
+
+.casting .title{
+    display: block;
+    padding-bottom: 5px;
+}
+
+.casting .info .domaine{
+    text-transform: uppercase;
+}
+
+.casting .info .date{
+    float: right;
+}
+
+
+/*Section partenaire*/
+
+#partenaires{
+    background-color: white;
+}
+
+h4{
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding: 5px;
+    background-color: #731443;
+    color: whitesmoke;
+    margin: 0;
+}
+
+#list{
+    text-align: center;
+    padding: 20px;
+}
+
+
+/*
+* Footer
+*/
+
+footer{
+    width: 100%;
+    float: left;
+    padding: 20px;
+    background-color: #282828;
+    color: white;
+}
+
+footer .footer-left{
+    float: left;
+}
+
+footer .footer-right{
+    float: right;
+}
+
+.rs_logo{
+    padding-top: 10px;
+    text-align: center;
+}

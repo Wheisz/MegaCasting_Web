@@ -8,14 +8,14 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $entreprises = $this->getDoctrine() 
-                           ->getManager() 
-                           ->getRepository('MCMegaCastingBundle:Typecontrat'); 
+        $manager = $this->getDoctrine()->getManager();
         
-        $listeEntreprises = $entreprises->findOneBy(array('id' => 1));
-        
-        $name = $listeEntreprises->getLibelle();
-        
-        return $this->render('MCMegaCastingBundle:Default:index.html.twig', array('name' => $name));
+        $liste_domaines = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
+                            ->findAll();
+ 
+        return $this->render('::base.html.twig', 
+                array(  'liste_domaines' => $liste_domaines,
+                        ));
     }
 }
