@@ -15,14 +15,14 @@ mc_mega_casting_Offre_view:
 mc_mega_casting_Offre_Add:
     path:     /Offre/Add
     defaults: { _controller: MCMegaCastingBundle:Offre:add }
+    
+mc_mega_casting_Offre_Domaine_Metier:
+    path:     /Offre/{libelle_domaine}/{libelle_metier}
+    defaults: { _controller: MCMegaCastingBundle:Offre:domaine_metier }
 
 mc_mega_casting_Offre_Domaine:
     path:     /Offre/{libelle_domaine}
     defaults: { _controller: MCMegaCastingBundle:Offre:domaine }
-
-mc_mega_casting_Offre_Domaine_Metier:
-    path:     /Offre/{libelle_domaine}/{libelle_metier}
-    defaults: { _controller: MCMegaCastingBundle:Offre:domaine_metier }
     
 mc_mega_casting_Annonceur:
     path:     /EspacePro

@@ -1,13 +1,6 @@
 {# empty Twig template #}
-{{ include("MCMegaCastingBundle:Domaine:liste.html.twig", liste_domaines) }}
-{{ include("MCMegaCastingBundle:Metier:liste.html.twig", liste_metiers) }}
-<u1>
-    Liste des offres
-</u1>
-<ul>
-  {% for offre in liste_offres %}
-    <li>{{ offre.intitule }}</li>
-  {% else %}
-    <li>Pas d'offres trouvée.</li>
-  {% endfor %}
-</ul>
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ include("MCMegaCastingBundle:Offre:liste.html.twig", liste_offres) }}
+{% endblock %}

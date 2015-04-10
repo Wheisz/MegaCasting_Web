@@ -51,6 +51,12 @@ class OffreController extends Controller
                             ->getRepository('MCMegaCastingBundle:Domaine')
                             ->findOneBy(array('libelle' => $libelle_domaine));
         
+        if ($domaine == null) 
+        {
+            $response = new RedirectResponse($this->container->get('router')->generate('fos_user_registration_confirmed'));
+            return $response;
+        }
+        
         $liste_domaines = $manager
                             ->getRepository('MCMegaCastingBundle:Domaine')
                             ->findAll();

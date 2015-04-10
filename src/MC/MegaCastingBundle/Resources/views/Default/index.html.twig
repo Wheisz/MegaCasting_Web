@@ -77,15 +77,7 @@
             </section>
             <section id="castings">
                 <h3>Derniers Castings</h3>
-                {% for offre in liste_offres %}
-                    <a href="#" class="casting">
-                        <span class="title">{{ offre.Intitule }}</span>
-                        <span class="info">
-                            <span class="domaine">{{ offre.iddomaine.Libelle }}</span>
-                            <span class="date">{{ offre.DatePublication|date('d/m/Y') }}</span>
-                        </span>
-                    </a>
-                {% endfor %}
+                {{ include("MCMegaCastingBundle:Offre:liste.html.twig", liste_offres) }}
             </section>
         </div>
         <section class="clear" id="partenaires">
