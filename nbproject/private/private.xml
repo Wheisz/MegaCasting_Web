@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Utilisateur.php</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/ArtisteController.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/AnnonceurController.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/OffreController.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/app/AppKernel.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/app/config/parameters.yml</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/app/config/config.yml</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/app/config/security.yml</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Form/Type/RegistrationFormType.php</file>
         </group>
     </open-files>
 </project-private>

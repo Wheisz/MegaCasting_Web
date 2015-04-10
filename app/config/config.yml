@@ -5,7 +5,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -66,8 +66,26 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
+    transport: gmail
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: MC\MegaCastingBundle\Entity\Utilisateur
+    registration:
+        confirmation:
+            enabled: true
+        form:
+            type: eni_inscription
+    
+
+# services
+services:
+    eni_utilisateur.form.inscription_type:
+        class: MC\MegaCastingBundle\Form\InscriptionType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: eni_inscription }

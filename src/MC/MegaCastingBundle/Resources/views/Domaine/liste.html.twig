@@ -2,11 +2,14 @@
 <u1>
     Liste des domaines
 </u1>
-<select>
-    <option></option>
+<ul>
   {% for domaine in liste_domaines %}
-    <option value="{{ domaine.Libelle }}">{{ domaine.Libelle }}</option>
+      <li>
+          <a href="{{ path('mc_mega_casting_Offre_Domaine', {'libelle_domaine': domaine.Libelle}) }}">
+              {{ domaine.Libelle }}
+              </a>
+      </li>
   {% else %}
     <li>Pas de domaines trouvé.</li>
   {% endfor %}
-</select>
+</ul>

@@ -8,28 +8,101 @@ class OffreController extends Controller
 {
     public function indexAction()
     {
-//        $manager = $this->getDoctrine()->getManager();
-//        
-//        $liste_offres = $manager
-//                            ->getRepository('MCMegaCastingBundle:Offre')
-//                            ->findBy(array(),
-//                                    array('datepublication' => 'desc'), 5);
-//        
-//        $liste_domaines = $manager
-//                            ->getRepository('MCMegaCastingBundle:Domaine')
-//                            ->findAll();
-//        
-//        $liste_metiers = $manager 
-//                            ->getRepository('MCMegaCastingBundle:Metier')
-//                            ->findAll();
-//        
-//        
-//        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', 
-//                array(  'liste_offres' => $liste_offres,
-//                        'liste_domaines' => $liste_domaines,
-//                        'liste_metiers' => $liste_metiers));
+        $manager = $this->getDoctrine()->getManager();
         
-        // On crée un objet Advert
+        $liste_offres = $manager
+                            ->getRepository('MCMegaCastingBundle:Offre')
+                            ->findBy(array(),
+                                    array('datepublication' => 'desc'), 5);
+        
+        $liste_domaines = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
+                            ->findAll();
+        
+        $liste_metiers = $manager 
+                            ->getRepository('MCMegaCastingBundle:Metier')
+                            ->findAll();
+        
+        
+        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', 
+                array(  'liste_offres' => $liste_offres,
+                        'liste_domaines' => $liste_domaines,
+                        'liste_metiers' => $liste_metiers));       
+        
+    }
+    
+    public function viewAction($id_offre)
+    {
+        $repository = $this->getDoctrine() 
+                           ->getManager() 
+                           ->getRepository('MCMegaCastingBundle:Offre'); 
+        
+        $offre = $repository->findOneBy(array('id' => $id_offre));
+        
+        return $this->render('MCMegaCastingBundle:Offre:view.html.twig', array('offre' => $offre));
+    }
+    
+    public function domaineAction($libelle_domaine)
+    {
+        $manager = $this->getDoctrine() 
+                            ->getManager();
+        
+        $domaine = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
+                            ->findOneBy(array('libelle' => $libelle_domaine));
+        
+        $liste_domaines = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
+                            ->findAll();
+        
+        $liste_metiers = $manager 
+                            ->getRepository('MCMegaCastingBundle:Metier')
+                            ->findAll();
+        
+        $offres = $this->getDoctrine() 
+                            ->getManager() 
+                            ->getRepository('MCMegaCastingBundle:Offre')
+                            ->findBy(array('iddomaine' => $domaine->getId())); 
+        
+        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', array('liste_offres' => $offres,
+            'liste_domaines' => $liste_domaines,
+            'liste_metiers' => $liste_metiers));
+    }
+    
+    public function domaine_metierAction($libelle_domaine, $libelle_metier)
+    {
+        $manager = $this->getDoctrine() 
+                            ->getManager();
+        
+        $domaine = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
+                            ->findOneBy(array('libelle' => $libelle_domaine));
+        
+        $metier = $manager 
+                            ->getRepository('MCMegaCastingBundle:Metier')
+                            ->findOneBy(array('libelle' => $libelle_metier));
+        
+        $offres = $manager 
+                            ->getRepository('MCMegaCastingBundle:Offre')
+                            ->findBy(array('iddomaine' => $domaine->getId(),
+                                            'idmetier' => $metier->getId())); 
+        
+        $liste_domaines = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
+                            ->findAll();
+        
+        $liste_metiers = $manager 
+                            ->getRepository('MCMegaCastingBundle:Metier')
+                            ->findAll();
+        
+        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', array('liste_offres' => $offres,
+            'liste_domaines' => $liste_domaines,
+            'liste_metiers' => $liste_metiers));
+    }
+    
+    public function addAction()
+    {
+        // On crée un objet Offre
         $offre = new \MC\MegaCastingBundle\Entity\Offre();
 
         // On crée le FormBuilder grâce au service form factory
@@ -53,78 +126,8 @@ class OffreController extends Controller
 
         // On passe la méthode createView() du formulaire à la vue
         // afin qu'elle puisse afficher le formulaire toute seule
-        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', array(
+        return $this->render('MCMegaCastingBundle:Offre:add.html.twig', array(
           'form' => $form->createView(),
         ));
-    }
-    
-    public function viewAction($id_offre)
-    {
-        $repository = $this->getDoctrine() 
-                           ->getManager() 
-                           ->getRepository('MCMegaCastingBundle:Offre'); 
-        
-        $offre = $repository->findOneBy(array('id' => $id_offre));
-        
-        return $this->render('MCMegaCastingBundle:Offre:view.html.twig', array('offre' => $offre));
-    }
-    
-    public function domaineAction($libelle_domaine)
-    {
-        $domaine = $this->getDoctrine() 
-                            ->getManager() 
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findOneBy(array('libelle' => $libelle_domaine));
-        
-        $offres = $this->getDoctrine() 
-                            ->getManager() 
-                            ->getRepository('MCMegaCastingBundle:Offre')
-                            ->findBy(array('iddomaine' => $domaine->getId())); 
-        
-        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', array('liste_offres' => $offres));
-    }
-    
-    public function domaine_metierAction($libelle_domaine, $libelle_metier)
-    {
-        $domaine = $this->getDoctrine() 
-                            ->getManager() 
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findOneBy(array('libelle' => $libelle_domaine));
-        
-        $metier = $this->getDoctrine() 
-                            ->getManager() 
-                            ->getRepository('MCMegaCastingBundle:Metier')
-                            ->findOneBy(array('libelle' => $libelle_metier));
-        
-        $offres = $this->getDoctrine() 
-                            ->getManager() 
-                            ->getRepository('MCMegaCastingBundle:Offre')
-                            ->findBy(array('iddomaine' => $domaine->getId(),
-                                            'idmetier' => $metier->getId())); 
-        
-        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', array('liste_offres' => $offres));
-    }
-    
-    public function addAction()
-    {
-        $manager = $this->getDoctrine()->getManager();
-        
-        $liste_offres = $manager
-                            ->getRepository('MCMegaCastingBundle:Offre')
-                            ->findAll();
-        
-        $liste_domaines = $manager
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findAll();
-        
-        $liste_metiers = $manager 
-                            ->getRepository('MCMegaCastingBundle:Metier')
-                            ->findAll();
-        
-        
-        return $this->render('MCMegaCastingBundle:Offre:add.html.twig', 
-                array(  'liste_offres' => $liste_offres,
-                        'liste_domaines' => $liste_domaines,
-                        'liste_metiers' => $liste_metiers));
     }
 }
