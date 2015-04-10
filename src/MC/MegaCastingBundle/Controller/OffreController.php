@@ -96,9 +96,12 @@ class OffreController extends Controller
         }
         else
         {
-            $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_Offre_Domaine', 
+            if ($metier == null) 
+            {
+                $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_Offre_Domaine', 
                     array('libelle_domaine' => $libelle_domaine)));
-            return $response;
+                return $response;
+            }            
         }
         
         $offres = $manager 
