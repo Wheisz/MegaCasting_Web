@@ -212,3 +212,12 @@ CREATE INDEX IFK_Artiste_Metier_IdArtiste ON Artiste_Metier (IdArtiste)
 GO
 CREATE INDEX IFK_Artiste_Metier_IdMetier ON Artiste_Metier (IdMetier)
 GO
+
+
+ALTER TABLE Annonceur
+ADD IdUtilisateur BIGINT NULL,
+CONSTRAINT FK_Annonceur_Utilisateur FOREIGN KEY (IdUtilisateur) REFERENCES Utilisateur (id)
+GO
+
+CREATE INDEX IFK_Annonceur_Utilisateur ON Annonceur (IdUtilisateur)
+GO

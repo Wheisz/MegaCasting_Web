@@ -25,4 +25,27 @@ class Diffuseur
     private $id;
 
 
+
+    /**
+     * Set id
+     *
+     * @param \MC\MegaCastingBundle\Entity\Societe $id
+     * @return Diffuseur
+     */
+    public function setId(\MC\MegaCastingBundle\Entity\Societe $id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return \MC\MegaCastingBundle\Entity\Societe 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
