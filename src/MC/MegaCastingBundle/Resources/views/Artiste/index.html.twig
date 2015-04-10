@@ -2,5 +2,5 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    Liste d'artistes
+    {{ include("MCMegaCastingBundle:Artiste:liste.html.twig", liste_artistes) }}
 {% endblock %}

@@ -1,0 +1,16 @@
+{# views/Artiste/liste #}
+
+{% for artiste in liste_artistes %}
+    <div class="artiste">
+        <a href="#" class="artiste_picture">
+            <img src="img/anonyme.jpg" height="auto" width="100px" alt="Artiste" />
+        </a>
+        <div class="artiste_info">
+            <span class="artiste_name">{{ artiste.idutilisateur.username }}</span>
+            <span class="artiste_domaine">Mannequin, Chanteur</span>
+            <span class="artiste_age">33 ans </span>
+        </div>
+    </div>
+{% else %}
+    Pas d'artistes
+{% endfor %}
