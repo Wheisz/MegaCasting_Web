@@ -3,6 +3,7 @@
 namespace MC\MegaCastingBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class OffreController extends Controller
 {
@@ -53,7 +54,7 @@ class OffreController extends Controller
         
         if ($domaine == null) 
         {
-            $response = new RedirectResponse($this->container->get('router')->generate('fos_user_registration_confirmed'));
+            $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_Offre_All'));
             return $response;
         }
         
@@ -82,11 +83,23 @@ class OffreController extends Controller
         
         $domaine = $manager
                             ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findOneBy(array('libelle' => $libelle_domaine));
+                            ->findOneBy(array('libelle' => $libelle_domaine));       
         
         $metier = $manager 
                             ->getRepository('MCMegaCastingBundle:Metier')
                             ->findOneBy(array('libelle' => $libelle_metier));
+        
+        if ($domaine == null) 
+        {
+            $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_Offre_All'));
+            return $response;
+        }
+        else
+        {
+            $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_Offre_Domaine', 
+                    array('libelle_domaine' => $libelle_domaine)));
+            return $response;
+        }
         
         $offres = $manager 
                             ->getRepository('MCMegaCastingBundle:Offre')
