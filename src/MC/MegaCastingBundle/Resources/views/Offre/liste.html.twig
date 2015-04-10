@@ -1,0 +1,13 @@
+{# views/Offre/liste #}
+
+{% for offre in liste_offres %}
+    <a href="#" class="casting">
+        <span class="title">{{ offre.Intitule }}</span>
+        <span class="info">
+            <span class="domaine">{{ offre.iddomaine.Libelle }}</span>
+            <span class="date">{{ offre.DatePublication|date('d/m/Y') }}</span>
+        </span>
+    </a>
+    {% else %}
+    <p>Pas d'offres trouvé.</p>
+{% endfor %}
