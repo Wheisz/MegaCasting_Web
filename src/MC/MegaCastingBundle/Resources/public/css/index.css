@@ -86,17 +86,9 @@ header{
     color: white;
 }
 
-/*
-*     Ligne Connection 
+/**
+* SUB-HEADER
 */
-
-#Connexion{
-    text-align: right;
-}
-
-#Connexion input:focus{
-    outline: 0;
-}
 
 #sub-header{
   margin: 0;   padding: 0;
