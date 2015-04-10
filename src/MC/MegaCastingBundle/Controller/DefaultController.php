@@ -14,7 +14,7 @@ class DefaultController extends Controller
                             ->getRepository('MCMegaCastingBundle:Domaine')
                             ->findAll();
  
-        return $this->render('::base.html.twig', 
+        return $this->render('MCMegaCastingBundle:Default:index.html.twig', 
                 array(  'liste_domaines' => $liste_domaines,
                         ));
     }
