@@ -1,7 +1,7 @@
 {# views/Offre/liste #}
 
 {% for offre in liste_offres %}
-    <a href="#" class="casting">
+    <a href="Offre/{{ offre.Id }}" class="casting">
         <span class="title">{{ offre.Intitule }}</span>
         <span class="info">
             <span class="domaine">{{ offre.iddomaine.Libelle }}</span>

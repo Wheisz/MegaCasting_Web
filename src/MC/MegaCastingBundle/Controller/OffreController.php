@@ -38,9 +38,14 @@ class OffreController extends Controller
                            ->getManager() 
                            ->getRepository('MCMegaCastingBundle:Offre'); 
         
+        $liste_domaines = $repository
+                            ->findAll();
+        
         $offre = $repository->findOneBy(array('id' => $id_offre));
         
-        return $this->render('MCMegaCastingBundle:Offre:view.html.twig', array('offre' => $offre));
+        return $this->render('MCMegaCastingBundle:Offre:view.html.twig', 
+                array('offre' => $offre,
+                    'liste_domaines' => $liste_domaines));
     }
     
     public function domaineAction($libelle_domaine)
