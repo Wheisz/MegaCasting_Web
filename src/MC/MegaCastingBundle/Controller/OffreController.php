@@ -34,14 +34,17 @@ class OffreController extends Controller
     
     public function viewAction($id_offre)
     {
-        $repository = $this->getDoctrine() 
-                           ->getManager() 
-                           ->getRepository('MCMegaCastingBundle:Offre'); 
+        $manager = $this->getDoctrine() 
+                           ->getManager();
+                            
         
-        $liste_domaines = $repository
+        $liste_domaines = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
                             ->findAll();
         
-        $offre = $repository->findOneBy(array('id' => $id_offre));
+        $offre = $manager
+                ->getRepository('MCMegaCastingBundle:Offre')
+                ->findOneBy(array('id' => $id_offre));
         
         return $this->render('MCMegaCastingBundle:Offre:view.html.twig', 
                 array('offre' => $offre,
