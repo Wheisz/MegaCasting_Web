@@ -18,6 +18,9 @@ class ArtisteController extends Controller
                             ->getRepository('MCMegaCastingBundle:Artiste')
                             ->findAll();
         
+
+       
+        
         return $this->render('MCMegaCastingBundle:Artiste:index.html.twig',
                 array('liste_domaines' => $liste_domaines,
                         'liste_artistes' => $liste_artistes));

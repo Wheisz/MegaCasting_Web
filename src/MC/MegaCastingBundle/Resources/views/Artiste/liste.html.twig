@@ -16,7 +16,19 @@
         </a>
         <div class="artiste_info">
             <span class="artiste_name">{{ artiste.idutilisateur.username }}</span>
-            <span class="artiste_domaine">Chanteur</span>
+            {% set domaines = [] %}
+            {% for metier in artiste.idmetier %}
+                {% if metier.iddomaine.libelle in domaines %}
+                {% else %}                        
+                    {% set domaines = [metier.iddomaine.libelle]|merge(domaines) %}
+                {% endif %}
+            {% endfor %}
+            <span class="artiste_domaine">
+            {% for dom in domaines %}
+                {{ dom }}
+            {% endfor %}
+            </span>
+            
             <span class="artiste_age">33 ans </span>
         </div>
     </div>
