@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Photo" table="Photo">
+    <indexes>
+      <index name="IFK_Photo_Artiste" columns="IdArtiste"/>
+    </indexes>
+    <id name="id" type="bigint" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="libelle" type="string" column="Libelle" length="255" nullable="false"/>
+    <field name="isprofile" type="integer" column="IsProfile" nullable="true"/>
+    <many-to-one field="idartiste" target-entity="Artiste">
+      <join-columns>
+        <join-column name="IdArtiste" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

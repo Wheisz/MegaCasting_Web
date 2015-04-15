@@ -72,6 +72,11 @@ class Artiste
      * )
      */
     private $idmetier;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Photo", mappedBy="idartiste")
+     */
+    private $photos;
 
     /**
      * Constructor
@@ -79,6 +84,8 @@ class Artiste
     public function __construct()
     {
         $this->idmetier = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
+        echo 'ted';
     }
 
 
@@ -215,5 +222,15 @@ class Artiste
     public function getIdmetier()
     {
         return $this->idmetier;
+    }
+    
+    /**
+     * Get photos
+     * 
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
     }
 }

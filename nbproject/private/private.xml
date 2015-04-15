@@ -5,11 +5,9 @@
         <group>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/config/routing.yml</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/ArtisteController.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Offre/view.html.twig</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/EspaceProController.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/DefaultController.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/app/Resources/views/base.html.twig</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/OffreController.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Artiste.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Photo.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Artiste/liste.html.twig</file>
         </group>
     </open-files>
 </project-private>

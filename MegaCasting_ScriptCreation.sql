@@ -221,3 +221,17 @@ GO
 
 CREATE INDEX IFK_Annonceur_Utilisateur ON Annonceur (IdUtilisateur)
 GO
+
+CREATE TABLE Photo
+(
+	Id BIGINT NOT NULL IDENTITY,
+	Libelle NVARCHAR(255) NOT NULL,
+	IsProfile INT,
+	IdArtiste BIGINT,
+	CONSTRAINT PK_Photo PRIMARY KEY (Id),
+	CONSTRAINT FK_Photo_Artiste FOREIGN KEY (IdArtiste) REFERENCES Artiste (Id)
+)
+GO
+
+CREATE INDEX IFK_Photo_Artiste ON Photo (IdArtiste)
+GO

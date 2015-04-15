@@ -3,11 +3,20 @@
 {% for artiste in liste_artistes %}
     <div class="artiste">
         <a href="#" class="artiste_picture">
-            <img src="img/anonyme.jpg" height="auto" width="100px" alt="Artiste" />
+            {% set photoProfileFound = '0' %}
+            {% for photo in artiste.Photos %}
+                {% if photo.IsProfile == 1 %}
+                    <img src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.idutilisateur.username ~ '/' ~ photo.libelle)}}" height="auto" width="100px" alt="Artiste" />
+                    {% set photoProfileFound = '1' %}
+                {% endif %}
+            {% endfor %}
+            {% if photoProfileFound == "0" %}
+                <img src="{{ asset('bundles/mcmegacasting/img/artiste/anonyme.jpg')}}" height="auto" width="100px" alt="Artiste" />
+            {% endif %}   
         </a>
         <div class="artiste_info">
             <span class="artiste_name">{{ artiste.idutilisateur.username }}</span>
-            <span class="artiste_domaine">Mannequin, Chanteur</span>
+            <span class="artiste_domaine">Chanteur</span>
             <span class="artiste_age">33 ans </span>
         </div>
     </div>

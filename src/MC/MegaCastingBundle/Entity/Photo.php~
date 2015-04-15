@@ -1,0 +1,49 @@
+<?php
+
+namespace MC\MegaCastingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Photo
+ *
+ * @ORM\Table(name="Photo", indexes={@ORM\Index(name="IFK_Photo_Artiste", columns={"IdArtiste"})})
+ * @ORM\Entity
+ */
+class Photo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Libelle", type="string", length=255, nullable=false)
+     */
+    private $libelle;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="IsProfile", type="integer", nullable=true)
+     */
+    private $isprofile;
+
+    /**
+     * @var \Artiste
+     *
+     * @ORM\ManyToOne(targetEntity="Artiste")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdArtiste", referencedColumnName="Id")
+     * })
+     */
+    private $idartiste;
+
+
+}

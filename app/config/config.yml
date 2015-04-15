@@ -83,7 +83,7 @@ fos_user:
     
 
 # services
-services:
+services:   
     eni_utilisateur.form.inscription_type:
         class: MC\MegaCastingBundle\Form\InscriptionType
         arguments: [%fos_user.model.user.class%]

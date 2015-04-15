@@ -1,0 +1,8 @@
+php app/console doctrine:mapping:convert xml ./src/MC/MegaCastingBundle/Resources/config/doctrine/metadata/orm --from-database --force --filter="Photo"
+php app/console doctrine:mapping:import MCMegaCastingBundle annotation --filter="Photo"
+php app/console doctrine:generate:entities MCMegaCastingBundle
+
+
+php app/console assets:install
+
+php app/console assets:install --symlink
