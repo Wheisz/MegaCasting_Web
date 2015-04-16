@@ -3,5 +3,79 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    {{ offre.intitule }}
+    <div class="mainConteneur">
+    <div id="offre_titre">
+        CASTING
+    </div>
+    <div id="offre">
+        <div class="case case_one">
+            <label>Intitulé :</label>
+            <span>{{ offre.intitule }}</span>
+        </div>
+        <div class="case case_two">
+            <label>Réference :</label>
+            <span>{{ offre.reference }}</span>
+        </div>
+        <div class="case case_two">
+            <label>Nombre de postes :</label>
+            <span>{{ offre.nbposte }}</span>
+        </div>
+        <div class="case case_one">
+            <label>Durée de la Diffusion :</label>
+            {% if (offre.dureediffusion > 1) %}
+            <span> {{ offre.dureediffusion }} jours</span>
+            {% else %}
+            <span> {{ offre.dureediffusion }} jour</span>
+            {% endif %}
+        </div>
+        <div class="case case_one">
+            <label>Date de la publication :</label>
+            <span>{{ offre.datepublication|date('d/m/Y') }}</span>
+        </div>
+        <div class="case case_two">
+            <label>Date de début de contrat :</label>
+            <span>{{ offre.datedebutcontrat|date('d/m/Y') }}</span>
+        </div>
+        <div class="case case_two">
+            <label>Lattitude :</label>
+            <span>{{ offre.localisationlattitude }}</span>
+        </div>
+        <div class="case case_one">
+            <label>Longitude :</label>
+            <span>{{ offre.localisationlongitude }}</span>
+        </div>
+        <div class="case case_one">
+            <label>Description du poste :</label>
+            <span>{{ offre.descriptionposte }}</span>
+        </div>
+        <div class="case case_two">
+            <label>Description du profil :</label>
+            <span>{{ offre.descriptionprofil }}</span>
+        </div>
+        <div class="case case_two">
+            <label>Téléphone :</label>
+            <span>{{ offre.telephone }}</span>
+        </div> 
+        <div class="case case_one">
+            <label>Email :</label>
+            <span>{{ offre.email }}</span>
+        </div> 
+        <div class="case case_one">
+            <label>Domaine de l'offre :</label>
+            <span>{{ offre.iddomaine.Libelle }}</span>
+        </div> 
+        <div class="case case_two">
+            <label>Metier de l'offre :</label>
+            <span>{{ offre.idmetier.Libelle }}</span>
+        </div> 
+        <div class="case case_two">
+            <label>Type de Contrat :</label>
+            <span>{{ offre.idtypecontrat.Libelle }}</span>
+        </div>
+        <div class="case case_one">
+            <label>Annonceur :</label>
+            <span>{{ dump(offre.idannonceur) }}</span>
+        </div> 
+    </div>
+    </div>
 {% endblock %}

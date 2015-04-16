@@ -110,7 +110,7 @@ header{
 
 #sub-header ul li{
     display: inline-block;
-    width: 13.5%;
+    width: 11.5%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -156,6 +156,7 @@ header{
 .mainConteneur{
     width: 100%;
     background-color: white;
+    float: left;
 }
 
 
@@ -214,16 +215,10 @@ header{
     float: left;
     width: 50%;
     border-left: 2px solid black;
-    /* display: block; */
-    /* width: 100%; */
 }
 
 .artiste{
     float: left;
-    /* border-right: 1px solid black; */
-    /* border-bottom: 1px solid black; */
-    /* width: 50%; */
-    /* height: 128px; */
 }
 
 .artiste .artiste_picture img{
@@ -321,4 +316,50 @@ footer .footer-right{
 .rs_logo{
     padding-top: 10px;
     text-align: center;
+}
+
+
+/*
+* Partie Offre View 
+*/
+
+#offre{
+    float: left;
+}
+
+#offre_titre {
+  height: 75px;
+  font-size: 3em;
+  text-align: center;
+  background-color: #282828;
+  color: white;
+  line-height: 75px;
+}
+
+#offre .case{
+    display: inline-block;
+    width: 50%;
+    float: left;
+    padding: 10px;
+}
+
+#offre .case label{
+    display: block;
+    width: 100%;
+    font-family: Bentham;
+}
+
+#offre .case span{
+    display: block;
+    text-align: right;
+    font-family: monospace;
+}
+
+#offre .case_one{
+    background-color: whitesmoke;
+}
+
+#offre .case_two{
+    background-color: #731443;
+    color: white;
 }
