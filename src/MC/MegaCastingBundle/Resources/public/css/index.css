@@ -64,6 +64,11 @@ header{
     float: left;
     margin: 0 auto;
 }
+.row nav{
+    float: left;
+    width: 40%;
+}
+
 .row nav ul{
     margin: 0; padding: 0;
     color: white;
@@ -115,7 +120,7 @@ header{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100px;
+    height: 120px;
 }
 
 #sub-header li.music{
@@ -141,7 +146,7 @@ header{
     color: #fff;
     text-decoration: none;
     box-sizing: border-box;
-    line-height: 10.2em;
+    line-height: 12.2em;
 }
 
 #sub-header ul li a:hover {
