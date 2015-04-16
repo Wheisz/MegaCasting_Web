@@ -22,12 +22,17 @@
                 {% else %}                        
                     {% set domaines = [metier.iddomaine.libelle]|merge(domaines) %}
                 {% endif %}
-            {% endfor %}
-            <span class="artiste_domaine">
+            {% endfor %}            
             {% for dom in domaines %}
-                {{ dom }}
-            {% endfor %}
-            </span>
+                <span class="artiste_domaine">
+                {{ dom }} (
+                {% for metier in artiste.idmetier %}
+                    {% if metier.iddomaine.libelle == dom %}
+                        {{ metier.libelle }}
+                    {% endif %}
+                {% endfor %}
+                )</span>
+            {% endfor %}            
             
             <span class="artiste_age">33 ans </span>
         </div>
