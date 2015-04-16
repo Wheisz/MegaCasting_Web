@@ -14,7 +14,6 @@ and open the template in the editor.
           
   box-sizing: border-box;
           
-  /* background-color: #731443; */
 }
 
 @font-face {
@@ -36,16 +35,14 @@ body{
 
 header{
     background-color: #731443;
+    float: left;
+    width: 100%;
 }
 
 .container{
     width: 90%;
     margin: 0 auto;
-    /* border-left: 2px solid; */
-    /* border-right: 2px solid black; */
 }
-
-
 
 .row{
     width: 100%;
@@ -56,6 +53,7 @@ header{
 #top-header{
     float: left;
     position: relative;
+    text-align: center;
 }
 
 #logo{
@@ -64,10 +62,10 @@ header{
     width: 75px;
     height: 75px;
     float: left;
+    margin: 0 auto;
 }
 .row nav ul{
     margin: 0; padding: 0;
-    height: 75px;
     color: white;
     font-family: Allura_Regular;
     font-size: 2.5em;
@@ -78,7 +76,9 @@ header{
     display: inline-block;
     margin-left: 75px;
     line-height: 75px;
-    font-size: 25px;
+    font-size: 0.8em;
+    margin-left: 6%; 
+   
 }
 
 .row nav li a{
@@ -96,6 +96,7 @@ header{
 
 #sub-header{
   margin: 0;   padding: 0;
+  float: left;
 }
 
 #sub-header ul{

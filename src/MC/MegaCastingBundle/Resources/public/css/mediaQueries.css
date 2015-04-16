@@ -1,0 +1,39 @@
+@media screen and (min-width: 480px) and (max-width : 800px){
+    .row nav li{
+        font-size: 0.6em;
+    }
+}
+/*
+* Modification de la mise en page pour les Formats Mobiles
+*/
+@media screen and (min-width : 240px) and (max-width : 480px){
+    
+    #sub-main #artistes, #sub-main #castings{
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    #sub-main #artistes .artiste, #sub-main #castings .casting{
+        float: none;
+        display: block;
+        width : 100%;
+        text-align: center;
+    }
+    
+    header #sub-header{
+        display: none;
+    }
+    
+    #top-header #logo {
+      float: none;
+      margin: 0 auto;
+    }
+    
+    .row nav li{
+        display: block;
+        border: 1px solid white;
+        margin: 5px;
+    }
+}
