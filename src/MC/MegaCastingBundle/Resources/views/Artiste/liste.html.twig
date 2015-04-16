@@ -3,42 +3,11 @@
 {% for artiste in liste_artistes %}
     <div class="artiste">
         <a href="#" class="artiste_picture">
-            {% set photoProfileFound = '0' %}
-            {% for photo in artiste.Photos %}
-                {% if photo.IsProfile == 1 %}
-                    <img src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.idutilisateur.username ~ '/' ~ photo.libelle)}}" height="auto" width="100px" alt="Artiste" />
-                    {% set photoProfileFound = '1' %}
-                {% endif %}
-            {% endfor %}
-            {% if photoProfileFound == "0" %}
-                <img src="{{ asset('bundles/mcmegacasting/img/artiste/anonyme.jpg')}}" height="auto" width="100px" alt="Artiste" />
-            {% endif %}   
+            {% include 'MCMegaCastingBundle:Artiste:photoProfile.html.twig' %}  
         </a>
         <div class="artiste_info">
-            <span class="artiste_name">{{ artiste.idutilisateur.username }}</span>
-            {% set domaines = [] %}
-            {% for metier in artiste.idmetier %}
-                {% if metier.iddomaine.libelle in domaines %}
-                {% else %}                        
-                    {% set domaines = [metier.iddomaine.libelle]|merge(domaines) %}
-                {% endif %}
-            {% endfor %}            
-            {% for dom in domaines %}
-                <span class="artiste_domaine">
-                {{ dom }} (
-                {% set i = 0 %}
-                {% for metier in artiste.idmetier %}
-                    {% if metier.iddomaine.libelle == dom %}
-                        {% if i > 0 %}
-                            / 
-                        {% endif %}
-                        {{ metier.libelle }}
-                        {% set i = i + 1 %}
-                    {% endif %}
-                {% endfor %}
-                )</span>
-            {% endfor %}            
-            
+            <span class="artiste_name">{{ artiste.idutilisateur.username }}</span>                        
+            {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
             <span class="artiste_age">{{ artiste.getAge }} ans</span>
         </div>
     </div>

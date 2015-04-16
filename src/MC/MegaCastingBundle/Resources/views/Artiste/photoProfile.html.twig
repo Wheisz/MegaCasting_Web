@@ -1,0 +1,11 @@
+{# views/Artiste/photoProfile #}
+{% set photoProfileFound = '0' %}
+    {% for photo in artiste.Photos %}
+        {% if photo.IsProfile == 1 %}
+            <img src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.idutilisateur.username ~ '/' ~ photo.libelle)}}" height="auto" width="100px" alt="Artiste" />
+            {% set photoProfileFound = '1' %}
+        {% endif %}
+    {% endfor %}
+    {% if photoProfileFound == "0" %}
+        <img src="{{ asset('bundles/mcmegacasting/img/artiste/anonyme.jpg')}}" height="auto" width="100px" alt="Artiste" />
+    {% endif %}

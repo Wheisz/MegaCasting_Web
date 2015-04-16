@@ -1,1 +1,19 @@
 {# views/Artiste/view #}
+
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="artiste">
+        <a href="#" class="artiste_picture">
+            {% include 'MCMegaCastingBundle:Artiste:photoProfile.html.twig' %}   
+        </a>
+        <div class="artiste_info">
+            <span class="artiste_name">{{ artiste.idutilisateur.username }}</span> 
+            {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
+            <span class="artiste_age">{{ artiste.getAge }} ans</span>
+            <div>{{ artiste.idcaracteristiquephysique.taille }} cm</div>            
+            <div>{{ artiste.idcaracteristiquephysique.poids }} kg</div>
+        </div>
+    </div>
+
+{% endblock %}
