@@ -233,4 +233,12 @@ class Artiste
     {
         return $this->photos;
     }
+    
+    
+    public function getAge()
+    {
+        $dateInterval = $this->datenaissance->diff(new \DateTime());
+        
+        return $dateInterval->y;
+    }
 }

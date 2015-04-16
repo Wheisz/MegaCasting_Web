@@ -36,6 +36,15 @@ mc_mega_casting_Artiste:
     path:     /Artiste
     defaults: { _controller: MCMegaCastingBundle:Artiste:index }
     
+mc_mega_casting_Artiste_view:
+    path:     /Offre/{id_artiste}
+    defaults: { _controller: MCMegaCastingBundle:Offre:view }
+    requirements:
+        id_offre: \d+
+
+mc_mega_casting_Artiste_Domaine:
+    path:     /Artiste/{libelle_domaine}
+    defaults: { _controller: MCMegaCastingBundle:Artiste:domaine }
     
 
 
