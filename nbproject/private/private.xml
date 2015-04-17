@@ -3,13 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/ArtisteController.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Artiste.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Artiste/index.html.twig</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Artiste/view.html.twig</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/app/Resources/views/base.html.twig</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Artiste/liste.html.twig</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/public/css/index.css</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Domaine/liste.html.twig</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Offre/liste.html.twig</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Annonceur.php</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Artiste/photoProfile.html.twig</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/config/routing.yml</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/OffreController.php</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/app/config/config.yml</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Artiste/view.html.twig</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Offre/index.html.twig</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Offre/view.html.twig</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Societe.php</file>
+            <file>file:/D:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Diffuseur.php</file>
         </group>
     </open-files>
 </project-private>

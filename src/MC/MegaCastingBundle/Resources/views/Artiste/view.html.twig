@@ -2,6 +2,12 @@
 
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/mcmegacasting/css/Chocolat-0.3.1/css/chocolat.css')}}" type="text/css" media="screen" charset="utf-8">
+ {% endblock %}
+
+
 {% block body %}
 <div class="mainConteneur">
     <div class="titre_view">
@@ -25,4 +31,19 @@
         </div>        
     </div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent () }}
+    <!-- Script pour le fonctionnement du plugin Chocolat -->
+    <script type="text/javascript" src="{{ asset('bundles/mcmegacasting/js/Chocolat-0.3.1/js/jquery.chocolat.js') }}"></script>
+    <script>
+        $(function(){
+            $(".artiste_picture_profil").Chocolat({
+                displayAsALink: false,
+                linkImages    : false,
+                overlayColor  : '#000'
+            });
+        });
+    </script>
 {% endblock %}
