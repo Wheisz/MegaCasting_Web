@@ -2,5 +2,10 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+<div class="mainConteneur">
+    <div class="titre_view">
+        OFFRES
+    </div>
     {{ include("MCMegaCastingBundle:Offre:liste.html.twig", liste_offres) }}
+</div>
 {% endblock %}

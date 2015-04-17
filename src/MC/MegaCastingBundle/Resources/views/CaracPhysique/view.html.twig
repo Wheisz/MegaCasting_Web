@@ -1,0 +1,31 @@
+{# views/CaracPhysique/view #}
+
+
+<span class="artiste_taille">Taille : 
+    {% if artiste.idcaracteristiquephysique.taille %}
+        {{ artiste.idcaracteristiquephysique.taille }} cm
+    {% else %}
+        Non saisi
+    {% endif %}
+</span>   
+<span class="artiste_poids">Poids : 
+    {% if artiste.idcaracteristiquephysique.poids %}
+        {{ artiste.idcaracteristiquephysique.poids }} kg
+    {% else %}
+        Non saisi
+    {% endif %}
+</span>  
+<span class="artiste_couleurCheveux">Couleur des cheveux : 
+    {% if artiste.idcaracteristiquephysique.couleurcheveux %}
+        {{ artiste.idcaracteristiquephysique.couleurcheveux }}
+    {% else %}
+        Non saisi
+    {% endif %}
+</span> 
+<span class="artiste_couleurYeux">Couleur des yeux : 
+    {% if artiste.idcaracteristiquephysique.couleuryeux %}
+        {{ artiste.idcaracteristiquephysique.couleuryeux }}
+    {% else %}
+        Non saisi
+    {% endif %}
+</span> 

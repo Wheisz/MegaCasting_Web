@@ -6,7 +6,8 @@
     {% else %}                        
         {% set domaines = [metier.iddomaine.libelle]|merge(domaines) %}
     {% endif %}
-{% endfor %}            
+{% endfor %}   
+<span class="artiste_domaine">Domaine(s) :</span>
 {% for dom in domaines %}
     <span class="artiste_domaine">
     {{ dom }} (

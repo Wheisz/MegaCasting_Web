@@ -33,6 +33,18 @@ body{
     background-image: url('../img/bkg-body.png');
 }
 
+/* unvisited link */
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
 header{
     background-color: #731443;
     float: left;
@@ -227,19 +239,20 @@ header{
     float: left;
 }
 
+.artiste:hover{
+    background-color: lightgray;
+    border: 1px solid #731443;
+}
+
 .artiste .artiste_picture img{
      display: block;
      margin: 0 auto;
 }
 
-.artiste .artiste_picture img:hover{
-    border: 1px solid #731443;
-}
-
 .artiste .artiste_info{
     padding: 10px 10px 3px 10px;
 }
-.artiste_name,.artiste_age, .artiste_domaine{
+.artiste_name,.artiste_age, .artiste_domaine, .artiste_taille, .artiste_poids, .artiste_couleurCheveux, .artiste_couleurYeux{
     display: block;
 }
 
@@ -324,6 +337,18 @@ footer .footer-right{
     text-align: center;
 }
 
+/*
+*   View globale
+*/
+
+.titre_view {
+  height: 75px;
+  font-size: 3em;
+  text-align: center;
+  background-color: #282828;
+  color: white;
+  line-height: 75px;
+}
 
 /*
 * Partie Offre View 
@@ -331,15 +356,6 @@ footer .footer-right{
 
 #offre{
     float: left;
-}
-
-#offre_titre {
-  height: 75px;
-  font-size: 3em;
-  text-align: center;
-  background-color: #282828;
-  color: white;
-  line-height: 75px;
 }
 
 #offre .case{
@@ -368,4 +384,54 @@ footer .footer-right{
 #offre .case_two{
     background-color: #731443;
     color: white;
+}
+
+/*
+*   Partie Artiste View
+*/
+
+#artiste {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+#artiste .artiste_info{
+    float: left;
+    display: inline-block;
+    border-left: 1px solid #731443;
+    border-right: 1px solid #731443;
+    padding: 5px;
+}
+
+#artiste .artiste_picture{
+    float: left;
+    display: inline-block;
+}
+
+#artiste .artiste_picture img:hover{
+    border: 1px solid #731443;
+}
+
+#artiste .artiste_info .artiste_info_generale{
+    float: left;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+#artiste .artiste_info .artiste_info_physique{
+    float: left;
+    display: block;
+    width: 100%;
+    paddding-top: 5px;
+}
+
+.sous-titre{
+    font-size: 1.2em;
+    background-color: #731443;
+    color: white;
+    width: 100%;
+    display: block;
 }

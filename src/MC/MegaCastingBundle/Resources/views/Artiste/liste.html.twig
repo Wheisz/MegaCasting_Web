@@ -1,16 +1,7 @@
 {# views/Artiste/liste #}
 
 {% for artiste in liste_artistes %}
-    <div class="artiste">
-        <a href="#" class="artiste_picture">
-            {% include 'MCMegaCastingBundle:Artiste:photoProfile.html.twig' %}  
-        </a>
-        <div class="artiste_info">
-            <span class="artiste_name">{{ artiste.idutilisateur.username }}</span>                        
-            {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
-            <span class="artiste_age">{{ artiste.getAge }} ans</span>
-        </div>
-    </div>
+    {% include 'MCMegaCastingBundle:Artiste:preview.html.twig' %}
 {% else %}
     Pas d'artistes
 {% endfor %}

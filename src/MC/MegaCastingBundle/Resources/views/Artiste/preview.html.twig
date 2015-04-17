@@ -1,0 +1,14 @@
+{# views/Artiste/preview #}
+
+<a href="{{ path('mc_mega_casting_Artiste_view',{ 'id_artiste' : artiste.id})}}" class="artiste">
+    <div class="artiste_general">
+        <div class="artiste_picture">
+            {% include 'MCMegaCastingBundle:Artiste:photoProfile.html.twig' %}  
+        </div>
+        <div class="artiste_info">
+            <span class="artiste_name">Pseudo : {{ artiste.idutilisateur.username }}</span>                        
+            {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
+            <span class="artiste_age">Age : {{ artiste.getAge }} ans</span>
+        </div>
+    </div>
+</a>
