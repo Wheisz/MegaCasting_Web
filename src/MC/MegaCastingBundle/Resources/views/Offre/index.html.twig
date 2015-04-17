@@ -5,6 +5,9 @@
 <div class="mainConteneur">
     <div class="titre_view">
         OFFRES
+        {% if libelle_domaine is defined %}
+            - {{ libelle_domaine }}
+        {% endif %}
     </div>
     {{ include("MCMegaCastingBundle:Offre:liste.html.twig", liste_offres) }}
 </div>

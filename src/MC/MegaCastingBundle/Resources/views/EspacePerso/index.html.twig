@@ -2,6 +2,11 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    EspacePerso
+<div class="mainConteneur">
+    <div class="titre_view">
+        Espace personnel
+    </div>
+    {{ render(controller('FOSUserBundle:Profile:show')) }}
+</div>    
 {% endblock %}
 

@@ -81,7 +81,8 @@ class OffreController extends Controller
         
         return $this->render('MCMegaCastingBundle:Offre:index.html.twig', array('liste_offres' => $offres,
             'liste_domaines' => $liste_domaines,
-            'liste_metiers' => $liste_metiers));
+            'liste_metiers' => $liste_metiers,
+            'libelle_domaine' => $libelle_domaine));
     }
     
     public function domaine_metierAction($libelle_domaine, $libelle_metier)

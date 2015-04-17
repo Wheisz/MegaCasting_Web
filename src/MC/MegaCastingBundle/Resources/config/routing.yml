@@ -32,6 +32,10 @@ mc_mega_casting_EspacePerso:
     path:     /EspacePerso
     defaults: { _controller: MCMegaCastingBundle:EspacePerso:index }
     
+mc_mega_casting_EspacePerso_login:
+    path:     /EspacePerso/login
+    defaults: { _controller: MCMegaCastingBundle:EspacePerso:login }
+    
 mc_mega_casting_Artiste:
     path:     /Artiste
     defaults: { _controller: MCMegaCastingBundle:Artiste:index }

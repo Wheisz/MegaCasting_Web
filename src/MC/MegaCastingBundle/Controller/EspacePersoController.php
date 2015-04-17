@@ -17,4 +17,15 @@ class EspacePersoController extends Controller
         return $this->render('MCMegaCastingBundle:EspacePerso:index.html.twig',
                 array('liste_domaines' => $liste_domaines));
     }
+    
+    public function loginAction()
+    {
+        $manager = $this->getDoctrine()->getManager();
+        
+        $liste_domaines = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
+                            ->findAll();
+        
+        
+    }
 }

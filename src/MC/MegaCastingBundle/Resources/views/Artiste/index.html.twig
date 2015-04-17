@@ -13,6 +13,9 @@
 <div class="mainConteneur">
     <div class="titre_view">
         ARTISTES
+        {% if libelle_domaine is defined %}
+            - {{ libelle_domaine }}
+        {% endif %}
     </div>
     {% include 'MCMegaCastingBundle:Artiste:liste.html.twig' %}
 </div>

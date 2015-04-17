@@ -56,6 +56,7 @@ class ArtisteController extends Controller
 
         return $this->render('MCMegaCastingBundle:Artiste:index.html.twig',
                 array('liste_domaines' => $liste_domaines,
-                        'liste_artistes' => $liste_artistes));
+                        'liste_artistes' => $liste_artistes,
+                        'libelle_domaine' => $libelle_domaine));
     }
 }
