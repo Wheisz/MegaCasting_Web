@@ -1,6 +1,14 @@
 {# views/Artiste/index #}
 {% extends '::base.html.twig' %}
 
+{% block header_domain %}
+    <ul>
+    {% for domaine in liste_domaines %}
+        <li class='{{ domaine.Libelle }}' style=" background-image: url('{{ asset('bundles/mcmegacasting/img/domain/' ~ domaine.libelle ~ '.jpg')}}')" ><a href="{{ path('mc_mega_casting_Artiste_Domaine',{ 'libelle_domaine' : domaine.Libelle})}}">{{ domaine.Libelle }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
 {% block body %}
     {% include 'MCMegaCastingBundle:Artiste:liste.html.twig' %}
 {% endblock %}
