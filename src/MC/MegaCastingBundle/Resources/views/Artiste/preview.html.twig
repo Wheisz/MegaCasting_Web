@@ -3,7 +3,16 @@
 <a href="{{ path('mc_mega_casting_Artiste_view',{ 'id_artiste' : artiste.id})}}" class="artiste">
     <div class="artiste_general">
         <div class="artiste_picture">
-            {% include 'MCMegaCastingBundle:Artiste:photoProfile.html.twig' %}  
+            {% set photoProfileFound = '0' %}
+                {% for photo in artiste.Photos %}
+                    {% if photo.IsProfile == 1 %}
+                        <img  src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.idutilisateur.username ~ '/' ~ photo.libelle)}}" height="auto" width="100px" alt="Artiste" />
+                    {% set photoProfileFound = '1' %}
+                    {% endif %}
+                {% endfor %}
+                {% if photoProfileFound == "0" %}
+                        <img  src="{{ asset('bundles/mcmegacasting/img/artiste/anonyme.jpg')}}" height="100px" width="100px" alt="Artiste" />
+                {% endif %} 
         </div>
         <div class="artiste_info">
             <span class="artiste_name">Pseudo : {{ artiste.idutilisateur.username }}</span>                        
