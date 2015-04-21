@@ -39,16 +39,6 @@ class Artiste
     private $idsexe;
 
     /**
-     * @var \Utilisateur
-     *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdUtilisateur", referencedColumnName="id")
-     * })
-     */
-    private $idutilisateur;
-
-    /**
      * @var \Caracteristiquephysique
      *
      * @ORM\ManyToOne(targetEntity="Caracteristiquephysique")
@@ -85,7 +75,6 @@ class Artiste
     {
         $this->idmetier = new \Doctrine\Common\Collections\ArrayCollection();
         $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
-        echo 'ted';
     }
 
 
@@ -143,29 +132,6 @@ class Artiste
     public function getIdsexe()
     {
         return $this->idsexe;
-    }
-
-    /**
-     * Set idutilisateur
-     *
-     * @param \MC\MegaCastingBundle\Entity\Utilisateur $idutilisateur
-     * @return Artiste
-     */
-    public function setIdutilisateur(\MC\MegaCastingBundle\Entity\Utilisateur $idutilisateur = null)
-    {
-        $this->idutilisateur = $idutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get idutilisateur
-     *
-     * @return \MC\MegaCastingBundle\Entity\Utilisateur 
-     */
-    public function getIdutilisateur()
-    {
-        return $this->idutilisateur;
     }
 
     /**

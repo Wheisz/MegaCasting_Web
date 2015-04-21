@@ -12,15 +12,7 @@ security:
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
     
-    firewalls:
-        main:
-            pattern: ^/
-            form_login:
-                provider:       fos_userbundle
-                csrf_provider:  form.csrf_provider
-            logout:     ~
-            anonymous:  ~
-        
+    firewalls:        
         dev:
             pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false

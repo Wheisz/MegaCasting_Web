@@ -25,18 +25,6 @@ class Annonceur
     private $id;
 
     /**
-     * @var \Utilisateur
-     *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdUtilisateur", referencedColumnName="id")
-     * })
-     */
-    private $idutilisateur;
-
-
-
-    /**
      * Set id
      *
      * @param \MC\MegaCastingBundle\Entity\Societe $id
@@ -57,28 +45,5 @@ class Annonceur
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idutilisateur
-     *
-     * @param \MC\MegaCastingBundle\Entity\Utilisateur $idutilisateur
-     * @return Annonceur
-     */
-    public function setIdutilisateur(\MC\MegaCastingBundle\Entity\Utilisateur $idutilisateur = null)
-    {
-        $this->idutilisateur = $idutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get idutilisateur
-     *
-     * @return \MC\MegaCastingBundle\Entity\Utilisateur 
-     */
-    public function getIdutilisateur()
-    {
-        return $this->idutilisateur;
     }
 }
