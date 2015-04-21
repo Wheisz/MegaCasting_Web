@@ -1,13 +1,14 @@
-{# views/EspacePerso/index #}
+{# views/Utilisateur/add #}
+
 {% extends '::base.html.twig' %}
 
 {% block body %}
 <div class="mainConteneur">
     <div class="titre_view">
-        Espace personnel
+        INSCRIPTION - {{ type_user|upper }}      
     </div>
     <div>
-        <a href="{{ path('mc_mega_casting_EspacePerso_Register')}}">Inscription</a>
+        {{ form(form) }}
     </div>
 </div>    
 {% endblock %}
