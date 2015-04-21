@@ -39,3 +39,5 @@ composer.json
 app/config/config.yml
 app/config/security.yml
 
+#private
+nbproject/private/private.xml
