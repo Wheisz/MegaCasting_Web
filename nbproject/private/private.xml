@@ -3,13 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/wamp/www/MegaCasting_Web/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/routing/registration.xml</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Registration/register_content.html.twig</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/EspacePersoController.php</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/ArtisteController.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Artiste.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Artiste/index.html.twig</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Artiste/view.html.twig</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/app/Resources/views/base.html.twig</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Artiste/liste.html.twig</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Registration/register.html.twig</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/RegistrationController.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/layout.html.twig</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/ProfileController.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Form/InscriptionType.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/routing/security.xml</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/EspacePerso/index.html.twig</file>
         </group>
     </open-files>
 </project-private>
