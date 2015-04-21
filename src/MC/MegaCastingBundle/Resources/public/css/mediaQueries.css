@@ -1,6 +1,42 @@
-@media screen and (min-width: 480px) and (max-width : 800px){
+/*
+* Modification de la mise en page pour les tablettes entre une largeur de 600 à 1024px
+*/
+@media screen and (min-width: 600px) and (max-width : 1024px){
     .row nav li{
         font-size: 0.6em;
+        margin-left: 50px;
+    }
+    
+    #sub-header ul li a{
+        font-size: 0.9em;
+    }
+}
+/*
+* Modification de la mise en page pour les tablettes entre une largeur de 480 à 600px
+*/
+@media screen and (min-width: 480px) and (max-width : 600px){
+    .row nav li{
+        font-size: 0.6em;
+        margin-left: 30px;
+    }
+    
+    #sub-header ul li a{
+        font-size: 0.9em;
+        line-height: 16.2em;
+    }
+    
+    /*
+    * Artiste_View
+    */
+    
+    #artiste .artiste_picture{
+        display: block;
+        width: 100%;
+        position: inherit;
+    }
+    
+    #artiste .artiste_picture .artiste_picture_profil{
+        position: inherit;
     }
 }
 /*
@@ -31,9 +67,28 @@
       margin: 0 auto;
     }
     
+    .row nav {
+        width: 100%;
+    }
+    
     .row nav li{
         display: block;
+        width: 100%;
         border: 1px solid white;
-        margin: 5px;
+        margin: 0;
+    }
+    
+    /*
+    * Artiste_View
+    */
+    
+    #artiste .artiste_picture{
+        display: block;
+        width: 100%;
+        position: inherit;
+    }
+    
+    #artiste .artiste_picture .artiste_picture_profil{
+        position: inherit;
     }
 }

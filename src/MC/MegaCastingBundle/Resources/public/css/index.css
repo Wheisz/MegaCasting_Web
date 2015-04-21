@@ -78,7 +78,6 @@ header{
 }
 .row nav{
     float: left;
-    width: 40%;
 }
 
 .row nav ul{
@@ -94,7 +93,6 @@ header{
     margin-left: 75px;
     line-height: 75px;
     font-size: 0.8em;
-    margin-left: 6%; 
    
 }
 
@@ -392,13 +390,11 @@ footer .footer-right{
 
 #artiste {
     display: inline-block;
-    float: left;
     width: 100%;
     text-align: center;
 }
 
 #artiste .artiste_info{
-    float: left;
     display: inline-block;
     border-left: 1px solid #731443;
     border-right: 1px solid #731443;
@@ -406,8 +402,18 @@ footer .footer-right{
 }
 
 #artiste .artiste_picture{
-    float: left;
-    display: inline-block;
+    display: inline-block; 
+    position: relative;
+    vertical-align: top;
+    width: 100px;
+    
+}
+#artiste .artiste_picture .artiste_picture_profil{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 50%;
+    
 }
 
 #artiste .artiste_picture img:hover{
@@ -425,7 +431,7 @@ footer .footer-right{
     float: left;
     display: block;
     width: 100%;
-    paddding-top: 5px;
+    padding-top: 5px;
 }
 
 .sous-titre{
