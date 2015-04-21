@@ -28,9 +28,14 @@ and open the template in the editor.
    clear: both;
 }
 
+.center{
+    text-align: center;
+}
+
+
 body{
     margin: 0; padding: 0;
-    background-image: url('../img/bkg-body.png');
+    /* background-image: url('../img/bkg-body.png'); */
 }
 
 /* unvisited link */
@@ -52,8 +57,8 @@ header{
 }
 
 .container{
-    width: 90%;
-    margin: 0 auto;
+/*    width: 90%;
+    margin: 0 auto; */
 }
 
 .row{
@@ -353,35 +358,41 @@ footer .footer-right{
 */
 
 #offre{
-    float: left;
+    width: 60%;
+    margin: 0 auto;
 }
 
-#offre .case{
+#offre .row span{
+    display: block;
+    font-family: 'Sintony', sans-serif;
+    font-size: 1.4em;
+}
+
+#offre .row span label{
+    font-size: 1.2em;
+    font-style: normal;
+    font-family: 'Architects Daughter', cursive;
+}
+
+#offre .row #intitule{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#offre .row #reference{
     display: inline-block;
-    width: 50%;
-    float: left;
-    padding: 10px;
 }
 
-#offre .case label{
-    display: block;
-    width: 100%;
-    font-family: Bentham;
+#offre .row #datePublication{
+    display: inline-block;
+    float: right;
 }
 
-#offre .case span{
-    display: block;
-    text-align: right;
-    font-family: monospace;
-}
-
-#offre .case_one{
-    background-color: whitesmoke;
-}
-
-#offre .case_two{
-    background-color: #731443;
-    color: white;
+#offre .row .row_title{
+  display: block;
+  background-color: #731443;
+  color: white;
+  padding: 2px;
 }
 
 /*
