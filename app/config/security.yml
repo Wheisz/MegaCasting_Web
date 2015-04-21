@@ -4,13 +4,8 @@ security:
         ROLE_SUPER_ADMIN:   ROLE_ADMIN
     
     providers:
-        fos_userbundle:
-            id: fos_user.user_provider.username
         in_memory:
             memory: ~
-
-    encoders:
-        FOS\UserBundle\Model\UserInterface: sha512
     
     firewalls:        
         dev:

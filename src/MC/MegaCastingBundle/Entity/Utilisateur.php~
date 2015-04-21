@@ -3,27 +3,44 @@
 namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
+ * Utilisateur
+ *
+ * @ORM\Table(name="Utilisateur", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Utilisateur_Pseudo", columns={"Pseudo"})})
  * @ORM\Entity
  */
-class Utilisateur extends BaseUser
+class Utilisateur
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id", type="bigint", nullable=false)
      * @ORM\Id
-     * @ORM\Column(type="bigint")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
-     * Get id
+     * @var string
      *
-     * @return integer 
+     * @ORM\Column(name="Pseudo", type="string", length=255, nullable=false)
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $pseudo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MotDePasse", type="string", length=0, nullable=false)
+     */
+    private $motdepasse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Email", type="string", length=255, nullable=false)
+     */
+    private $email;
+
+
 }

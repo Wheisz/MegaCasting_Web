@@ -207,4 +207,27 @@ class Artiste
         
         return $dateInterval->y;
     }
+
+    /**
+     * Add photos
+     *
+     * @param \MC\MegaCastingBundle\Entity\Photo $photos
+     * @return Artiste
+     */
+    public function addPhoto(\MC\MegaCastingBundle\Entity\Photo $photos)
+    {
+        $this->photos[] = $photos;
+
+        return $this;
+    }
+
+    /**
+     * Remove photos
+     *
+     * @param \MC\MegaCastingBundle\Entity\Photo $photos
+     */
+    public function removePhoto(\MC\MegaCastingBundle\Entity\Photo $photos)
+    {
+        $this->photos->removeElement($photos);
+    }
 }
