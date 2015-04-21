@@ -2,8 +2,8 @@
 {% set photoProfileFound = '0' %}
     {% for photo in artiste.Photos %}
         {% if photo.IsProfile == 1 %}
-            <a class="artiste_picture_profil" title="{{artiste.idutilisateur.username}}" href="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.idutilisateur.username ~ '/' ~ photo.libelle)}}">
-                <img  src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.idutilisateur.username ~ '/' ~ photo.libelle)}}" height="auto" width="100px" alt="Artiste" />
+            <a class="artiste_picture_profil" title="{{artiste.idutilisateur.Pseudo}}" href="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.idutilisateur.Pseudo ~ '/' ~ photo.libelle)}}">
+                <img  src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.idutilisateur.Pseudo ~ '/' ~ photo.libelle)}}" height="auto" width="100px" alt="Artiste" />
             </a>
             {% set photoProfileFound = '1' %}
         {% endif %}

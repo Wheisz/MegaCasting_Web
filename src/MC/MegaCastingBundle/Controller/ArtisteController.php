@@ -10,53 +10,52 @@ class ArtisteController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         
-        $liste_domaines = $manager
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findAll();
-        
         $liste_artistes = $manager
                             ->getRepository('MCMegaCastingBundle:Artiste')
                             ->findAll();
+        
+        $liste_domaines = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
+                            ->findAll();
 
         return $this->render('MCMegaCastingBundle:Artiste:index.html.twig',
-                array('liste_domaines' => $liste_domaines,
-                        'liste_artistes' => $liste_artistes));
+                array(  'liste_artistes' => $liste_artistes,
+                        'liste_domaines' => $liste_domaines));
     }
     
     public function viewAction($id_artiste)
     {
         $manager = $this->getDoctrine() 
                            ->getManager();
-                            
-        
-        $liste_domaines = $manager
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findAll();
         
         $artiste = $manager
                 ->getRepository('MCMegaCastingBundle:Artiste')
                 ->findOneBy(array('id' => $id_artiste));
         
+        $liste_domaines = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
+                            ->findAll();
+        
         return $this->render('MCMegaCastingBundle:Artiste:view.html.twig', 
-                array('artiste' => $artiste,
-                    'liste_domaines' => $liste_domaines));
+                array(  'artiste' => $artiste,
+                        'liste_domaines' => $liste_domaines));
     }
     
     public function domaineAction($libelle_domaine)
     {
         $manager = $this->getDoctrine()->getManager();
-        
-        $liste_domaines = $manager
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findAll();
           
         $liste_artistes = $manager
                             ->getRepository('MCMegaCastingBundle:Artiste')
                             ->myFindByDomaine($libelle_domaine);
+        
+        $liste_domaines = $manager
+                            ->getRepository('MCMegaCastingBundle:Domaine')
+                            ->findAll();
 
         return $this->render('MCMegaCastingBundle:Artiste:index.html.twig',
-                array('liste_domaines' => $liste_domaines,
-                        'liste_artistes' => $liste_artistes,
-                        'libelle_domaine' => $libelle_domaine));
+                array(  'liste_artistes' => $liste_artistes,
+                        'libelle_domaine' => $libelle_domaine,
+                        'liste_domaines' => $liste_domaines));
     }
 }

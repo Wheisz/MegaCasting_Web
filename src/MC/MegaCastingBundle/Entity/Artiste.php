@@ -64,6 +64,16 @@ class Artiste
     private $idmetier;
     
     /**
+     * @var \Utilisateur
+     * 
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\JoinColumns({
+     *  @ORM\JoinColumn(name="IdUtilisateur", referencedColumnName="Id")
+     * })
+     */
+    private $idutilisateur;
+    
+    /**
      * @ORM\OneToMany(targetEntity="Photo", mappedBy="idartiste")
      */
     private $photos;
@@ -229,5 +239,28 @@ class Artiste
     public function removePhoto(\MC\MegaCastingBundle\Entity\Photo $photos)
     {
         $this->photos->removeElement($photos);
+    }
+    
+    /**
+     * Set idutilisateur
+     *
+     * @param \MC\MegaCastingBundle\Entity\Utilisateur $idutilisateur
+     * @return Artiste
+     */
+    public function setIdutilisateur(\MC\MegaCastingBundle\Entity\Utilisateur $idutilisateur = null)
+    {
+        $this->idutilisateur = $idutilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get idutilisateur
+     *
+     * @return \MC\MegaCastingBundle\Entity\Utilisateur 
+     */
+    public function getIdutilisateur()
+    {
+        return $this->idutilisateur;
     }
 }

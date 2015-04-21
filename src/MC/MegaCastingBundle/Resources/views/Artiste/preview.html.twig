@@ -6,7 +6,7 @@
             {% set photoProfileFound = '0' %}
                 {% for photo in artiste.Photos %}
                     {% if photo.IsProfile == 1 %}
-                        <img  src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.idutilisateur.username ~ '/' ~ photo.libelle)}}" height="auto" width="100px" alt="Artiste" />
+                        <img  src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.idutilisateur.Pseudo ~ '/' ~ photo.libelle)}}" height="auto" width="100px" alt="Artiste" />
                     {% set photoProfileFound = '1' %}
                     {% endif %}
                 {% endfor %}
@@ -15,7 +15,7 @@
                 {% endif %} 
         </div>
         <div class="artiste_info">
-            <span class="artiste_name">Pseudo : {{ artiste.idutilisateur.username }}</span>                        
+            <span class="artiste_name">Pseudo : {{ artiste.idutilisateur.Pseudo }}</span>                        
             {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
             <span class="artiste_age">Age : {{ artiste.getAge }} ans</span>
         </div>

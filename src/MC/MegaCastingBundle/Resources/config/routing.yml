@@ -2,6 +2,8 @@ mc_mega_casting_homepage:
     path:     /
     defaults: { _controller: MCMegaCastingBundle:Default:index }
 
+
+# Offre route
 mc_mega_casting_Offre_All:
     path:     /Offre
     defaults: { _controller: MCMegaCastingBundle:Offre:index }
@@ -23,11 +25,15 @@ mc_mega_casting_Offre_Domaine_Metier:
 mc_mega_casting_Offre_Domaine:
     path:     /Offre/{libelle_domaine}
     defaults: { _controller: MCMegaCastingBundle:Offre:domaine }
-    
+
+
+# EspacePro Route
 mc_mega_casting_EspacePro:
     path:     /EspacePro
     defaults: { _controller: MCMegaCastingBundle:EspacePro:index }
-    
+
+
+# EspacePerso Route
 mc_mega_casting_EspacePerso:
     path:     /EspacePerso
     defaults: { _controller: MCMegaCastingBundle:EspacePerso:index }
@@ -36,6 +42,12 @@ mc_mega_casting_EspacePerso_login:
     path:     /EspacePerso/login
     defaults: { _controller: MCMegaCastingBundle:EspacePerso:login }
     
+mc_mega_casting_EspacePerso_logout:
+    path:     /EspacePerso/logout
+    defaults: { _controller: MCMegaCastingBundle:EspacePerso:logout }
+
+
+# Artiste Route
 mc_mega_casting_Artiste:
     path:     /Artiste
     defaults: { _controller: MCMegaCastingBundle:Artiste:index }
@@ -50,8 +62,6 @@ mc_mega_casting_Artiste_Domaine:
     path:     /Artiste/{libelle_domaine}
     defaults: { _controller: MCMegaCastingBundle:Artiste:domaine }
     
-
-
     
 
    

@@ -16,10 +16,6 @@ class OffreController extends Controller
                             ->findBy(array(),
                                     array('datepublication' => 'desc'), 5);
         
-        $liste_domaines = $manager
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findAll();
-        
         $liste_metiers = $manager 
                             ->getRepository('MCMegaCastingBundle:Metier')
                             ->findAll();
@@ -27,7 +23,6 @@ class OffreController extends Controller
         
         return $this->render('MCMegaCastingBundle:Offre:index.html.twig', 
                 array(  'liste_offres' => $liste_offres,
-                        'liste_domaines' => $liste_domaines,
                         'liste_metiers' => $liste_metiers));       
         
     }
@@ -36,19 +31,13 @@ class OffreController extends Controller
     {
         $manager = $this->getDoctrine() 
                            ->getManager();
-                            
-        
-        $liste_domaines = $manager
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findAll();
         
         $offre = $manager
                 ->getRepository('MCMegaCastingBundle:Offre')
                 ->findOneBy(array('id' => $id_offre));
         
         return $this->render('MCMegaCastingBundle:Offre:view.html.twig', 
-                array('offre' => $offre,
-                    'liste_domaines' => $liste_domaines));
+                array('offre' => $offre));
     }
     
     public function domaineAction($libelle_domaine)
@@ -66,10 +55,6 @@ class OffreController extends Controller
             return $response;
         }
         
-        $liste_domaines = $manager
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findAll();
-        
         $liste_metiers = $manager 
                             ->getRepository('MCMegaCastingBundle:Metier')
                             ->findAll();
@@ -79,10 +64,10 @@ class OffreController extends Controller
                             ->getRepository('MCMegaCastingBundle:Offre')
                             ->findBy(array('iddomaine' => $domaine->getId())); 
         
-        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', array('liste_offres' => $offres,
-            'liste_domaines' => $liste_domaines,
-            'liste_metiers' => $liste_metiers,
-            'libelle_domaine' => $libelle_domaine));
+        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', 
+                array(  'liste_offres' => $offres,
+                        'liste_metiers' => $liste_metiers,
+                        'libelle_domaine' => $libelle_domaine));
     }
     
     public function domaine_metierAction($libelle_domaine, $libelle_metier)
@@ -116,19 +101,15 @@ class OffreController extends Controller
         $offres = $manager 
                             ->getRepository('MCMegaCastingBundle:Offre')
                             ->findBy(array('iddomaine' => $domaine->getId(),
-                                            'idmetier' => $metier->getId())); 
-        
-        $liste_domaines = $manager
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findAll();
+                                            'idmetier' => $metier->getId()));
         
         $liste_metiers = $manager 
                             ->getRepository('MCMegaCastingBundle:Metier')
                             ->findAll();
         
-        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', array('liste_offres' => $offres,
-            'liste_domaines' => $liste_domaines,
-            'liste_metiers' => $liste_metiers));
+        return $this->render('MCMegaCastingBundle:Offre:index.html.twig', 
+                array(  'liste_offres' => $offres,
+                        'liste_metiers' => $liste_metiers));
     }
     
     public function addAction()

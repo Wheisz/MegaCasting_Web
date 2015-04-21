@@ -10,10 +10,6 @@ class DefaultController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         
-        $liste_domaines = $manager
-                            ->getRepository('MCMegaCastingBundle:Domaine')
-                            ->findAll();
-        
         $liste_offres = $manager
                             ->getRepository('MCMegaCastingBundle:Offre')
                             ->findBy(array(),
@@ -25,8 +21,7 @@ class DefaultController extends Controller
                                     array(), 5);
  
         return $this->render('MCMegaCastingBundle:Default:index.html.twig', 
-                array(  'liste_domaines' => $liste_domaines,
-                        'liste_offres' => $liste_offres,
+                array(  'liste_offres' => $liste_offres,
                         'liste_artistes' => $liste_artistes
                         ));
     }
