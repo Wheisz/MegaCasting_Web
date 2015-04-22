@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Artiste
  *
- * @ORM\Table(name="Artiste", indexes={@ORM\Index(name="IFK_Artiste_Sexe", columns={"IdSexe"}), @ORM\Index(name="IFK_Artiste_Utilisateur", columns={"IdUtilisateur"}), @ORM\Index(name="IFK_Artiste_CaracPhysique", columns={"IdCaracteristiquePhysique"})})
- * @ORM\Entity(repositoryClass="MC\MegaCastingBundle\Repository\ArtisteRepository")
+ * @ORM\Table(name="Artiste", indexes={@ORM\Index(name="IFK_Artiste_Sexe", columns={"Sexe_id"}), @ORM\Index(name="IFK_Artiste_Utilisateur", columns={"Utilisateur_id"}), @ORM\Index(name="IFK_Artiste_CaracPhysique", columns={"CaracteristiquePhysique_id"})})
+ * @ORM\Entity
  */
 class Artiste
 {
@@ -33,58 +33,52 @@ class Artiste
      *
      * @ORM\ManyToOne(targetEntity="Sexe")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdSexe", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="Sexe_id", referencedColumnName="Id")
      * })
      */
-    private $idsexe;
+    private $sexe;
+
+    /**
+     * @var \Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Utilisateur_id", referencedColumnName="Id")
+     * })
+     */
+    private $utilisateur;
 
     /**
      * @var \Caracteristiquephysique
      *
      * @ORM\ManyToOne(targetEntity="Caracteristiquephysique")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdCaracteristiquePhysique", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="CaracteristiquePhysique_id", referencedColumnName="Id")
      * })
      */
-    private $idcaracteristiquephysique;
+    private $caracteristiquephysique;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Metier", inversedBy="idartiste")
+     * @ORM\ManyToMany(targetEntity="Metier", inversedBy="artiste")
      * @ORM\JoinTable(name="artiste_metier",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="IdArtiste", referencedColumnName="Id")
+     *     @ORM\JoinColumn(name="Artiste_id", referencedColumnName="Id")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="IdMetier", referencedColumnName="Id")
+     *     @ORM\JoinColumn(name="Metier_id", referencedColumnName="Id")
      *   }
      * )
      */
-    private $idmetier;
-    
-    /**
-     * @var \Utilisateur
-     * 
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
-     * @ORM\JoinColumns({
-     *  @ORM\JoinColumn(name="IdUtilisateur", referencedColumnName="Id")
-     * })
-     */
-    private $idutilisateur;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Photo", mappedBy="idartiste")
-     */
-    private $photos;
+    private $metier;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->idmetier = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->metier = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -122,145 +116,104 @@ class Artiste
     }
 
     /**
-     * Set idsexe
+     * Set sexe
      *
-     * @param \MC\MegaCastingBundle\Entity\Sexe $idsexe
+     * @param \MC\MegaCastingBundle\Entity\Sexe $sexe
      * @return Artiste
      */
-    public function setIdsexe(\MC\MegaCastingBundle\Entity\Sexe $idsexe = null)
+    public function setSexe(\MC\MegaCastingBundle\Entity\Sexe $sexe = null)
     {
-        $this->idsexe = $idsexe;
+        $this->sexe = $sexe;
 
         return $this;
     }
 
     /**
-     * Get idsexe
+     * Get sexe
      *
      * @return \MC\MegaCastingBundle\Entity\Sexe 
      */
-    public function getIdsexe()
+    public function getSexe()
     {
-        return $this->idsexe;
+        return $this->sexe;
     }
 
     /**
-     * Set idcaracteristiquephysique
+     * Set utilisateur
      *
-     * @param \MC\MegaCastingBundle\Entity\Caracteristiquephysique $idcaracteristiquephysique
+     * @param \MC\MegaCastingBundle\Entity\Utilisateur $utilisateur
      * @return Artiste
      */
-    public function setIdcaracteristiquephysique(\MC\MegaCastingBundle\Entity\Caracteristiquephysique $idcaracteristiquephysique = null)
+    public function setUtilisateur(\MC\MegaCastingBundle\Entity\Utilisateur $utilisateur = null)
     {
-        $this->idcaracteristiquephysique = $idcaracteristiquephysique;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get idcaracteristiquephysique
-     *
-     * @return \MC\MegaCastingBundle\Entity\Caracteristiquephysique 
-     */
-    public function getIdcaracteristiquephysique()
-    {
-        return $this->idcaracteristiquephysique;
-    }
-
-    /**
-     * Add idmetier
-     *
-     * @param \MC\MegaCastingBundle\Entity\Metier $idmetier
-     * @return Artiste
-     */
-    public function addIdmetier(\MC\MegaCastingBundle\Entity\Metier $idmetier)
-    {
-        $this->idmetier[] = $idmetier;
-
-        return $this;
-    }
-
-    /**
-     * Remove idmetier
-     *
-     * @param \MC\MegaCastingBundle\Entity\Metier $idmetier
-     */
-    public function removeIdmetier(\MC\MegaCastingBundle\Entity\Metier $idmetier)
-    {
-        $this->idmetier->removeElement($idmetier);
-    }
-
-    /**
-     * Get idmetier
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIdmetier()
-    {
-        return $this->idmetier;
-    }
-    
-    /**
-     * Get photos
-     * 
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPhotos()
-    {
-        return $this->photos;
-    }
-    
-    
-    public function getAge()
-    {
-        $dateInterval = $this->datenaissance->diff(new \DateTime());
-        
-        return $dateInterval->y;
-    }
-
-    /**
-     * Add photos
-     *
-     * @param \MC\MegaCastingBundle\Entity\Photo $photos
-     * @return Artiste
-     */
-    public function addPhoto(\MC\MegaCastingBundle\Entity\Photo $photos)
-    {
-        $this->photos[] = $photos;
-
-        return $this;
-    }
-
-    /**
-     * Remove photos
-     *
-     * @param \MC\MegaCastingBundle\Entity\Photo $photos
-     */
-    public function removePhoto(\MC\MegaCastingBundle\Entity\Photo $photos)
-    {
-        $this->photos->removeElement($photos);
-    }
-    
-    /**
-     * Set idutilisateur
-     *
-     * @param \MC\MegaCastingBundle\Entity\Utilisateur $idutilisateur
-     * @return Artiste
-     */
-    public function setIdutilisateur(\MC\MegaCastingBundle\Entity\Utilisateur $idutilisateur = null)
-    {
-        $this->idutilisateur = $idutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get idutilisateur
+     * Get utilisateur
      *
      * @return \MC\MegaCastingBundle\Entity\Utilisateur 
      */
-    public function getIdutilisateur()
+    public function getUtilisateur()
     {
-        return $this->idutilisateur;
+        return $this->utilisateur;
+    }
+
+    /**
+     * Set caracteristiquephysique
+     *
+     * @param \MC\MegaCastingBundle\Entity\Caracteristiquephysique $caracteristiquephysique
+     * @return Artiste
+     */
+    public function setCaracteristiquephysique(\MC\MegaCastingBundle\Entity\Caracteristiquephysique $caracteristiquephysique = null)
+    {
+        $this->caracteristiquephysique = $caracteristiquephysique;
+
+        return $this;
+    }
+
+    /**
+     * Get caracteristiquephysique
+     *
+     * @return \MC\MegaCastingBundle\Entity\Caracteristiquephysique 
+     */
+    public function getCaracteristiquephysique()
+    {
+        return $this->caracteristiquephysique;
+    }
+
+    /**
+     * Add metier
+     *
+     * @param \MC\MegaCastingBundle\Entity\Metier $metier
+     * @return Artiste
+     */
+    public function addMetier(\MC\MegaCastingBundle\Entity\Metier $metier)
+    {
+        $this->metier[] = $metier;
+
+        return $this;
+    }
+
+    /**
+     * Remove metier
+     *
+     * @param \MC\MegaCastingBundle\Entity\Metier $metier
+     */
+    public function removeMetier(\MC\MegaCastingBundle\Entity\Metier $metier)
+    {
+        $this->metier->removeElement($metier);
+    }
+
+    /**
+     * Get metier
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMetier()
+    {
+        return $this->metier;
     }
 }

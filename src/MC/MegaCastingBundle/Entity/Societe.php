@@ -7,8 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Societe
  *
- * @ORM\Table(name="Societe", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Societe", columns={"RaisonSociale"})}, indexes={@ORM\Index(name="IFK_Societe_Adresse", columns={"IdAdresse"})})
+ * @ORM\Table(name="Societe", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Societe", columns={"RaisonSociale"})}, indexes={@ORM\Index(name="IFK_Societe_Adresse", columns={"Adresse_id"})})
  * @ORM\Entity
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"annonceur" = "Annonceur", "diffuseur" = "Diffuseur"})
  */
 class Societe
 {
@@ -19,21 +22,21 @@ class Societe
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="NumeroSiret", type="bigint", nullable=false)
      */
-    private $numerosiret;
+    protected $numerosiret;
 
     /**
      * @var string
      *
      * @ORM\Column(name="RaisonSociale", type="string", length=100, nullable=false)
      */
-    private $raisonsociale;
+    protected $raisonsociale;
 
     /**
      * @var string
@@ -54,10 +57,10 @@ class Societe
      *
      * @ORM\ManyToOne(targetEntity="Adresse")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdAdresse", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="Adresse_id", referencedColumnName="Id")
      * })
      */
-    private $idadresse;
+    private $adresse;
 
 
 
@@ -164,25 +167,25 @@ class Societe
     }
 
     /**
-     * Set idadresse
+     * Set adresse
      *
-     * @param \MC\MegaCastingBundle\Entity\Adresse $idadresse
+     * @param \MC\MegaCastingBundle\Entity\Adresse $adresse
      * @return Societe
      */
-    public function setIdadresse(\MC\MegaCastingBundle\Entity\Adresse $idadresse = null)
+    public function setAdresse(\MC\MegaCastingBundle\Entity\Adresse $adresse = null)
     {
-        $this->idadresse = $idadresse;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
     /**
-     * Get idadresse
+     * Get adresse
      *
      * @return \MC\MegaCastingBundle\Entity\Adresse 
      */
-    public function getIdadresse()
+    public function getAdresse()
     {
-        return $this->idadresse;
+        return $this->adresse;
     }
 }
