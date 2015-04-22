@@ -9,9 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="Societe", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Societe", columns={"RaisonSociale"})}, indexes={@ORM\Index(name="IFK_Societe_Adresse", columns={"Adresse_id"})})
  * @ORM\Entity
- * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"annonceur" = "Annonceur", "diffuseur" = "Diffuseur"})
  */
 class Societe
 {
@@ -22,21 +19,21 @@ class Societe
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="NumeroSiret", type="bigint", nullable=false)
      */
-    protected $numerosiret;
+    private $numerosiret;
 
     /**
      * @var string
      *
      * @ORM\Column(name="RaisonSociale", type="string", length=100, nullable=false)
      */
-    protected $raisonsociale;
+    private $raisonsociale;
 
     /**
      * @var string

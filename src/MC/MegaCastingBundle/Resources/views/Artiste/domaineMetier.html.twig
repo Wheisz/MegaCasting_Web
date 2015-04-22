@@ -1,10 +1,10 @@
 {# views/Artiste/domaineMetier #}
 
 {% set domaines = [] %}
-{% for metier in artiste.idmetier %}
-    {% if metier.iddomaine.libelle in domaines %}
+{% for metier in artiste.metier %}
+    {% if metier.domaine.libelle in domaines %}
     {% else %}                        
-        {% set domaines = [metier.iddomaine.libelle]|merge(domaines) %}
+        {% set domaines = [metier.domaine.libelle]|merge(domaines) %}
     {% endif %}
 {% endfor %}   
 <span class="artiste_domaine">Domaine(s) :</span>
@@ -13,7 +13,7 @@
     {{ dom }} (
     {% set i = 0 %}
     {% for metier in artiste.idmetier %}
-        {% if metier.iddomaine.libelle == dom %}
+        {% if metier.domaine.libelle == dom %}
             {% if i > 0 %}
                 / 
             {% endif %}

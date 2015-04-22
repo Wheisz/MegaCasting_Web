@@ -72,6 +72,15 @@ class Artiste
      * )
      */
     private $metier;
+    
+    /**
+     * 
+     * @ORM\OneToMany(
+     *      targetEntity="Photo",
+     *      mappedBy="artiste"
+     * )
+     */
+    private $photos;
 
     /**
      * Constructor
@@ -215,5 +224,51 @@ class Artiste
     public function getMetier()
     {
         return $this->metier;
+    }
+
+    /**
+     * Add photos
+     *
+     * @param \MC\MegaCastingBundle\Entity\Photo $photos
+     * @return Artiste
+     */
+    public function addPhoto(\MC\MegaCastingBundle\Entity\Photo $photos)
+    {
+        $this->photos[] = $photos;
+
+        return $this;
+    }
+
+    /**
+     * Remove photos
+     *
+     * @param \MC\MegaCastingBundle\Entity\Photo $photos
+     */
+    public function removePhoto(\MC\MegaCastingBundle\Entity\Photo $photos)
+    {
+        $this->photos->removeElement($photos);
+    }
+
+    /**
+     * Get photos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
+    
+    
+    /**
+     * Get Age
+     *
+     * @return integer
+     */
+    public function getAge()
+    {
+        $dateInterval = $this->datenaissance->diff(new \DateTime());
+ 
+        return $dateInterval->y;
     }
 }

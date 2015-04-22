@@ -72,6 +72,15 @@ class Artiste
      * )
      */
     private $metier;
+    
+    /**
+     * 
+     * @ORM\OneToMany(
+     *      targetEntity="Photo",
+     *      mappedBy="artiste"
+     * )
+     */
+    private $photos;
 
     /**
      * Constructor
@@ -81,4 +90,139 @@ class Artiste
         $this->metier = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set datenaissance
+     *
+     * @param \DateTime $datenaissance
+     * @return Artiste
+     */
+    public function setDatenaissance($datenaissance)
+    {
+        $this->datenaissance = $datenaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get datenaissance
+     *
+     * @return \DateTime 
+     */
+    public function getDatenaissance()
+    {
+        return $this->datenaissance;
+    }
+
+    /**
+     * Set sexe
+     *
+     * @param \MC\MegaCastingBundle\Entity\Sexe $sexe
+     * @return Artiste
+     */
+    public function setSexe(\MC\MegaCastingBundle\Entity\Sexe $sexe = null)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return \MC\MegaCastingBundle\Entity\Sexe 
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \MC\MegaCastingBundle\Entity\Utilisateur $utilisateur
+     * @return Artiste
+     */
+    public function setUtilisateur(\MC\MegaCastingBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \MC\MegaCastingBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
+
+    /**
+     * Set caracteristiquephysique
+     *
+     * @param \MC\MegaCastingBundle\Entity\Caracteristiquephysique $caracteristiquephysique
+     * @return Artiste
+     */
+    public function setCaracteristiquephysique(\MC\MegaCastingBundle\Entity\Caracteristiquephysique $caracteristiquephysique = null)
+    {
+        $this->caracteristiquephysique = $caracteristiquephysique;
+
+        return $this;
+    }
+
+    /**
+     * Get caracteristiquephysique
+     *
+     * @return \MC\MegaCastingBundle\Entity\Caracteristiquephysique 
+     */
+    public function getCaracteristiquephysique()
+    {
+        return $this->caracteristiquephysique;
+    }
+
+    /**
+     * Add metier
+     *
+     * @param \MC\MegaCastingBundle\Entity\Metier $metier
+     * @return Artiste
+     */
+    public function addMetier(\MC\MegaCastingBundle\Entity\Metier $metier)
+    {
+        $this->metier[] = $metier;
+
+        return $this;
+    }
+
+    /**
+     * Remove metier
+     *
+     * @param \MC\MegaCastingBundle\Entity\Metier $metier
+     */
+    public function removeMetier(\MC\MegaCastingBundle\Entity\Metier $metier)
+    {
+        $this->metier->removeElement($metier);
+    }
+
+    /**
+     * Get metier
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMetier()
+    {
+        return $this->metier;
+    }
 }
