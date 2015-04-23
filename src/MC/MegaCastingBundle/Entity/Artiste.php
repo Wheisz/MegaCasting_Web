@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Artiste
  *
  * @ORM\Table(name="Artiste", indexes={@ORM\Index(name="IFK_Artiste_Sexe", columns={"Sexe_id"}), @ORM\Index(name="IFK_Artiste_Utilisateur", columns={"Utilisateur_id"}), @ORM\Index(name="IFK_Artiste_CaracPhysique", columns={"CaracteristiquePhysique_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MC\MegaCastingBundle\Repository\ArtisteRepository")
  */
 class Artiste
 {

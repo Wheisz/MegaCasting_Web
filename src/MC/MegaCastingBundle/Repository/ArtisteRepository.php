@@ -16,8 +16,8 @@ class ArtisteRepository extends EntityRepository
     {
         $qb = $this
                 ->createQueryBuilder('a')
-                ->innerJoin('a.idmetier', 'm')
-                ->innerJoin('m.iddomaine', 'd')
+                ->innerJoin('a.metier', 'm')
+                ->innerJoin('m.domaine', 'd')
                 ->where('d.libelle = :libelle')
                 ->setParameter('libelle', $libelle_domaine);
 
