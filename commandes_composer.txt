@@ -6,3 +6,7 @@ php app/console doctrine:generate:entities MCMegaCastingBundle
 php app/console assets:install
 
 php app/console assets:install --symlink
+
+
+// Création de formulaire
+php app/console doctrine:generate:form MCMegaCastingBundle:Utilisateur
