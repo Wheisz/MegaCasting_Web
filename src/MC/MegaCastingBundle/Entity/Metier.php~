@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Metier
  *
- * @ORM\Table(name="Metier", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Metier", columns={"Libelle"})}, indexes={@ORM\Index(name="IDX_560C08BAEAE7E39D", columns={"IdDomaine"})})
+ * @ORM\Table(name="Metier", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Metier", columns={"Libelle"})}, indexes={@ORM\Index(name="IDX_560C08BAD2FFF4F", columns={"Domaine_id"})})
  * @ORM\Entity
  */
 class Metier
@@ -33,113 +33,24 @@ class Metier
      *
      * @ORM\ManyToOne(targetEntity="Domaine")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdDomaine", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="Domaine_id", referencedColumnName="Id")
      * })
      */
-    private $iddomaine;
+    private $domaine;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Artiste", mappedBy="idmetier")
+     * @ORM\ManyToMany(targetEntity="Artiste", mappedBy="metier")
      */
-    private $idartiste;
+    private $artiste;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->idartiste = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->artiste = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set libelle
-     *
-     * @param string $libelle
-     * @return Metier
-     */
-    public function setLibelle($libelle)
-    {
-        $this->libelle = $libelle;
-
-        return $this;
-    }
-
-    /**
-     * Get libelle
-     *
-     * @return string 
-     */
-    public function getLibelle()
-    {
-        return $this->libelle;
-    }
-
-    /**
-     * Set iddomaine
-     *
-     * @param \MC\MegaCastingBundle\Entity\Domaine $iddomaine
-     * @return Metier
-     */
-    public function setIddomaine(\MC\MegaCastingBundle\Entity\Domaine $iddomaine = null)
-    {
-        $this->iddomaine = $iddomaine;
-
-        return $this;
-    }
-
-    /**
-     * Get iddomaine
-     *
-     * @return \MC\MegaCastingBundle\Entity\Domaine 
-     */
-    public function getIddomaine()
-    {
-        return $this->iddomaine;
-    }
-
-    /**
-     * Add idartiste
-     *
-     * @param \MC\MegaCastingBundle\Entity\Artiste $idartiste
-     * @return Metier
-     */
-    public function addIdartiste(\MC\MegaCastingBundle\Entity\Artiste $idartiste)
-    {
-        $this->idartiste[] = $idartiste;
-
-        return $this;
-    }
-
-    /**
-     * Remove idartiste
-     *
-     * @param \MC\MegaCastingBundle\Entity\Artiste $idartiste
-     */
-    public function removeIdartiste(\MC\MegaCastingBundle\Entity\Artiste $idartiste)
-    {
-        $this->idartiste->removeElement($idartiste);
-    }
-
-    /**
-     * Get idartiste
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIdartiste()
-    {
-        return $this->idartiste;
-    }
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Photo
  *
- * @ORM\Table(name="Photo", indexes={@ORM\Index(name="IFK_Photo_Artiste", columns={"IdArtiste"})})
+ * @ORM\Table(name="Photo", indexes={@ORM\Index(name="IFK_Photo_Artiste", columns={"Artiste_id"})})
  * @ORM\Entity
  */
 class Photo
@@ -38,12 +38,12 @@ class Photo
     /**
      * @var \Artiste
      *
-     * @ORM\ManyToOne(targetEntity="Artiste", inversedBy="photos")
+     * @ORM\ManyToOne(targetEntity="Artiste")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdArtiste", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="Artiste_id", referencedColumnName="Id")
      * })
      */
-    private $idartiste;
+    private $artiste;
 
 
 
@@ -104,25 +104,25 @@ class Photo
     }
 
     /**
-     * Set idartiste
+     * Set artiste
      *
-     * @param \MC\MegaCastingBundle\Entity\Artiste $idartiste
+     * @param \MC\MegaCastingBundle\Entity\Artiste $artiste
      * @return Photo
      */
-    public function setIdartiste(\MC\MegaCastingBundle\Entity\Artiste $idartiste = null)
+    public function setArtiste(\MC\MegaCastingBundle\Entity\Artiste $artiste = null)
     {
-        $this->idartiste = $idartiste;
+        $this->artiste = $artiste;
 
         return $this;
     }
 
     /**
-     * Get idartiste
+     * Get artiste
      *
      * @return \MC\MegaCastingBundle\Entity\Artiste 
      */
-    public function getIdartiste()
+    public function getArtiste()
     {
-        return $this->idartiste;
+        return $this->artiste;
     }
 }

@@ -4,7 +4,7 @@
     <a href="{{ path('mc_mega_casting_Offre_view', {'id_offre': offre.Id}) }}" class="casting">
         <span class="title">{{ offre.Intitule }}</span>
         <span class="info">
-            <span class="domaine">{{ offre.iddomaine.Libelle }}</span>
+            <span class="domaine">{{ offre.domaine.Libelle }}</span>
             <span class="date">{{ offre.DatePublication|date('d/m/Y') }}</span>
         </span>
     </a>

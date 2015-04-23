@@ -2,36 +2,36 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="Artiste" table="Artiste">
     <indexes>
-      <index name="IFK_Artiste_Sexe" columns="IdSexe"/>
-      <index name="IFK_Artiste_Utilisateur" columns="IdUtilisateur"/>
-      <index name="IFK_Artiste_CaracPhysique" columns="IdCaracteristiquePhysique"/>
+      <index name="IFK_Artiste_Sexe" columns="Sexe_id"/>
+      <index name="IFK_Artiste_Utilisateur" columns="Utilisateur_id"/>
+      <index name="IFK_Artiste_CaracPhysique" columns="CaracteristiquePhysique_id"/>
     </indexes>
     <id name="id" type="bigint" column="Id">
       <generator strategy="IDENTITY"/>
     </id>
     <field name="datenaissance" type="datetime" column="DateNaissance" nullable="false"/>
-    <many-to-one field="idcaracteristiquephysique" target-entity="Caracteristiquephysique">
+    <many-to-one field="caracteristiquephysique" target-entity="Caracteristiquephysique">
       <join-columns>
-        <join-column name="IdCaracteristiquePhysique" referenced-column-name="Id"/>
+        <join-column name="CaracteristiquePhysique_id" referenced-column-name="Id"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="idutilisateur" target-entity="Utilisateur">
+    <many-to-one field="utilisateur" target-entity="Utilisateur">
       <join-columns>
-        <join-column name="IdUtilisateur" referenced-column-name="id"/>
+        <join-column name="Utilisateur_id" referenced-column-name="Id"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="idsexe" target-entity="Sexe">
+    <many-to-one field="sexe" target-entity="Sexe">
       <join-columns>
-        <join-column name="IdSexe" referenced-column-name="Id"/>
+        <join-column name="Sexe_id" referenced-column-name="Id"/>
       </join-columns>
     </many-to-one>
-    <many-to-many field="idmetier" target-entity="Metier" inversed-by="idartiste">
+    <many-to-many field="metier" target-entity="Metier" inversed-by="artiste">
       <join-table name="artiste_metier">
         <join-columns>
-          <join-column name="IdArtiste" referenced-column-name="Id"/>
+          <join-column name="Artiste_id" referenced-column-name="Id"/>
         </join-columns>
         <inverse-join-columns>
-          <join-column name="IdMetier" referenced-column-name="Id"/>
+          <join-column name="Metier_id" referenced-column-name="Id"/>
         </inverse-join-columns>
       </join-table>
     </many-to-many>

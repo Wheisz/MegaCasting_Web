@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Offre
  *
- * @ORM\Table(name="Offre", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Offre", columns={"Reference"})}, indexes={@ORM\Index(name="IFK_Offre_Domaine", columns={"IdDomaine"}), @ORM\Index(name="IFK_Offre_Metier", columns={"IdMetier"}), @ORM\Index(name="IFK_Offre_TypeContrat", columns={"IdTypeContrat"}), @ORM\Index(name="IFK_Offre_Annonceur", columns={"IdAnnonceur"})})
+ * @ORM\Table(name="Offre", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Offre", columns={"Reference"})}, indexes={@ORM\Index(name="IFK_Offre_Domaine", columns={"Domaine_id"}), @ORM\Index(name="IFK_Offre_Metier", columns={"Metier_id"}), @ORM\Index(name="IFK_Offre_TypeContrat", columns={"TypeContrat_id"}), @ORM\Index(name="IFK_Offre_Annonceur", columns={"Annonceur_id"})})
  * @ORM\Entity
  */
 class Offre
@@ -80,14 +80,14 @@ class Offre
     /**
      * @var string
      *
-     * @ORM\Column(name="DescriptionPoste", type="string", length=0, nullable=false)
+     * @ORM\Column(name="DescriptionPoste", type="text", length=16, nullable=false)
      */
     private $descriptionposte;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="DescriptionProfil", type="string", length=0, nullable=false)
+     * @ORM\Column(name="DescriptionProfil", type="text", length=16, nullable=false)
      */
     private $descriptionprofil;
 
@@ -110,40 +110,40 @@ class Offre
      *
      * @ORM\ManyToOne(targetEntity="Domaine")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdDomaine", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="Domaine_id", referencedColumnName="Id")
      * })
      */
-    private $iddomaine;
+    private $domaine;
 
     /**
      * @var \Metier
      *
      * @ORM\ManyToOne(targetEntity="Metier")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdMetier", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="Metier_id", referencedColumnName="Id")
      * })
      */
-    private $idmetier;
+    private $metier;
 
     /**
      * @var \Typecontrat
      *
      * @ORM\ManyToOne(targetEntity="Typecontrat")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdTypeContrat", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="TypeContrat_id", referencedColumnName="Id")
      * })
      */
-    private $idtypecontrat;
+    private $typecontrat;
 
     /**
      * @var \Annonceur
      *
      * @ORM\ManyToOne(targetEntity="Annonceur")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdAnnonceur", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="Annonceur_id", referencedColumnName="Id")
      * })
      */
-    private $idannonceur;
+    private $annonceur;
 
 
 
@@ -434,94 +434,94 @@ class Offre
     }
 
     /**
-     * Set iddomaine
+     * Set domaine
      *
-     * @param \MC\MegaCastingBundle\Entity\Domaine $iddomaine
+     * @param \MC\MegaCastingBundle\Entity\Domaine $domaine
      * @return Offre
      */
-    public function setIddomaine(\MC\MegaCastingBundle\Entity\Domaine $iddomaine = null)
+    public function setDomaine(\MC\MegaCastingBundle\Entity\Domaine $domaine = null)
     {
-        $this->iddomaine = $iddomaine;
+        $this->domaine = $domaine;
 
         return $this;
     }
 
     /**
-     * Get iddomaine
+     * Get domaine
      *
      * @return \MC\MegaCastingBundle\Entity\Domaine 
      */
-    public function getIddomaine()
+    public function getDomaine()
     {
-        return $this->iddomaine;
+        return $this->domaine;
     }
 
     /**
-     * Set idmetier
+     * Set metier
      *
-     * @param \MC\MegaCastingBundle\Entity\Metier $idmetier
+     * @param \MC\MegaCastingBundle\Entity\Metier $metier
      * @return Offre
      */
-    public function setIdmetier(\MC\MegaCastingBundle\Entity\Metier $idmetier = null)
+    public function setMetier(\MC\MegaCastingBundle\Entity\Metier $metier = null)
     {
-        $this->idmetier = $idmetier;
+        $this->metier = $metier;
 
         return $this;
     }
 
     /**
-     * Get idmetier
+     * Get metier
      *
      * @return \MC\MegaCastingBundle\Entity\Metier 
      */
-    public function getIdmetier()
+    public function getMetier()
     {
-        return $this->idmetier;
+        return $this->metier;
     }
 
     /**
-     * Set idtypecontrat
+     * Set typecontrat
      *
-     * @param \MC\MegaCastingBundle\Entity\Typecontrat $idtypecontrat
+     * @param \MC\MegaCastingBundle\Entity\Typecontrat $typecontrat
      * @return Offre
      */
-    public function setIdtypecontrat(\MC\MegaCastingBundle\Entity\Typecontrat $idtypecontrat = null)
+    public function setTypecontrat(\MC\MegaCastingBundle\Entity\Typecontrat $typecontrat = null)
     {
-        $this->idtypecontrat = $idtypecontrat;
+        $this->typecontrat = $typecontrat;
 
         return $this;
     }
 
     /**
-     * Get idtypecontrat
+     * Get typecontrat
      *
      * @return \MC\MegaCastingBundle\Entity\Typecontrat 
      */
-    public function getIdtypecontrat()
+    public function getTypecontrat()
     {
-        return $this->idtypecontrat;
+        return $this->typecontrat;
     }
 
     /**
-     * Set idannonceur
+     * Set annonceur
      *
-     * @param \MC\MegaCastingBundle\Entity\Annonceur $idannonceur
+     * @param \MC\MegaCastingBundle\Entity\Annonceur $annonceur
      * @return Offre
      */
-    public function setIdannonceur(\MC\MegaCastingBundle\Entity\Annonceur $idannonceur = null)
+    public function setAnnonceur(\MC\MegaCastingBundle\Entity\Annonceur $annonceur = null)
     {
-        $this->idannonceur = $idannonceur;
+        $this->annonceur = $annonceur;
 
         return $this;
     }
 
     /**
-     * Get idannonceur
+     * Get annonceur
      *
      * @return \MC\MegaCastingBundle\Entity\Annonceur 
      */
-    public function getIdannonceur()
+    public function getAnnonceur()
     {
-        return $this->idannonceur;
+        return $this->annonceur;
     }
 }
