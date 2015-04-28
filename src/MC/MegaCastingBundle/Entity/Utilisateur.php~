@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="Utilisateur", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Utilisateur_Pseudo", columns={"Username"})})
  * @ORM\Entity
  */
-class Utilisateur implements UserInterface
+class Utilisateur implements UserInterface, \Serializable
 {
     /**
      * @var integer
@@ -206,23 +206,25 @@ class Utilisateur implements UserInterface
         return $this->roles;
     }
     /**
-     * @see \Serializable::serialize()
+     * Serializes the content of the current User object
+     * @return string
      */
     public function serialize()
     {
-        return serialize(array(
-            $this->id,
-        ));
+        return \json_encode(
+                array($this->username, $this->password, $this->salt,
+                        $this->roles, $this->id));
     }
- 
+
     /**
-     * @see \Serializable::unserialize()
+     * Unserializes the given string in the current User object
+     * @param serialized
      */
     public function unserialize($serialized)
     {
-        list (
-            $this->id,
-        ) = unserialize($serialized);
+        list($this->username, $this->password, $this->salt,
+                        $this->roles, $this->id) = \json_decode(
+                $serialized);
     }
     
     public function eraseCredentials() 

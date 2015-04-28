@@ -62,7 +62,7 @@ class OffreController extends Controller
         $offres = $this->getDoctrine() 
                             ->getManager() 
                             ->getRepository('MCMegaCastingBundle:Offre')
-                            ->findBy(array('iddomaine' => $domaine->getId())); 
+                            ->findBy(array('domaine' => $domaine->getId())); 
         
         return $this->render('MCMegaCastingBundle:Offre:index.html.twig', 
                 array(  'liste_offres' => $offres,
