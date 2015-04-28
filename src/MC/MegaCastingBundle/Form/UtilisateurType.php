@@ -16,18 +16,23 @@ class UtilisateurType extends AbstractType
     {
         $builder
             ->add('username', 'text')
-            ->add('password', 'password')
         ;
         
         if ($options['register'] != '1') {
             $builder
-                    ->add('confirmPassword', 'password', array('mapped' => false))
+                    ->add('password', 'repeated', array(
+                            'type' => 'password',
+                            'invalid_message' => 'Les mots de passe doivent correspondre',
+                            'options' => array('required' => true),
+                            'first_options'  => array('label' => 'Mot de passe'),
+                            'second_options' => array('label' => 'Mot de passe (validation)'),))
                     ->add('email', 'email')
                     ->add('Inscription', 'submit');
         }
         else
         {
            $builder
+                   ->add('password', 'password')
                    ->add('Connexion', 'submit');
         }       
     }
