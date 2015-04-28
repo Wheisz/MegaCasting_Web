@@ -1,0 +1,61 @@
+<?php
+
+namespace MC\MegaCastingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Role
+ *
+ * @ORM\Table(name="Role")
+ * @ORM\Entity
+ */
+class Role
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Role", type="string", length=255, nullable=false)
+     */
+    private $role;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Utilisateur", inversedBy="role")
+     * @ORM\JoinTable(name="role_utilisateur",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="Role_id", referencedColumnName="Id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="Utilisateur_id", referencedColumnName="Id")
+     *   }
+     * )
+     */
+    private $utilisateur;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->utilisateur = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

@@ -3,11 +3,16 @@
 
 {% block body %}
 <div class="mainConteneur">
-    <div class="titre_view">
-        Espace personnel
-    </div>
     <div>
-        <a href="{{ path('mc_mega_casting_EspacePerso_Register')}}">Inscription</a>
+        <div class="titre_view">
+            Espace perso de {{ app.user.username }}    
+        </div>
+        <div>
+            Mail : {{ app.user.email }}
+        </div>
+        <div>
+            Mot de passe : {{ app.user.password }}
+        </div>     
     </div>
 </div>    
 {% endblock %}

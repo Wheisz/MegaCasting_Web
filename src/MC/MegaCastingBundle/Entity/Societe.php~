@@ -60,4 +60,129 @@ class Societe
     private $adresse;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set numerosiret
+     *
+     * @param integer $numerosiret
+     * @return Societe
+     */
+    public function setNumerosiret($numerosiret)
+    {
+        $this->numerosiret = $numerosiret;
+
+        return $this;
+    }
+
+    /**
+     * Get numerosiret
+     *
+     * @return integer 
+     */
+    public function getNumerosiret()
+    {
+        return $this->numerosiret;
+    }
+
+    /**
+     * Set raisonsociale
+     *
+     * @param string $raisonsociale
+     * @return Societe
+     */
+    public function setRaisonsociale($raisonsociale)
+    {
+        $this->raisonsociale = $raisonsociale;
+
+        return $this;
+    }
+
+    /**
+     * Get raisonsociale
+     *
+     * @return string 
+     */
+    public function getRaisonsociale()
+    {
+        return $this->raisonsociale;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Societe
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     * @return Societe
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return string 
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param \MC\MegaCastingBundle\Entity\Adresse $adresse
+     * @return Societe
+     */
+    public function setAdresse(\MC\MegaCastingBundle\Entity\Adresse $adresse = null)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return \MC\MegaCastingBundle\Entity\Adresse 
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
 }

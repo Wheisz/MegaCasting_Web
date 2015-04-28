@@ -21,6 +21,9 @@
                             <li><a href="{{ path('mc_mega_casting_Artiste')}}">Artiste</a></li>
                             <li><a href="{{ path('mc_mega_casting_EspacePro')}}">Espace Pro</a></li>
                             <li><a href="{{ path('mc_mega_casting_EspacePerso')}}">Espace Perso</a></li>
+                            {% if app.user %}
+                                <li id="logout"><a href="{{ path('logout')}}" >Déconnexion</a></li>
+                            {% endif %}
                         </ul>
                     </nav>
                 </div>

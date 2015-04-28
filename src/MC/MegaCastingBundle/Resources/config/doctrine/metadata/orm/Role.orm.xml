@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Role" table="Role">
+    <id name="id" type="bigint" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="Name" length="255" nullable="false"/>
+    <field name="role" type="string" column="Role" length="255" nullable="false"/>
+    <many-to-many field="utilisateur" target-entity="Utilisateur" inversed-by="role">
+      <join-table name="role_utilisateur">
+        <join-columns>
+          <join-column name="Role_id" referenced-column-name="Id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="Utilisateur_id" referenced-column-name="Id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

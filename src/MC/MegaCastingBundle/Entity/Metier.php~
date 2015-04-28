@@ -53,4 +53,93 @@ class Metier
         $this->artiste = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     * @return Metier
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * Get libelle
+     *
+     * @return string 
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * Set domaine
+     *
+     * @param \MC\MegaCastingBundle\Entity\Domaine $domaine
+     * @return Metier
+     */
+    public function setDomaine(\MC\MegaCastingBundle\Entity\Domaine $domaine = null)
+    {
+        $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    /**
+     * Get domaine
+     *
+     * @return \MC\MegaCastingBundle\Entity\Domaine 
+     */
+    public function getDomaine()
+    {
+        return $this->domaine;
+    }
+
+    /**
+     * Add artiste
+     *
+     * @param \MC\MegaCastingBundle\Entity\Artiste $artiste
+     * @return Metier
+     */
+    public function addArtiste(\MC\MegaCastingBundle\Entity\Artiste $artiste)
+    {
+        $this->artiste[] = $artiste;
+
+        return $this;
+    }
+
+    /**
+     * Remove artiste
+     *
+     * @param \MC\MegaCastingBundle\Entity\Artiste $artiste
+     */
+    public function removeArtiste(\MC\MegaCastingBundle\Entity\Artiste $artiste)
+    {
+        $this->artiste->removeElement($artiste);
+    }
+
+    /**
+     * Get artiste
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArtiste()
+    {
+        return $this->artiste;
+    }
 }

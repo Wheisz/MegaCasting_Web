@@ -1,0 +1,70 @@
+{# views/Security/register #}
+
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div class="mainConteneur">
+    <div class="titre_view">
+        INSCRIPTION - {{ type_user }}      
+    </div>
+    <div class="formulaire">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(form) }}
+
+        <div class="form-row">
+            {# Génération du label. #}
+            {{ form_label(form.username, "Login", {'label_attr': {'class': 'form-label'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.username) }}
+
+            {# Génération de l'input. #}
+            {{ form_widget(form.username, {'attr': {'class': 'form-widget'}}) }}
+        </div>
+        <div class="form-row">
+            {# Génération du label. #}
+            {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'form-label'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.password) }}
+
+            {# Génération de l'input. #}
+            {{ form_widget(form.password, {'attr': {'class': 'form-widget'}}) }}
+        </div>  
+        <div class="form-row">
+            {# Génération du label. #}
+            {{ form_label(form.confirmPassword, "Confirmation mot de passe", {'label_attr': {'class': 'form-label'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.confirmPassword) }}
+
+            {# Génération de l'input. #}
+            {{ form_widget(form.confirmPassword, {'attr': {'class': 'form-widget'}}) }}
+        </div> 
+        <div class="form-row">
+            {# Génération du label. #}
+            {{ form_label(form.email, "Email", {'label_attr': {'class': 'form-label'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.email) }}
+
+            {# Génération de l'input. #}
+            {{ form_widget(form.email, {'attr': {'class': 'form-widget'}}) }}
+        </div> 
+
+        {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+        {{ form_widget(form.Inscription) }}
+
+        {# Génération automatique des champs pas encore écrits.
+           Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+           et tous les champs cachés (type « hidden »). #}
+        {{ form_rest(form) }}
+
+        {# Fermeture de la balise <form> du formulaire HTML #}
+        {{ form_end(form) }}
+    </div>
+</div>    
+{% endblock %}
+

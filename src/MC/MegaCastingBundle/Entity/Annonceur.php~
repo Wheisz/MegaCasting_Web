@@ -35,4 +35,50 @@ class Annonceur
     private $utilisateur;
 
 
+
+    /**
+     * Set id
+     *
+     * @param \MC\MegaCastingBundle\Entity\Societe $id
+     * @return Annonceur
+     */
+    public function setId(\MC\MegaCastingBundle\Entity\Societe $id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return \MC\MegaCastingBundle\Entity\Societe 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \MC\MegaCastingBundle\Entity\Utilisateur $utilisateur
+     * @return Annonceur
+     */
+    public function setUtilisateur(\MC\MegaCastingBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \MC\MegaCastingBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
 }

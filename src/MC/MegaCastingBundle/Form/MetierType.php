@@ -16,8 +16,8 @@ class MetierType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('iddomaine')
-            ->add('idartiste')
+            ->add('domaine')
+            ->add('artiste')
         ;
     }
     

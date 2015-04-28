@@ -31,28 +31,12 @@ mc_mega_casting_Offre_Domaine:
 mc_mega_casting_EspacePro:
     path:     /EspacePro
     defaults: { _controller: MCMegaCastingBundle:EspacePro:index }
-    
-mc_mega_casting_EspacePro_Register:
-    path:     /EspacePro/Register
-    defaults: { _controller: MCMegaCastingBundle:EspacePro:register }
 
 
 # EspacePerso Route
 mc_mega_casting_EspacePerso:
     path:     /EspacePerso
     defaults: { _controller: MCMegaCastingBundle:EspacePerso:index }
-    
-mc_mega_casting_EspacePerso_Login:
-    path:     /EspacePerso/login
-    defaults: { _controller: MCMegaCastingBundle:EspacePerso:login }
-    
-mc_mega_casting_EspacePerso_Logout:
-    path:     /EspacePerso/logout
-    defaults: { _controller: MCMegaCastingBundle:EspacePerso:logout }
-    
-mc_mega_casting_EspacePerso_Register:
-    path:     /EspacePerso/Register
-    defaults: { _controller: MCMegaCastingBundle:EspacePerso:register }
 
 
 # Artiste Route
@@ -72,10 +56,19 @@ mc_mega_casting_Artiste_Domaine:
     
 
 # Utilisateur route
-mc_mega_casting_Utilisateur_Register:
-    path:     /Utilisateur/Register/{type_user}
-    defaults: { _controller: MCMegaCastingBundle:Utilisateur:add }    
+mc_mega_casting_register:
+    path:     /register/{type_user}
+    defaults: { _controller: MCMegaCastingBundle:Security:register }    
     
     
 
-   
+login:
+    pattern:   /login
+    defaults:  { _controller: MCMegaCastingBundle:Security:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout
+    

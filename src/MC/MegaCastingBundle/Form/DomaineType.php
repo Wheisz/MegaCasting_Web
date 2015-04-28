@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ArtisteType extends AbstractType
+class DomaineType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,11 +15,7 @@ class ArtisteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('utilisateur', new UtilisateurType())
-            ->add('datenaissance', 'date')
-            ->add('sexe', new SexeType())            
-            ->add('caracteristiquephysique', new CaracteristiquephysiqueType())
-            ->add('save', 'submit')
+            ->add('libelle')
         ;
     }
     
@@ -29,7 +25,7 @@ class ArtisteType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MC\MegaCastingBundle\Entity\Artiste'
+            'data_class' => 'MC\MegaCastingBundle\Entity\Domaine'
         ));
     }
 
@@ -38,6 +34,6 @@ class ArtisteType extends AbstractType
      */
     public function getName()
     {
-        return 'mc_megacastingbundle_artiste';
+        return 'mc_megacastingbundle_domaine';
     }
 }

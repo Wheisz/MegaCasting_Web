@@ -2,13 +2,15 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="Utilisateur" table="Utilisateur">
     <unique-constraints>
-      <unique-constraint name="UK_Utilisateur_Pseudo" columns="Pseudo"/>
+      <unique-constraint name="UK_Utilisateur_Pseudo" columns="Username"/>
     </unique-constraints>
     <id name="id" type="bigint" column="Id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="pseudo" type="string" column="Pseudo" length="255" nullable="false"/>
-    <field name="motdepasse" type="string" column="MotDePasse" length="255" nullable="false"/>
-    <field name="email" type="string" column="Email" length="255" nullable="false"/>
+    <field name="username" type="string" column="Username" length="255" nullable="false"/>
+    <field name="password" type="string" column="Password" length="255" nullable="false"/>
+    <field name="salt" type="string" column="Salt" length="255" nullable="true"/>
+    <field name="email" type="string" column="Email" length="255" nullable="true"/>
+    <many-to-many field="role" target-entity="Role" mapped-by="utilisateur"/>
   </entity>
 </doctrine-mapping>

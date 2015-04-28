@@ -204,19 +204,43 @@ CREATE TABLE CaracteristiquePhysique
 )
 GO
 
+CREATE TABLE Role
+(
+	Id BIGINT NOT NULL IDENTITY,
+	Name NVARCHAR(255) NOT NULL,
+	Role NVARCHAR(255) NOT NULL,
+	CONSTRAINT PK_Role PRIMARY KEY (Id)
+)
+GO
 
 CREATE TABLE Utilisateur
 (
 	Id BIGINT NOT NULL IDENTITY,
-	Pseudo NVARCHAR(255) NOT NULL,
-	MotDePasse NVARCHAR(255) NOT NULL,
-	Email NVARCHAR(255) NOT NULL,
+	Username NVARCHAR(255) NOT NULL,
+	Password NVARCHAR(255) NOT NULL,
+	Salt NVARCHAR(255) NULL,
+	Email NVARCHAR(255) NULL,
 	CONSTRAINT PK_Utilisateur PRIMARY KEY (Id),
-	CONSTRAINT UK_Utilisateur_Pseudo UNIQUE (Pseudo)
+	CONSTRAINT UK_Utilisateur_Pseudo UNIQUE (Username),
+)
+GO
+
+CREATE TABLE Role_Utilisateur
+(
+	Role_id BIGINT NOT NULL,
+	Utilisateur_id BIGINT NOT NULL,
+	CONSTRAINT PK_Role_Utilisateur PRIMARY KEY (Role_id, Utilisateur_id),
+	CONSTRAINT FK_Role_Utilisateur_IdRole FOREIGN KEY (Role_id) REFERENCES Role (Id),
+	CONSTRAINT FK_Role_Utilisateur_IdUtilisateur FOREIGN KEY (Utilisateur_id) REFERENCES Utilisateur (id)
 )
 GO
 
 
+CREATE INDEX IFK_Role_Utilisateur_IdRole ON Role_Utilisateur (Role_id)
+GO
+
+CREATE INDEX IFK_Role_Utilisateur_IdUtilisateur ON Role_Utilisateur (Utilisateur_id)
+GO
 
 CREATE TABLE Artiste
 (

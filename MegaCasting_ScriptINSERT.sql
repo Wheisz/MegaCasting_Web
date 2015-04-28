@@ -31,9 +31,23 @@ values
 	('Coach', 2),
 	('Acteur', 1);
 
-insert into Utilisateur (Pseudo, MotDePasse, Email)
+insert into Role (Name, Role)
 values
-	('Wheisz', 'yoyo', 'lazeriz@hotmail.fr');
+	('ROLE_ARTISTE', 'ROLE_ARTISTE'),
+	('ROLE_ANNONCEUR', 'ROLE_ANNONCEUR'),
+	('ROLE_ADMIN', 'ROLE_ADMIN');
+
+insert into Utilisateur (Username, Password, Email)
+values
+	('Wheisz', 'yoyo', 'lazeriz@hotmail.fr'),
+	('Kbouss', 'bouss', 'bouss@bouss.fr'),
+	('admin', 'admin', 'admin@admin.fr');
+
+insert into Role_Utilisateur (Role_id, Utilisateur_id)
+values
+	(1, 1),
+	(2, 2),
+	(3, 3);
 
 insert into CaracteristiquePhysique (Poids,Taille,CouleurYeux,CouleurCheveux)
 values 

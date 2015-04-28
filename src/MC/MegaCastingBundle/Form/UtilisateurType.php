@@ -15,11 +15,21 @@ class UtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('pseudo', 'text')
-            ->add('motdepasse', 'password')
-            ->add('email', 'email')
-            ->add('save', 'submit')
+            ->add('username', 'text')
+            ->add('password', 'password')
         ;
+        
+        if ($options['register'] != '1') {
+            $builder
+                    ->add('confirmPassword', 'password', array('mapped' => false))
+                    ->add('email', 'email')
+                    ->add('Inscription', 'submit');
+        }
+        else
+        {
+           $builder
+                   ->add('Connexion', 'submit');
+        }       
     }
     
     /**
@@ -28,7 +38,8 @@ class UtilisateurType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MC\MegaCastingBundle\Entity\Utilisateur'
+            'data_class' => 'MC\MegaCastingBundle\Entity\Utilisateur',
+            'register' => '0',
         ));
     }
 
