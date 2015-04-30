@@ -3,16 +3,46 @@
 
 {% block body %}
 <div class="mainConteneur">
-    <div>
-        <div class="titre_view">
-            Espace perso de {{ app.user.username }}    
+    <div class="titre_view">
+        Espace perso de    
+    </div>
+    <div id="artiste">
+        <div class="artiste_picture">
+            <span>
+            {% include 'MCMegaCastingBundle:Artiste:photoProfile.html.twig' %} 
+            </span>
+            <span class="lien_modifier">
+                    <a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'photo-profil'}) }}">
+                        Modifier</a>
+            </span>
         </div>
-        <div>
-            Mail : {{ app.user.email }}
-        </div>
-        <div>
-            Mot de passe : {{ app.user.password }}
-        </div>     
+        <div class="artiste_info">
+            <div class="info_compte">
+                <span class="sous-titre">Informations du compte</span>
+                <span>Mail : </span>
+                <span>Mot de passe : </span>
+                <span class="lien_modifier">
+                    <a href="{{ path('mc_mega_casting_user_update') }}">
+                        Modifier</a>
+                </span>
+            </div>
+            <div class="artiste_info_generale">
+                <span class="sous-titre">Informations générales</span>
+                <span class="artiste_name">Pseudo : {{ artiste.utilisateur.username }}</span> 
+                {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
+                <span class="artiste_age">Date de naissance : {{ artiste.dateNaissance|date("m/d/Y") }}</span>  
+                <span class="artiste_sexe">Sexe : {{ artiste.sexe.libelle }}</span>
+                <span class="lien_modifier">
+                    <a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'general'}) }}">
+                        Modifier</a>
+                </span>
+            </div>   
+            <div class="artiste_info_physique">
+                <span class="sous-titre">Caractéristiques physiques</span>
+                {% include 'MCMegaCastingBundle:CaracPhysique:view.html.twig' %}
+                <span class="lien_modifier"><a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'caracPhysique'}) }}">Modifier</a></span>
+            </div>
+        </div>        
     </div>
 </div>    
 {% endblock %}

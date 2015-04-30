@@ -6,7 +6,7 @@
             {% set photoProfileFound = '0' %}
                 {% for photo in artiste.Photos %}
                     {% if photo.IsProfile == 1 %}
-                        <img  src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.utilisateur.username ~ '/' ~ photo.libelle)}}" height="auto" width="100px" alt="Artiste" />
+                        <img  src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.utilisateur.username ~ '/' ~ photo.url)}}" height="auto" width="100px" alt="Artiste" />
                     {% set photoProfileFound = '1' %}
                     {% endif %}
                 {% endfor %}

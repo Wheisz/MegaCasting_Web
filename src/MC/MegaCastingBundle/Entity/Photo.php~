@@ -24,9 +24,9 @@ class Photo
     /**
      * @var string
      *
-     * @ORM\Column(name="Libelle", type="string", length=255, nullable=false)
+     * @ORM\Column(name="Url", type="string", length=255, nullable=false)
      */
-    private $libelle;
+    private $url;
 
     /**
      * @var integer
@@ -34,6 +34,13 @@ class Photo
      * @ORM\Column(name="IsProfile", type="integer", nullable=true)
      */
     private $isprofile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Alt", type="string", length=255, nullable=true)
+     */
+    private $alt;
 
     /**
      * @var \Artiste
@@ -46,83 +53,4 @@ class Photo
     private $artiste;
 
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set libelle
-     *
-     * @param string $libelle
-     * @return Photo
-     */
-    public function setLibelle($libelle)
-    {
-        $this->libelle = $libelle;
-
-        return $this;
-    }
-
-    /**
-     * Get libelle
-     *
-     * @return string 
-     */
-    public function getLibelle()
-    {
-        return $this->libelle;
-    }
-
-    /**
-     * Set isprofile
-     *
-     * @param integer $isprofile
-     * @return Photo
-     */
-    public function setIsprofile($isprofile)
-    {
-        $this->isprofile = $isprofile;
-
-        return $this;
-    }
-
-    /**
-     * Get isprofile
-     *
-     * @return integer 
-     */
-    public function getIsprofile()
-    {
-        return $this->isprofile;
-    }
-
-    /**
-     * Set artiste
-     *
-     * @param \MC\MegaCastingBundle\Entity\Artiste $artiste
-     * @return Photo
-     */
-    public function setArtiste(\MC\MegaCastingBundle\Entity\Artiste $artiste = null)
-    {
-        $this->artiste = $artiste;
-
-        return $this;
-    }
-
-    /**
-     * Get artiste
-     *
-     * @return \MC\MegaCastingBundle\Entity\Artiste 
-     */
-    public function getArtiste()
-    {
-        return $this->artiste;
-    }
 }

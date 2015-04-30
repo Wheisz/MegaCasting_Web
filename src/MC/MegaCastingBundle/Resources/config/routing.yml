@@ -39,7 +39,7 @@ mc_mega_casting_EspacePerso:
     defaults: { _controller: MCMegaCastingBundle:EspacePerso:index }
     
 mc_mega_casting_EspacePerso_update:
-    path:     /EspacePerso/update
+    path:     /EspacePerso/modifier/{type_info}
     defaults: { _controller: MCMegaCastingBundle:EspacePerso:update }
 
 
@@ -62,7 +62,11 @@ mc_mega_casting_Artiste_Domaine:
 # Utilisateur route
 mc_mega_casting_register:
     path:     /register/{type_user}
-    defaults: { _controller: MCMegaCastingBundle:Security:register }    
+    defaults: { _controller: MCMegaCastingBundle:Security:register }
+    
+mc_mega_casting_user_update:
+    path:     /modifier-compte
+    defaults: { _controller: MCMegaCastingBundle:Security:update }
     
     
 

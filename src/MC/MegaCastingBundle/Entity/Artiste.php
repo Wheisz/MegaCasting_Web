@@ -227,14 +227,14 @@ class Artiste
     }
 
     /**
-     * Add photos
+     * Add photo
      *
-     * @param \MC\MegaCastingBundle\Entity\Photo $photos
+     * @param \MC\MegaCastingBundle\Entity\Photo $photo
      * @return Artiste
      */
-    public function addPhoto(\MC\MegaCastingBundle\Entity\Photo $photos)
+    public function addPhoto(\MC\MegaCastingBundle\Entity\Photo $photo)
     {
-        $this->photos[] = $photos;
+        $this->photos[] = $photo;
 
         return $this;
     }
@@ -242,11 +242,11 @@ class Artiste
     /**
      * Remove photos
      *
-     * @param \MC\MegaCastingBundle\Entity\Photo $photos
+     * @param \MC\MegaCastingBundle\Entity\Photo $photo
      */
-    public function removePhoto(\MC\MegaCastingBundle\Entity\Photo $photos)
+    public function removePhoto(\MC\MegaCastingBundle\Entity\Photo $photo)
     {
-        $this->photos->removeElement($photos);
+        $this->photos->removeElement($photo);
     }
 
     /**

@@ -299,8 +299,9 @@ GO
 CREATE TABLE Photo
 (
 	Id BIGINT NOT NULL IDENTITY,
-	Libelle NVARCHAR(255) NOT NULL,
-	IsProfile INT,
+	Url NVARCHAR(255) NOT NULL,
+	Alt NVARCHAR(255) NULL,
+	IsProfile INT NULL,
 	Artiste_id BIGINT,
 	CONSTRAINT PK_Photo PRIMARY KEY (Id),
 	CONSTRAINT FK_Photo_Artiste FOREIGN KEY (Artiste_id) REFERENCES Artiste (Id)
@@ -310,3 +311,5 @@ GO
 
 CREATE INDEX IFK_Photo_Artiste ON Photo (Artiste_id)
 GO
+
+

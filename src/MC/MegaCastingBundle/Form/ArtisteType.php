@@ -13,20 +13,27 @@ class ArtisteType extends AbstractType
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder
+    {   
+        if ($options['type_info'] == 'photo-profil') {
+            
+        }
+        else if ($options['type_info'] == 'general') {
+            $builder
                 ->add('datenaissance', 'date')
                 ->add('sexe', 'entity', array(
-                        'class'    => 'MCMegaCastingBundle:Sexe',
-                        'property' => 'libelle',
-                        'multiple' => true))          
-                ->add('caracteristiquephysique', new CaracteristiquephysiqueType())                
+                    'class'    => 'MCMegaCastingBundle:Sexe',
+                    'property' => 'libelle',
+                    'multiple' => true))
                 ->add('metier', 'entity', array(
                         'class'    => 'MCMegaCastingBundle:Metier',
                         'property' => 'libelle',
-                        'multiple' => true))
-                ->add('save', 'submit')
-        ;
+                        'multiple' => true));
+        }
+        else if ($options['type_info'] == 'caracPhysique') {
+            $builder->add('caracteristiquephysique', new CaracteristiquephysiqueType());
+        }
+        
+        $builder->add('Sauvegarder', 'submit');
     }
     
     /**
@@ -35,7 +42,8 @@ class ArtisteType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MC\MegaCastingBundle\Entity\Artiste'
+            'data_class' => 'MC\MegaCastingBundle\Entity\Artiste',
+            'type_info' => '0',
         ));
     }
 

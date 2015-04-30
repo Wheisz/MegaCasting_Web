@@ -288,7 +288,7 @@ header{
 .artiste .artiste_info{
     padding: 10px 10px 3px 10px;
 }
-.artiste_name,.artiste_age, .artiste_domaine, .artiste_taille, .artiste_poids, .artiste_couleurCheveux, .artiste_couleurYeux{
+.artiste_name,.artiste_age, .artiste_sexe, .artiste_domaine, .artiste_taille, .artiste_poids, .artiste_couleurCheveux, .artiste_couleurYeux{
     display: block;
 }
 
@@ -440,7 +440,7 @@ footer .footer-right{
 
 #artiste .artiste_info{
     display: inline-block;
-    border-left: 1px solid #731443;
+    border-left: 1px solid #731443;    
     border-right: 1px solid #731443;
     padding: 5px;
 }
@@ -464,18 +464,25 @@ footer .footer-right{
     border: 1px solid #731443;
 }
 
-#artiste .artiste_info .artiste_info_generale{
+#artiste .artiste_info .artiste_info_generale, .info_compte{
     float: left;
     display: inline-block;
     width: 100%;
     padding-bottom: 5px;
 }
 
+#artiste .artiste_info .info_compte span {
+    display: block;
+}
+
+#artiste .artiste_info .info_compte .lien_modifier{
+    display: inline-block;
+}
+
 #artiste .artiste_info .artiste_info_physique{
     float: left;
     display: block;
     width: 100%;
-    padding-top: 5px;
 }
 
 .sous-titre{
@@ -484,6 +491,7 @@ footer .footer-right{
     color: white;
     width: 100%;
     display: block;
+    margin-bottom: 3px;
 }
 
 #formulaire {
@@ -504,4 +512,14 @@ footer .footer-right{
 
 .form-widget {
     
+}
+
+/*
+* Lien bouton modifier
+*/
+.lien_modifier {
+    background-color: #731443;
+    padding: 3px;
+    margin-top: 5px;
+    display: inline-block;
 }

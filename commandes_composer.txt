@@ -8,4 +8,4 @@ php app/console assets:install --symlink
 
 
 // Création de formulaire
-php app/console doctrine:generate:form MCMegaCastingBundle:Utilisateur
+php app/console doctrine:generate:form MCMegaCastingBundle:Photo
