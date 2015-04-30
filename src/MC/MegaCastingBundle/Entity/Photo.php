@@ -38,7 +38,7 @@ class Photo
     /**
      * @var \Artiste
      *
-     * @ORM\ManyToOne(targetEntity="Artiste")
+     * @ORM\ManyToOne(targetEntity="Artiste", inversedBy="photos")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Artiste_id", referencedColumnName="Id")
      * })

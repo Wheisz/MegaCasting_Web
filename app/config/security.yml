@@ -30,5 +30,5 @@ security:
                 target: /
 
     access_control:
-        - { path: ^/EspacePerso, roles: ROLE_ARTISTE }
-        - { path: ^/EspacePro, roles: ROLE_ANNONCEUR }
+        #- { path: ^/EspacePerso, roles: ROLE_ARTISTE }
+        #- { path: ^/EspacePro, roles: ROLE_ANNONCEUR }

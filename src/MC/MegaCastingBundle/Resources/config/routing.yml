@@ -37,6 +37,10 @@ mc_mega_casting_EspacePro:
 mc_mega_casting_EspacePerso:
     path:     /EspacePerso
     defaults: { _controller: MCMegaCastingBundle:EspacePerso:index }
+    
+mc_mega_casting_EspacePerso_update:
+    path:     /EspacePerso/update
+    defaults: { _controller: MCMegaCastingBundle:EspacePerso:update }
 
 
 # Artiste Route

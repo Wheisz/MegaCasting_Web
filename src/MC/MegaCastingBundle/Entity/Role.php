@@ -39,7 +39,7 @@ class Role implements RoleInterface, \Serializable
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Utilisateur", inversedBy="role")
+     * @ORM\ManyToMany(targetEntity="Utilisateur", inversedBy="roles")
      * @ORM\JoinTable(name="role_utilisateur",
      *   joinColumns={
      *     @ORM\JoinColumn(name="Role_id", referencedColumnName="Id")

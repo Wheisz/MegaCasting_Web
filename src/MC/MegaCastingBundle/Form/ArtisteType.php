@@ -15,11 +15,17 @@ class ArtisteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('utilisateur', new UtilisateurType())
-            ->add('datenaissance', 'date')
-            ->add('sexe', new SexeType())            
-            ->add('caracteristiquephysique', new CaracteristiquephysiqueType())
-            ->add('save', 'submit')
+                ->add('datenaissance', 'date')
+                ->add('sexe', 'entity', array(
+                        'class'    => 'MCMegaCastingBundle:Sexe',
+                        'property' => 'libelle',
+                        'multiple' => true))          
+                ->add('caracteristiquephysique', new CaracteristiquephysiqueType())                
+                ->add('metier', 'entity', array(
+                        'class'    => 'MCMegaCastingBundle:Metier',
+                        'property' => 'libelle',
+                        'multiple' => true))
+                ->add('save', 'submit')
         ;
     }
     

@@ -3,10 +3,9 @@
 namespace MC\MegaCastingBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use MC\MegaCastingBundle\Entity\Utilisateur;
-use MC\MegaCastingBundle\Form\UtilisateurType;
+use MC\MegaCastingBundle\Entity\Artiste;
+use MC\MegaCastingBundle\Form\ArtisteType;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -30,5 +29,20 @@ class EspacePersoController extends Controller
     {
         $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_Utilisateur_Register', array('type_user' => 'Artiste')));
             return $response;
+    }
+    
+    public function updateAction(Request $request)
+    {
+        $artiste = new Artiste();
+        $form = $this->get('form.factory')->create(new ArtisteType(), $artiste);
+
+        if ($form->handleRequest($request)->isValid()) 
+        {
+                        
+        }
+
+        return $this->render('MCMegaCastingBundle:EspacePerso:update.html.twig', array(
+          'form' => $form->createView(), 
+        ));
     }
 }

@@ -15,9 +15,11 @@ class MetierType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('libelle')
-            ->add('domaine')
-            ->add('artiste')
+                ->add('libelle', 'text')
+                ->add('domaine', 'entity', array(
+                        'class'    => 'MCMegaCastingBundle:Domaine',
+                        'property' => 'libelle',
+                        'multiple' => true))
         ;
     }
     
