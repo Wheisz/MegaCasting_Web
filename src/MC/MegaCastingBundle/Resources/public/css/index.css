@@ -511,7 +511,7 @@ footer .footer-right{
 }
 
 .form-widget {
-    
+    display: inline-block;
 }
 
 /*
@@ -522,4 +522,8 @@ footer .footer-right{
     padding: 3px;
     margin-top: 5px;
     display: inline-block;
+}
+
+.bouton {
+    background-color: #731443;
 }

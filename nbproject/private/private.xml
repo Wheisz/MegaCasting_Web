@@ -6,9 +6,12 @@
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/EspacePersoController.php</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/config/routing.yml</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Form/ArtisteType.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Artiste.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Form/PhotoType.php</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/app/config/security.yml</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/SecurityController.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Form/MetierType.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Photo.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/public/css/index.css</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/EspacePerso/index.html.twig</file>
         </group>
     </open-files>
 </project-private>

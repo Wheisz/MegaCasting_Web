@@ -21,7 +21,7 @@ class SecurityController extends Controller
         $user = new Utilisateur();
         
         $form = $this->get('form.factory')->create(new UtilisateurType(), $user, 
-                array('register' => '1', 'action' => 'login_check'));        
+                array('type' => 'login', 'action' => 'login_check'));        
         
         // Lien requete - formulaire
         $form->handleRequest($request);
@@ -54,7 +54,7 @@ class SecurityController extends Controller
     {
         $user = new Utilisateur();
         $form = $this->get('form.factory')->create(new UtilisateurType(), $user, 
-                array('register' => '0'));
+                array('type' => 'register'));
 
         if ($form->handleRequest($request)->isValid()) 
         {
@@ -97,6 +97,36 @@ class SecurityController extends Controller
 
         return $this->render('MCMegaCastingBundle:Security:register.html.twig', array(
           'form' => $form->createView(), 'type_user' => $type_user
+        ));
+    }
+    
+    public function updateAction(Request $request)
+    {
+        $manager = $this->getDoctrine()->getManager();
+        
+        $user = $manager
+                    ->getRepository('MCMegaCastingBundle:Utilisateur')
+                    ->find(1);
+        
+        $form = $this->get('form.factory')->create(new UtilisateurType(), $user, 
+                array('type' => 'register'));
+        
+        if ($form->handleRequest($request)->isValid()) 
+        {
+            $factory = $this->get('security.encoder_factory');
+            $encoder = $factory->getEncoder($user);
+            $password = $encoder->encodePassword('ryanpass', $user->getSalt());
+            $user->setPassword($password);
+            
+            $em->persist($user);
+            $em->flush();
+            
+            $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_EspacePerso'));
+            return $response;
+        }
+
+        return $this->render('MCMegaCastingBundle:Security:update.html.twig', array(
+          'form' => $form->createView(),
         ));
     }
 }

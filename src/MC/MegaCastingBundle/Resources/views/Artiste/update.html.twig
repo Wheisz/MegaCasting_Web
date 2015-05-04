@@ -1,0 +1,33 @@
+{# views/Artiste/update #}
+
+<div class="sous-titre">Informations générales</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.datenaissance, "Date de naissance", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.datenaissance) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.datenaissance, {'attr': {'class': 'form-widget'}}) }}
+</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.sexe, "Sexe", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.sexe) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.sexe, {'attr': {'class': 'form-widget'}}) }}
+</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.metier, "Métier", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.metier) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.metier, {'attr': {'class': 'form-widget'}}) }}
+</div>

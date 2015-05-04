@@ -15,10 +15,10 @@ class CaracteristiquephysiqueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('taille')
-            ->add('poids')
-            ->add('couleuryeux')
-            ->add('couleurcheveux')
+            ->add('taille', 'text')
+            ->add('poids', 'text')
+            ->add('couleuryeux', 'text')
+            ->add('couleurcheveux', 'text')
         ;
     }
     

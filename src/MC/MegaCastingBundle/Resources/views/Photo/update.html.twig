@@ -1,0 +1,13 @@
+{# views/Photo/update #}
+
+<div class="sous-titre">Photo de profil</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.file, "Image", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.file) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.file, {'attr': {'class': 'form-widget'}}) }}
+</div>

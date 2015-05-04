@@ -30,7 +30,7 @@ class ArtisteController extends Controller
         
         $artiste = $manager
                 ->getRepository('MCMegaCastingBundle:Artiste')
-                ->findOneBy(array('id' => $id_artiste));
+                ->find($id_artiste);
         
         $liste_domaines = $manager
                             ->getRepository('MCMegaCastingBundle:Domaine')

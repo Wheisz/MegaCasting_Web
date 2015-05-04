@@ -1,0 +1,43 @@
+{# views/CaracPhysique/update #}
+
+<div class="sous-titre">Caractéristiques physiques</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.caracteristiquephysique.taille, "Taille (cm)", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.caracteristiquephysique.taille) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.caracteristiquephysique.taille, {'attr': {'class': 'form-widget'}}) }}
+</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.caracteristiquephysique.poids, "Poids (Kg)", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.caracteristiquephysique.poids) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.caracteristiquephysique.poids, {'attr': {'class': 'form-widget'}}) }}
+</div> 
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.caracteristiquephysique.couleuryeux, "Couleur des yeux", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.caracteristiquephysique.couleuryeux) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.caracteristiquephysique.couleuryeux, {'attr': {'class': 'form-widget'}}) }}
+</div> 
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.caracteristiquephysique.couleurcheveux, "Couleur des cheveux", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.caracteristiquephysique.couleurcheveux) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.caracteristiquephysique.couleurcheveux, {'attr': {'class': 'form-widget'}}) }}
+</div> 

@@ -23,7 +23,7 @@ class ArtisteType extends AbstractType
                 ->add('sexe', 'entity', array(
                     'class'    => 'MCMegaCastingBundle:Sexe',
                     'property' => 'libelle',
-                    'multiple' => true))
+                    'multiple' => false))
                 ->add('metier', 'entity', array(
                         'class'    => 'MCMegaCastingBundle:Metier',
                         'property' => 'libelle',

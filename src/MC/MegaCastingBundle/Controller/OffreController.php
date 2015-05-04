@@ -34,7 +34,7 @@ class OffreController extends Controller
         
         $offre = $manager
                 ->getRepository('MCMegaCastingBundle:Offre')
-                ->findOneBy(array('id' => $id_offre));
+                ->find($id_offre);
         
         return $this->render('MCMegaCastingBundle:Offre:view.html.twig', 
                 array('offre' => $offre));

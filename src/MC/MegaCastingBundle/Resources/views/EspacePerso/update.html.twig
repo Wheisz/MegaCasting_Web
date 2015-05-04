@@ -7,7 +7,34 @@
         Espace perso - Mise à jour   
     </div>
     <div>
-        {{ form(form) }}
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(form) }}        
+        
+        <div id="artiste">
+            <div class="artiste_info">
+                {% if type_info == "caracPhysique" %}   
+                    {% include 'MCMegaCastingBundle:CaracPhysique:update.html.twig' %} 
+                {% elseif type_info == "photo-profil" %}
+                    {% include 'MCMegaCastingBundle:Photo:update.html.twig' %} 
+                {% elseif type_info == "general" %}
+                    {% include 'MCMegaCastingBundle:Artiste:update.html.twig' %} 
+                {% endif %}
+                <div class="form-row">
+                    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+                    {{ form_widget(form.Sauvegarder, {'attr': {'class': 'bouton'}}) }}
+                </div>
+            </div>
+        </div>        
+
+        {# Génération automatique des champs pas encore écrits.
+           Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+           et tous les champs cachés (type « hidden »). #}
+        {{ form_rest(form) }}
+
+        {# Fermeture de la balise <form> du formulaire HTML #}
+        {{ form_end(form) }}
     </div>
 </div>    
 {% endblock %}

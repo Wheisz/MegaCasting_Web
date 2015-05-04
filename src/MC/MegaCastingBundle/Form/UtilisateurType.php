@@ -14,12 +14,9 @@ class UtilisateurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('username', 'text')
-        ;
-        
-        if ($options['register'] != '1') {
+        if ($options['type'] == 'register') {
             $builder
+                    ->add('username', 'text')
                     ->add('password', 'repeated', array(
                             'type' => 'password',
                             'invalid_message' => 'Les mots de passe doivent correspondre',
@@ -29,12 +26,25 @@ class UtilisateurType extends AbstractType
                     ->add('email', 'email')
                     ->add('Inscription', 'submit');
         }
-        else
+        else if ($options['type'] == 'login')
         {
            $builder
+                   ->add('username', 'text')
                    ->add('password', 'password')
                    ->add('Connexion', 'submit');
-        }       
+        }        
+        else if ($options['type'] == 'update') {
+            $builder
+                    ->add('email', 'email')
+                    ->add('password', 'repeated', array(
+                            'type' => 'password',
+                            'invalid_message' => 'Les mots de passe doivent correspondre',
+                            'options' => array('required' => true),
+                            'first_options'  => array('label' => 'Mot de passe'),
+                            'second_options' => array('label' => 'Mot de passe (validation)'),))
+                    ->add('Sauvegarder', 'submit')
+                    ;            
+        }
     }
     
     /**
@@ -44,7 +54,7 @@ class UtilisateurType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'MC\MegaCastingBundle\Entity\Utilisateur',
-            'register' => '0',
+            'type' => '',
         ));
     }
 
