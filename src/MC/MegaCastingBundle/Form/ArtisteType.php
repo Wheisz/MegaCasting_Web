@@ -19,15 +19,24 @@ class ArtisteType extends AbstractType
         }
         else if ($options['type_info'] == 'general') {
             $builder
-                ->add('datenaissance', 'date')
+                ->add('datenaissance', 'date', array(
+                    'empty_value' => array('year' => 'Année', 'month' => 'Mois', 'day' => 'Jour'),
+                    'years' => range(date('Y') - 100, date('Y')),
+                    'required' => true,
+                    ))
                 ->add('sexe', 'entity', array(
                     'class'    => 'MCMegaCastingBundle:Sexe',
                     'property' => 'libelle',
-                    'multiple' => false))
+                    'multiple' => false,
+                    'required' => false,
+                    ))
                 ->add('metier', 'entity', array(
                         'class'    => 'MCMegaCastingBundle:Metier',
                         'property' => 'libelle',
-                        'multiple' => true));
+                        'multiple' => true,
+                    'required' => false,
+                    ))
+                ;
         }
         else if ($options['type_info'] == 'caracPhysique') {
             $builder->add('caracteristiquephysique', new CaracteristiquephysiqueType());

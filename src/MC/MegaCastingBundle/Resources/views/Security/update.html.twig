@@ -1,1 +1,78 @@
 {# views/Security/update #}
+
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div class="mainConteneur">
+    <div class="titre_view">
+        Espace perso - Mise à jour      
+    </div>
+    <div>
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(form) }}
+        <div id="artiste">
+            <div class="artiste_info">
+                <div class="sous-titre">Informations du compte</div>
+                    {% for error in errors %}
+                    <div class="form-row">
+                        <div class="form-error">{{ error }}</div>                  
+                    </div>
+                    {% endfor %}
+                <div class="form-row">
+                    {# Génération du label. #}
+                    {{ form_label(form.username, "Login", {'label_attr': {'class': 'form-label'}}) }}
+
+                    <div class="form-error">{{ form_errors(form.username) }}</div>                    
+
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.username, {'attr': {'class': 'form-widget'}}) }}
+                </div>
+                <div class="form-row">
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.password.first) }}
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.password.second) }}
+
+                    {# Génération du label. #}
+                    {{ form_label(form.password.first, "Mot de passe", {'label_attr': {'class': 'form-label'}}) }}
+
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.password.first, {'attr': {'class': 'form-widget'}}) }}
+                </div>  
+                <div class="form-row">
+                    {# Génération du label. #}
+                    {{ form_label(form.password.second, "Confirmation mot de passe", {'label_attr': {'class': 'form-label'}}) }}
+
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.password.second, {'attr': {'class': 'form-widget'}}) }}
+                </div> 
+                <div class="form-row">
+                    {# Génération du label. #}
+                    {{ form_label(form.email, "Email", {'label_attr': {'class': 'form-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.email) }}
+
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-widget'}}) }}
+                </div> 
+                <div class="form-row">
+                    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+                    {{ form_widget(form.Sauvegarder, {'attr': {'class': 'bouton'}}) }}
+                </div>
+            </div>
+        </div>
+                
+
+        {# Génération automatique des champs pas encore écrits.
+           Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+           et tous les champs cachés (type « hidden »). #}
+        {{ form_rest(form) }}
+
+        {# Fermeture de la balise <form> du formulaire HTML #}
+        {{ form_end(form) }}
+    </div>
+</div>    
+{% endblock %}

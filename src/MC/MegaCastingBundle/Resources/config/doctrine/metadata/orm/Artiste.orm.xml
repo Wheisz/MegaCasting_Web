@@ -9,7 +9,7 @@
     <id name="id" type="bigint" column="Id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="datenaissance" type="datetime" column="DateNaissance" nullable="false"/>
+    <field name="datenaissance" type="datetime" column="DateNaissance" nullable="true"/>
     <many-to-one field="caracteristiquephysique" target-entity="Caracteristiquephysique">
       <join-columns>
         <join-column name="CaracteristiquePhysique_id" referenced-column-name="Id"/>

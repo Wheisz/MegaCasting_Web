@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Artiste
  *
  * @ORM\Table(name="Artiste", indexes={@ORM\Index(name="IFK_Artiste_Sexe", columns={"Sexe_id"}), @ORM\Index(name="IFK_Artiste_Utilisateur", columns={"Utilisateur_id"}), @ORM\Index(name="IFK_Artiste_CaracPhysique", columns={"CaracteristiquePhysique_id"})})
- * @ORM\Entity(repositoryClass="MC\MegaCastingBundle\Repository\ArtisteRepository")
+ * @ORM\Entity
  */
 class Artiste
 {
@@ -24,7 +24,7 @@ class Artiste
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="DateNaissance", type="datetime", nullable=false)
+     * @ORM\Column(name="DateNaissance", type="datetime", nullable=true)
      */
     private $datenaissance;
 
@@ -51,7 +51,7 @@ class Artiste
     /**
      * @var \Caracteristiquephysique
      *
-     * @ORM\ManyToOne(targetEntity="Caracteristiquephysique")
+     * @ORM\ManyToOne(targetEntity="Caracteristiquephysique", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CaracteristiquePhysique_id", referencedColumnName="Id")
      * })
@@ -72,7 +72,7 @@ class Artiste
      * )
      */
     private $metier;
-    
+
     /**
      * 
      * @ORM\OneToMany(

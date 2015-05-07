@@ -19,7 +19,7 @@ values
 insert into Sexe (Libelle)
 values
 	('Masculin'),
-	('F�minin'),
+	('Féminin'),
 	('Autre');
 
 
@@ -58,7 +58,7 @@ insert into Artiste (DateNaissance, Sexe_id, CaracteristiquePhysique_id, Utilisa
 values
 	(convert(datetime, '2012-02-22 01:02:03', 121), 1, 1, 1);
 
-insert into Photo (Libelle, IsProfile, Artiste_id)
+insert into Photo (Url, IsProfile, Artiste_id)
 values
 	('theo_photo.jpg', 1, 1);
 

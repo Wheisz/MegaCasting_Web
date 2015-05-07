@@ -17,7 +17,13 @@
         <div class="artiste_info">
             <span class="artiste_name">Pseudo : {{ artiste.utilisateur.username }}</span>                        
             {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
-            <span class="artiste_age">Age : {{ artiste.getAge }} ans</span>
+            <span class="artiste_age">Age : 
+                {% if artiste.datenaissance %}
+                    {{ artiste.getAge }} ans
+                {% else %}
+                    Non renseigné
+                {% endif %}
+            </span>
         </div>
     </div>
 </a>

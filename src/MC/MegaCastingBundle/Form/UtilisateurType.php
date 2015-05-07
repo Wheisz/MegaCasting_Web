@@ -35,8 +35,14 @@ class UtilisateurType extends AbstractType
         }        
         else if ($options['type'] == 'update') {
             $builder
-                    ->add('email', 'email')
+                    ->add('username', 'text', array(
+                        'required' => false
+                    ))
+                    ->add('email', 'email', array(
+                        'required' => false
+                    ))
                     ->add('password', 'repeated', array(
+                        'required' => false,
                             'type' => 'password',
                             'invalid_message' => 'Les mots de passe doivent correspondre',
                             'options' => array('required' => true),

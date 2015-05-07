@@ -245,10 +245,10 @@ GO
 CREATE TABLE Artiste
 (
 	Id BIGINT NOT NULL IDENTITY,
-	DateNaissance DATETIME NOT NULL,
-	Sexe_id BIGINT,
+	DateNaissance DATETIME NULL,
+	Sexe_id BIGINT NULL,
 	Utilisateur_id BIGINT,
-	CaracteristiquePhysique_id BIGINT,
+	CaracteristiquePhysique_id BIGINT NULL,
 	CONSTRAINT PK_Artiste PRIMARY KEY (Id),
 	CONSTRAINT FK_Artiste_Sexe FOREIGN KEY (Sexe_id) REFERENCES Sexe (Id),
 	CONSTRAINT FK_Artiste_Utilisateur FOREIGN KEY (Utilisateur_id) REFERENCES Utilisateur (id),

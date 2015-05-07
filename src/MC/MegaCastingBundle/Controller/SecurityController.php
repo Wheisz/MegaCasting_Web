@@ -11,7 +11,9 @@ namespace MC\MegaCastingBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use MC\MegaCastingBundle\Entity\Utilisateur;
+use MC\MegaCastingBundle\Entity\Artiste;
 use MC\MegaCastingBundle\Form\UtilisateurType;
 
 class SecurityController extends Controller
@@ -66,6 +68,10 @@ class SecurityController extends Controller
                             ->findOneByRole('ROLE_ARTISTE');
                 
                 $role->addUtilisateur($user);
+                
+                $artiste = new Artiste();
+                $artiste->setUtilisateur($user);
+                $em->persist($artiste);
             }
             else if ($type_user == 'annonceur') {
                 $role = $em
@@ -77,7 +83,7 @@ class SecurityController extends Controller
             
             $factory = $this->get('security.encoder_factory');
             $encoder = $factory->getEncoder($user);
-            $password = $encoder->encodePassword('ryanpass', $user->getSalt());
+            $password = $encoder->encodePassword($user->getPassword(), $user->getSalt());
             $user->setPassword($password);
             
             $em->persist($role);
@@ -102,31 +108,57 @@ class SecurityController extends Controller
     
     public function updateAction(Request $request)
     {
-        $manager = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
         
-        $user = $manager
-                    ->getRepository('MCMegaCastingBundle:Utilisateur')
-                    ->find(1);
+        $user = $this->getUser();
+        $original_password = $user->getPassword();
+        $original_username = $user->getUsername();
         
         $form = $this->get('form.factory')->create(new UtilisateurType(), $user, 
-                array('type' => 'register'));
+                array('type' => 'update'));
+        
+        $errors = array();
         
         if ($form->handleRequest($request)->isValid()) 
         {
-            $factory = $this->get('security.encoder_factory');
-            $encoder = $factory->getEncoder($user);
-            $password = $encoder->encodePassword('ryanpass', $user->getSalt());
-            $user->setPassword($password);
+            // Si changement de pseudo
+            if ($user->getUsername() != $original_username) {
+                // Vérifier que pas déjà utilisé
+                $user_temp = $em
+                        ->getRepository('MCMegaCastingBundle:Utilisateur')
+                        ->findOneByUsername($user->getUsername());
+                
+                if ($user_temp != null) {
+                    $errors[] = 'Ce pseudo est déjà utilisé';
+                }
+            }
             
-            $em->persist($user);
-            $em->flush();
+            // Si changement mot de passe
+            if ($user->getPassword() != null) {
+                // On l'encode
+                $factory = $this->get('security.encoder_factory');
+                $encoder = $factory->getEncoder($user);
+                $password = $encoder->encodePassword($user->getPassword(), $user->getSalt());
+                $user->setPassword($password);
+            }
+            // Sinon
+            else {
+                // On remet l'ancien                
+                $user->setPassword($original_password);
+            }
             
-            $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_EspacePerso'));
-            return $response;
+            if (empty($errors)) {
+                $em->persist($user);
+                $em->flush();
+                
+                $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_EspacePerso'));
+                return $response;
+            }  
         }
 
         return $this->render('MCMegaCastingBundle:Security:update.html.twig', array(
           'form' => $form->createView(),
+            'errors' => $errors
         ));
     }
 }

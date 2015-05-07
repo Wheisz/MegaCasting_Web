@@ -4,7 +4,7 @@
 {% block body %}
 <div class="mainConteneur">
     <div class="titre_view">
-        Espace perso de    
+        Espace perso de  {{ app.user.username }}  
     </div>
     <div id="artiste">
         <div class="artiste_picture">
@@ -19,19 +19,27 @@
         <div class="artiste_info">
             <div class="info_compte">
                 <span class="sous-titre">Informations du compte</span>
-                <span>Mail : </span>
-                <span>Mot de passe : </span>
+                <span class="artiste_name">Pseudo : {{ artiste.utilisateur.username }}</span>
+                <span>Mail : {{ app.user.email }}</span>
+                <span>Mot de passe : *****</span>
                 <span class="lien_modifier">
                     <a href="{{ path('mc_mega_casting_user_update') }}">
                         Modifier</a>
                 </span>
             </div>
             <div class="artiste_info_generale">
-                <span class="sous-titre">Informations générales</span>
-                <span class="artiste_name">Pseudo : {{ artiste.utilisateur.username }}</span> 
+                <span class="sous-titre">Informations générales</span>                 
                 {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
-                <span class="artiste_age">Date de naissance : {{ artiste.dateNaissance|date("m/d/Y") }}</span>  
-                <span class="artiste_sexe">Sexe : {{ artiste.sexe.libelle }}</span>
+                <span class="artiste_age">Date de naissance : 
+                    {% if artiste.datenaissance %}
+                        {{ artiste.datenaissance|date("m/d/Y") }}
+                    {% else %}Non renseigné{% endif %}
+                </span>  
+                <span class="artiste_sexe">Sexe : 
+                    {% if artiste.sexe %} 
+                        {{ artiste.sexe.libelle }} 
+                    {% else %} Non renseigné {% endif %}
+                </span>
                 <span class="lien_modifier">
                     <a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'general'}) }}">
                         Modifier</a>

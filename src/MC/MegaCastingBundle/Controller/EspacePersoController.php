@@ -19,12 +19,7 @@ class EspacePersoController extends Controller
         
         $manager = $this->getDoctrine()->getManager();
         
-//        $user = $manager
-//                    ->getRepository('MCMegaCastingBundle:Utilisateur')
-//                    ->findByUsername($session->get(SecurityContext::LAST_USERNAME));
-        $user = $manager
-                ->getRepository('MCMegaCastingBundle:Utilisateur')
-                ->find(1);
+        $user = $this->getUser();
         
         $artiste = $manager
                 ->getRepository('MCMegaCastingBundle:Artiste')
@@ -44,13 +39,15 @@ class EspacePersoController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         
-        $user = $manager
+        $user = $this->getUser();
+        
+        $em_user = $manager
                     ->getRepository('MCMegaCastingBundle:Utilisateur')
-                    ->find(1);
+                    ->findOneByUsername($user->getUsername());
         
         $artiste = $manager
                     ->getRepository('MCMegaCastingBundle:Artiste')
-                    ->findOneByUtilisateur($user);
+                    ->findOneByUtilisateur($em_user);
         
         if ($type_info == 'photo-profil') {
             $photo = new Photo();
@@ -60,11 +57,12 @@ class EspacePersoController extends Controller
         else {        
             $form = $this->get('form.factory')->create(new ArtisteType(), $artiste, 
                     array('type_info' => $type_info)); 
-        }        
+        }  
+        
+        $errors = array();
 
         if ($form->handleRequest($request)->isValid()) 
-        {
-            $error = array();
+        {            
             if ($type_info == 'photo-profil') {
                 
                 foreach ($artiste->getPhotos() as $p) {
@@ -87,33 +85,43 @@ class EspacePersoController extends Controller
                     }
                 }
                 
-                if ($error == '') {
+                if (empty($errors)) {
                     $manager->persist($photo);
                 }                
             }
             
             if ($type_info == 'caracPhysique') {
-                // Si pas un entier
-                if (!is_int($artiste->caracteristiquephysique->getPoids())) {
-                    
+                // Si saisi et pas un entier
+                if ($artiste->getCaracteristiquephysique()->getPoids() && !is_int($artiste->getCaracteristiquephysique()->getPoids())) {
+                    $errors[] = 'Le poids doit être un nombre entier';
+                }
+                if ($artiste->getCaracteristiquephysique()->getTaille() && !is_int($artiste->getCaracteristiquephysique()->getTaille())) {
+                    $errors[] = 'La taille doit être un nombre entier';
                 }
                 
-                if ($error == '') {
+                if (empty($errors)) {
                     $manager->persist($artiste);
                 }                
             }
             
-            if ($error == '') {                    
-                $manager->flush();
+            if ($type_info == 'general') {
+                if (empty($errors)) {
+                    $manager->persist($artiste);
+                }
             }
             
-            $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_EspacePerso'));
-            return $response;
+            if (empty($errors)) {                    
+                $manager->flush();
+                
+                $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_EspacePerso'));
+                return $response;                
+            } 
         }
 
         return $this->render('MCMegaCastingBundle:EspacePerso:update.html.twig', array(
           'form' => $form->createView(),
             'type_info' => $type_info,
+            'errors' => $errors,
         ));
     }
 }

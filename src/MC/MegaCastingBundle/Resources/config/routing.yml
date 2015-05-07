@@ -63,6 +63,8 @@ mc_mega_casting_Artiste_Domaine:
 mc_mega_casting_register:
     path:     /register/{type_user}
     defaults: { _controller: MCMegaCastingBundle:Security:register }
+    requirements:
+        type_user: artiste|annonceur
     
 mc_mega_casting_user_update:
     path:     /modifier-compte

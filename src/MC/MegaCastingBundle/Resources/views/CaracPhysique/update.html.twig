@@ -1,6 +1,5 @@
 {# views/CaracPhysique/update #}
 
-<div class="sous-titre">Caractéristiques physiques</div>
 <div class="form-row">
     {# Génération du label. #}
     {{ form_label(form.caracteristiquephysique.taille, "Taille (cm)", {'label_attr': {'class': 'form-label'}}) }}
@@ -8,8 +7,11 @@
     {# Affichage des erreurs pour ce champ précis. #}
     {{ form_errors(form.caracteristiquephysique.taille) }}
 
-    {# Génération de l'input. #}
-    {{ form_widget(form.caracteristiquephysique.taille, {'attr': {'class': 'form-widget'}}) }}
+    {% if errors %}
+        {{ form_widget(form.caracteristiquephysique.taille, {'attr': {'class': 'widget-error'}}) }}
+    {% else %}
+        {{ form_widget(form.caracteristiquephysique.taille, {'attr': {'class': 'form-widget'}}) }}
+    {% endif %}
 </div>
 <div class="form-row">
     {# Génération du label. #}

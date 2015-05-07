@@ -8,48 +8,52 @@
         LOGIN      
     </div>
     <div class="formulaire">
-        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        <div id="artiste">
+            <div class="artiste_info">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
-        {# Les erreurs générales du formulaire. #}
-        {{ form_errors(form) }}
-        
-        {% if error %}
-            {{ error.message }}
-        {% endif %}        
+                {# Les erreurs générales du formulaire. #}
+                {{ form_errors(form) }}
 
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.username, "Login", {'label_attr': {'class': 'form-label'}}) }}
+                {% if error %}
+                    {{ error.message }}
+                {% endif %}        
 
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.username) }}
+                <div class="form-row">
+                    {# Génération du label. #}
+                    {{ form_label(form.username, "Login", {'label_attr': {'class': 'form-label'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.username, {'attr': {'class': 'form-widget'}}) }}
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.username) }}
+
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.username, {'attr': {'class': 'form-widget'}}) }}
+                </div>
+                <div class="form-row">
+                    {# Génération du label. #}
+                    {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'form-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.password) }}
+
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.password, {'attr': {'class': 'form-widget'}}) }}
+                </div>  
+                <div class="form-row">
+                    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+                    {{ form_widget(form.Connexion, {'attr': {'class': 'bouton'}}) }}
+                </div>
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
+                <div class="form-row">
+                    <div class="link_subscribe"><a href="{{ path('mc_mega_casting_register', {'type_user': 'artiste'})}}">S'inscrire en tant qu'artiste</a></div>
+                </div>
+                <div class="form-row">
+                    <div ><a href="{{ path('mc_mega_casting_register', {'type_user': 'annonceur'})}}">S'inscrire en tant que professionnel (annonceur)</a></div>
+                </div>
+            </div>
         </div>
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'form-label'}}) }}
-
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.password) }}
-
-            {# Génération de l'input. #}
-            {{ form_widget(form.password, {'attr': {'class': 'form-widget'}}) }}
-        </div>  
-
-        {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-        {{ form_widget(form.Connexion) }}
-
-        {# Génération automatique des champs pas encore écrits.
-           Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
-           et tous les champs cachés (type « hidden »). #}
-        {{ form_rest(form) }}
-
-        {# Fermeture de la balise <form> du formulaire HTML #}
-        {{ form_end(form) }}
-    </div>
-    <div><a href="{{ path('mc_mega_casting_register', {'type_user': 'artiste'})}}">S'inscrire en tant qu'artiste</a></div>
-    <div><a href="{{ path('mc_mega_casting_register', {'type_user': 'annonceur'})}}">S'inscrire en tant que professionnel (annonceur)</a></div>    
+        
+    </div>    
 </div>    
 {% endblock %}
