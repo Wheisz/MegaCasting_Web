@@ -25,6 +25,12 @@ mc_mega_casting_Offre_Domaine_Metier:
 mc_mega_casting_Offre_Domaine:
     path:     /Offre/{libelle_domaine}
     defaults: { _controller: MCMegaCastingBundle:Offre:domaine }
+    
+mc_mega_casting_MetiersByDomaine:
+    path:     /metiers/{id_domaine}
+    defaults: { _controller: MCMegaCastingBundle:Offre:metiers }
+    options:
+        expose: true
 
 
 # EspacePro Route

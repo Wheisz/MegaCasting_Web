@@ -391,8 +391,9 @@ footer .footer-right{
 */
 
 #offre{
-    width: 60%;
-    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
 }
 
 #offre .row span{
@@ -426,6 +427,14 @@ footer .footer-right{
   background-color: #731443;
   color: white;
   padding: 2px;
+}
+
+
+#offre .offre_info{
+    display: inline-block;
+    border-left: 1px solid #731443;    
+    border-right: 1px solid #731443;
+    padding: 5px;
 }
 
 /*

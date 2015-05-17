@@ -106,6 +106,13 @@ class Offre
     private $email;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="EstValide", type="boolean", nullable=false)
+     */
+    private $estvalide = 'false';
+
+    /**
      * @var \Domaine
      *
      * @ORM\ManyToOne(targetEntity="Domaine")
@@ -431,6 +438,29 @@ class Offre
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set estvalide
+     *
+     * @param boolean $estvalide
+     * @return Offre
+     */
+    public function setEstvalide($estvalide)
+    {
+        $this->estvalide = $estvalide;
+
+        return $this;
+    }
+
+    /**
+     * Get estvalide
+     *
+     * @return boolean 
+     */
+    public function getEstvalide()
+    {
+        return $this->estvalide;
     }
 
     /**

@@ -4,6 +4,12 @@ namespace MC\MegaCastingBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+use MC\MegaCastingBundle\Entity\Offre;
+use MC\MegaCastingBundle\Form\OffreType;
+
 
 class OffreController extends Controller
 {
@@ -112,34 +118,75 @@ class OffreController extends Controller
                         'liste_metiers' => $liste_metiers));
     }
     
-    public function addAction()
+    public function addAction(Request $request)
     {
-        // On crée un objet Offre
-        $offre = new \MC\MegaCastingBundle\Entity\Offre();
+        $offre = new Offre();
+        
+        // On recupere un annonceur via la variable de SESSION
+        
+        $manager = $this->getDoctrine() 
+                        ->getManager(); 
+        $annonceur = $manager->getRepository('MCMegaCastingBundle:Annonceur')
+                             ->find(1);
 
-        // On crée le FormBuilder grâce au service form factory
-        $formBuilder = $this->get('form.factory')->createBuilder('form', $offre);
+        
+        // On l'insere dans l'offre que l'annonceur souhaite creer
+        
+        $offre->setAnnonceur($annonceur);
+        
+        // On genere le formulaire depuis le formulaire type d'une offre
+        $form = $this->createForm(new OffreType($manager), $offre);
+        
+        // On Recupere les informations lors de l'offre lors de la soumission de l'offre
+        // On Verifie ensuite si l'ensemble des informations sont valides
+        if ($form->handleRequest($request)){
+                if($form->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($advert);
+                    $em->flush();
 
-        // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $formBuilder
-          ->add('intitule',      'text')
-          ->add('datepublication',     'date')
-          ->add('iddomaine', 'entity', 
-                  array(
-                    'class'    => 'MCMegaCastingBundle:Domaine',
-                    'property' => 'libelle',
-                    'multiple' => false))
-          ->add('save',      'submit')
-        ;
-        // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
+                    $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
 
-        // À partir du formBuilder, on génère le formulaire
-        $form = $formBuilder->getForm();
-
-        // On passe la méthode createView() du formulaire à la vue
-        // afin qu'elle puisse afficher le formulaire toute seule
-        return $this->render('MCMegaCastingBundle:Offre:add.html.twig', array(
-          'form' => $form->createView(),
+                    return $this->redirect($this->generateUrl('oc_platform_view', array('id' => $advert->getId())));
+        }
+        }
+        return $this->render('MCMegaCastingBundle:Offre:add.html.twig',array(
+            'form' => $form->createView(),
         ));
+    }
+    
+    
+    // Function qui va envoyer un tableau de metiers sous forme de Json au fichier Ajax
+    public function metiersAction(Request $request, $id_domaine){
+        
+        // On securise l'appel de la fonction en precisant que seul Ajax peut appeler cette fonction
+//        if($request->isXmlHttpRequest()){
+            $manager = $this->getDoctrine() 
+                                ->getManager(); 
+            
+            // On recupere l'ensemble des métiers rattachés à un domaine
+            $liste_metiers = $manager     
+                              ->getRepository('MCMegaCastingBundle:Metier')
+                              ->findBy(array('domaine' => $id_domaine)); 
+                  
+            
+            // Si la liste est non vide
+            if($liste_metiers){
+               $metiers = array();
+               // On stocke les differents metiers à l'interieur d'un tableau
+               foreach ($liste_metiers as $metier){
+                   $metiers[] = $metier->getLibelle();
+               }
+            }else{
+                $metier = null;
+            }
+            
+           
+            // On génere une reponse en Json pour pouvoir la réutiliser en Ajax
+            $response = new JsonResponse();
+            return $response->setData(array('metiers' => $metiers));
+//        }else{
+//            return new \Symfony\Component\Security\Acl\Exception\Exception("Erreur");
+//        }
     }
 }

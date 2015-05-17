@@ -25,7 +25,7 @@
     <field name="descriptionprofil" type="text" column="DescriptionProfil" length="16" nullable="false"/>
     <field name="telephone" type="string" column="Telephone" length="50" nullable="false"/>
     <field name="email" type="string" column="Email" length="50" nullable="false"/>
-    <field name="estvalide" type="boolean" column="EstValide" nullable="false"/>
+    <field name="estvalid" type="boolean" column="EstValid" nullable="false"/>
     <many-to-one field="annonceur" target-entity="Annonceur">
       <join-columns>
         <join-column name="Annonceur_id" referenced-column-name="Id"/>

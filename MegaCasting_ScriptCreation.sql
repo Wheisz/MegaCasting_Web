@@ -145,6 +145,7 @@ CREATE TABLE Offre
 	DescriptionProfil TEXT NOT NULL,
 	Telephone NVARCHAR(50) NOT NULL,
 	Email NVARCHAR(50) NOT NULL,
+        EstValide BIT NOT NULL DEFAULT 'false',
 	Domaine_id BIGINT,
 	Metier_id BIGINT,
 	TypeContrat_id BIGINT NOT NULL,
