@@ -1,0 +1,4 @@
+offres : 
+  type: rest
+  resource:     "MCMegaCastingBundle:OffreRest"
+  name_prefix:  api_
