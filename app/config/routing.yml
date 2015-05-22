@@ -7,9 +7,6 @@ app:
     type:     annotation
 
 fos_js_routing:
-<<<<<<< HEAD
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
-=======
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
     
 #REST 
@@ -17,4 +14,3 @@ rest :
   type : rest 
   resource : "routing_rest.yml"
   prefix : /api
->>>>>>> origin/master
