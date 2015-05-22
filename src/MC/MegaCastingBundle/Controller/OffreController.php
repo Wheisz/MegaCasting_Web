@@ -189,4 +189,5 @@ class OffreController extends Controller
 //            return new \Symfony\Component\Security\Acl\Exception\Exception("Erreur");
 //        }
     }
+    
 }

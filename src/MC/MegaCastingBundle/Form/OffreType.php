@@ -100,15 +100,15 @@ class OffreType extends AbstractType
 //            }
 //        );
         
-        $builder->addEventListener(
-                FormEvents::PRE_SET_DATA, 
-                function(FormEvent $event) use ($formModifier){
-                    $data = $event->getData();
-                    
-                    var_dump($data);
-                    // on Envoie tout le formulaire (getParent)
-                    $formModifier($event->getForm()->getParent(), $data);
-        });
+//        $builder->addEventListener(
+//                FormEvents::PRE_SET_DATA, 
+//                function(FormEvent $event) use ($formModifier){
+//                    $data = $event->getData();
+//                    
+//                    var_dump($data);
+//                    // on Envoie tout le formulaire (getParent)
+//                    $formModifier($event->getForm()->getParent(), $data);
+//        });
         
         // On va ecouter le champ Domaine lors du changement de domaine
         // On declenche le listener 

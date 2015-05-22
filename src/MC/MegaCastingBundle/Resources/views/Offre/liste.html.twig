@@ -1,6 +1,7 @@
 {# views/Offre/liste #}
 
 {% for offre in liste_offres %}
+    {% if offre.EstValide %}
     <a href="{{ path('mc_mega_casting_Offre_view', {'id_offre': offre.Id}) }}" class="casting">
         <span class="title">{{ offre.Intitule }}</span>
         <span class="info">
@@ -10,4 +11,5 @@
     </a>
     {% else %}
     <p>Pas d'offres trouvé.</p>
+    {% endif %}
 {% endfor %}

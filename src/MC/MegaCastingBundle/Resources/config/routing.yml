@@ -26,12 +26,20 @@ mc_mega_casting_Offre_Domaine:
     path:     /Offre/{libelle_domaine}
     defaults: { _controller: MCMegaCastingBundle:Offre:domaine }
     
+# Offre Ajax Formulaire
 mc_mega_casting_MetiersByDomaine:
     path:     /metiers/{id_domaine}
     defaults: { _controller: MCMegaCastingBundle:Offre:metiers }
     options:
         expose: true
 
+
+# Offre API REST HTTP
+
+offres:
+    type:      rest
+    resource : MC\MegaCastingBundle\Controller\OffreController 
+    
 
 # EspacePro Route
 mc_mega_casting_EspacePro:
