@@ -139,7 +139,7 @@ class SecurityController extends Controller
                 $factory = $this->get('security.encoder_factory');
                 $encoder = $factory->getEncoder($user);
                 $password = $encoder->encodePassword($user->getPassword(), $user->getSalt());
-                $user->setPassword($password);
+                $user->setPassword($password);                
             }
             // Sinon
             else {

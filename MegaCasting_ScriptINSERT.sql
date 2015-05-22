@@ -1,4 +1,4 @@
-use MegaCastingCL
+use MegaCasting
 
 insert into TypeContrat (Libelle)
 values

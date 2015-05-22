@@ -2,17 +2,17 @@ USE MASTER
 GO
 
 
-IF EXISTS ( Select * from sys.databases where name='MegaCastingCL' )
+IF EXISTS ( Select * from sys.databases where name='MegaCasting' )
 	BEGIN
-		DROP DATABASE MegaCastingCL
+		DROP DATABASE MegaCasting
 	END
 GO
 
-CREATE DATABASE MegaCastingCL
+CREATE DATABASE MegaCasting
 GO
 
 
-USE MegaCastingCL
+USE MegaCasting
 GO
 
 
@@ -145,7 +145,7 @@ CREATE TABLE Offre
 	DescriptionProfil TEXT NOT NULL,
 	Telephone NVARCHAR(50) NOT NULL,
 	Email NVARCHAR(50) NOT NULL,
-        EstValide BIT NOT NULL DEFAULT 'false',
+    EstValide BIT NOT NULL DEFAULT 'false',
 	Domaine_id BIGINT,
 	Metier_id BIGINT,
 	TypeContrat_id BIGINT NOT NULL,

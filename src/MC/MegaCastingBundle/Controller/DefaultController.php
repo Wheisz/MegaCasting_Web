@@ -13,12 +13,12 @@ class DefaultController extends Controller
         $liste_offres = $manager
                             ->getRepository('MCMegaCastingBundle:Offre')
                             ->findBy(array(),
-                                    array('datepublication' => 'desc'), 5);
+                                    array('datepublication' => 'desc'));
         
         $liste_artistes = $manager
                             ->getRepository('MCMegaCastingBundle:Artiste')
                             ->findBy(array(),
-                                    array(), 5);
+                                    array());
  
         return $this->render('MCMegaCastingBundle:Default:index.html.twig', 
                 array(  'liste_offres' => $liste_offres,

@@ -20,7 +20,7 @@ class OffreController extends Controller
         $liste_offres = $manager
                             ->getRepository('MCMegaCastingBundle:Offre')
                             ->findBy(array(),
-                                    array('datepublication' => 'desc'), 5);
+                                    array('datepublication' => 'desc'));
         
         $liste_metiers = $manager 
                             ->getRepository('MCMegaCastingBundle:Metier')

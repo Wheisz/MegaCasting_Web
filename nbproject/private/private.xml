@@ -6,12 +6,14 @@
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Utilisateur.php</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/EspacePersoController.php</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Security/register.html.twig</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Security/update.html.twig</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Security/login.html.twig</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/MCMegaCastingBundle.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Repository/ArtisteRepository.php</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/app/config/security.yml</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/SecurityController.php</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Form/UtilisateurType.php</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/public/css/index.css</file>
         </group>
     </open-files>
 </project-private>
