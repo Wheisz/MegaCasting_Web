@@ -1,30 +1,73 @@
 /*
 * Modification de la mise en page pour les tablettes entre une largeur de 600 à 1024px
 */
-@media screen and (min-width: 600px) and (max-width : 1024px){
+@media screen and (min-width: 601px) and (max-width : 1024px){
+    /*
+    * Header - Navigation
+    */ 
     .row nav li{
         font-size: 0.6em;
-        margin-left: 50px;
+        margin-left: 38px;
+    }
+    /*
+    * Header - Liste des domaines
+    */ 
+    #sub-header ul li a{
+        font-size: 0.6em;
+        line-height: 19.2em;
     }
     
-    #sub-header ul li a{
-        font-size: 0.9em;
+   /*
+    * Offre_View
+    */
+    #offre{
+        font-size: 0.6em;
     }
 }
 /*
 * Modification de la mise en page pour les tablettes entre une largeur de 480 à 600px
 */
-@media screen and (min-width: 480px) and (max-width : 600px){
+@media screen and (min-width: 481px) and (max-width : 600px){
+    /*
+    * Header
+    */ 
+    #logo{
+        width: 60px;
+        height: 60px;
+    }
+    /*
+    * Header - Navigation
+    */ 
     .row nav li{
-        font-size: 0.6em;
-        margin-left: 30px;
+        font-size: 0.5em;
+        margin-left: 25px;
+        line-height: 60px;
+    }
+    /*
+    * Header - Liste des domaines
+    */ 
+    #sub-header ul li {
+        width: 23.5%;
+        text-align: center;
     }
     
     #sub-header ul li a{
         font-size: 0.9em;
-        line-height: 16.2em;
+        line-height: 12.2em;
+    }
+    /*
+    * Derniers Castings
+    */ 
+    #castings a{
+        font-size: 0.8em;
     }
     
+   /*
+    * Offre_View
+    */
+    #offre{
+        font-size: 0.6em;
+    }
     /*
     * Artiste_View
     */
@@ -43,7 +86,40 @@
 * Modification de la mise en page pour les Formats Mobiles
 */
 @media screen and (min-width : 240px) and (max-width : 480px){
+    /*
+    * Header
+    */
+    #logo {
+      float: none;
+      margin: 0 auto;
+    }
+    /*
+    * Header - Navigation
+    */ 
+    .row nav {
+        width: 100%;
+    }
     
+    .row nav li{
+        display: block;
+        width: 100%;
+        border: 1px solid white;
+        margin: 0;
+    }
+    
+    .row nav #accueil{
+        display: block;
+    }
+    /*
+    * Header - Liste des domaines
+    */ 
+    #sub-header{
+        display: none;
+    }
+    
+    /*
+    * Derniers Artistes / Derniers Castings
+    */
     #sub-main #artistes, #sub-main #castings{
         float: none;
         display: block;
@@ -58,32 +134,10 @@
         text-align: center;
     }
     
-    header #sub-header{
-        display: none;
+    #castings{
+        clear: both;
     }
     
-    #top-header #logo {
-      float: none;
-      margin: 0 auto;
-    }
-    
-    /*
-    * Navigation 
-    */
-    .row nav {
-        width: 100%;
-    }
-    
-    .row nav li{
-        display: block;
-        width: 100%;
-        border: 1px solid white;
-        margin: 0;
-    }
-    
-    .row nav li #accueil{
-        display: block;
-    }
     /*
     * Offre_View
     */
@@ -131,18 +185,14 @@
         position: inherit;
     }
     
-    #castings{
-        clear: both;
-    }
-    
-    
+
     /*
     * Formulaire 
     */
     
-        .form-label{
-            width: 100%;
-        }
+    .form-label{
+        width: 100%;
+    }
     
     /*
     * Footer 

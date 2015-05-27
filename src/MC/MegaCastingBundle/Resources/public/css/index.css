@@ -115,7 +115,7 @@ header{
     text-decoration: underline;
 }
 
-.row nav li #accueil{
+.row nav #accueil{
     display: none;
 }
 
