@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="Annonceur", indexes={@ORM\Index(name="IFK_Annonceur_Utilisateur", columns={"Utilisateur_id"})})
  * @ORM\Entity
  */
-class Annonceur
+class Annonceur extends Societe
 {
     /**
      * @var \Societe

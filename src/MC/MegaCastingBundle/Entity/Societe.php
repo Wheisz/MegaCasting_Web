@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="Societe", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Societe", columns={"RaisonSociale"})}, indexes={@ORM\Index(name="IFK_Societe_Adresse", columns={"Adresse_id"})})
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"annonceur" = "MC\MegaCastingBundle\Entity\Annonceur", "diffuseur" = "MC\MegaCastingBundle\Entity\Diffuseur"})
  */
 class Societe
 {

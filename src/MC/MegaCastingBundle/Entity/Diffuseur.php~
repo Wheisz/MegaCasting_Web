@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="Diffuseur")
  * @ORM\Entity
  */
-class Diffuseur
+class Diffuseur extends Societe
 {
     /**
      * @var \Societe
