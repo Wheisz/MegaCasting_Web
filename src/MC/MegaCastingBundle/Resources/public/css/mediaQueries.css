@@ -67,6 +67,9 @@
       margin: 0 auto;
     }
     
+    /*
+    * Navigation 
+    */
     .row nav {
         width: 100%;
     }
@@ -78,9 +81,45 @@
         margin: 0;
     }
     
+    .row nav li #accueil{
+        display: block;
+    }
+    /*
+    * Offre_View
+    */
+    #offre{
+        font-size: 0.6em;
+    }
+    
+    #offre .row span label{
+        text-decoration: underline;
+        width: 100%;
+        display: block;
+    }
+    
+    #offre .row #reference{
+        display: initial;
+    }
+    
+    #offre .row #datePublication{
+        display: initial;
+        float: none;
+    }
+    
+    
     /*
     * Artiste_View
     */
+    #artistes{
+        margin: 0; padding: 0;
+    }
+    #sub-main #artistes, #sub-main #artistes h3, #sub-main #artistes a.artiste, .artiste_general, .artiste_picture, .artiste_info{
+        float: left;
+    }
+    #artistes h3{
+        width: 100%;
+    }
+   
     
     #artiste .artiste_picture{
         display: block;
@@ -91,4 +130,39 @@
     #artiste .artiste_picture .artiste_picture_profil{
         position: inherit;
     }
+    
+    #castings{
+        clear: both;
+    }
+    
+    
+    /*
+    * Formulaire 
+    */
+    
+        .form-label{
+            width: 100%;
+        }
+    
+    /*
+    * Footer 
+    */
+    footer{
+        padding: 20px 0px 20px 0px;
+    }
+    
+    .footer-left{
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid white;
+        padding-bottom: 5px;
+    }
+    .footer-right{
+        text-align: center;
+        width: 100%;
+        padding-top: 5px;
+    }
+    
+
+    
 }

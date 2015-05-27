@@ -115,6 +115,10 @@ header{
     text-decoration: underline;
 }
 
+.row nav li #accueil{
+    display: none;
+}
+
 /**
 * SUB-HEADER
 */
@@ -277,7 +281,6 @@ header{
 
 .artiste:hover{
     background-color: lightgray;
-    border: 1px solid #731443;
 }
 
 .artiste .artiste_picture img{
