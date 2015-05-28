@@ -14,6 +14,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use MC\MegaCastingBundle\Entity\Utilisateur;
 use MC\MegaCastingBundle\Entity\Artiste;
+use MC\MegaCastingBundle\Entity\Annonceur;
 use MC\MegaCastingBundle\Form\UtilisateurType;
 
 class SecurityController extends Controller
@@ -79,6 +80,14 @@ class SecurityController extends Controller
                             ->findOneByRole('ROLE_ANNONCEUR');
                 
                 $role->addUtilisateur($user);
+                
+                $annonceur = new Annonceur();
+                $annonceur->setUtilisateur($user);
+                $annonceur->setNumeroSiret("");
+                $annonceur->setRaisonsociale("");
+                $annonceur->setEmail("");
+                $annonceur->setTelephone("");
+                $em->persist($annonceur);
             }
             
             $factory = $this->get('security.encoder_factory');

@@ -22,8 +22,20 @@
                 <span class="sous-titre">Informations générales</span>
                 <span class="artiste_name">Pseudo : {{ artiste.utilisateur.username }}</span> 
                 {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
-                <span class="artiste_age">Age : {{ artiste.getAge }} ans</span>
-                <span class="artiste_sexe">Sexe : {{ artiste.sexe.libelle }}</span>
+                <span class="artiste_age">Age : 
+                    {% if artiste.datenaissance %}
+                        {{ artiste.getAge }} ans
+                    {% else %}
+                        Non renseigné
+                    {% endif %}
+                </span>
+                <span class="artiste_sexe">Sexe :
+                    {% if artiste.sexe %}
+                        {{ artiste.sexe.libelle }}
+                    {% else %}
+                        Non renseigné
+                    {% endif %}
+                </span>
             </div>   
             <div class="artiste_info_physique">
                 <span class="sous-titre">Caractéristiques physiques</span>

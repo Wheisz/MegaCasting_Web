@@ -266,7 +266,7 @@ class Artiste
      * @return integer
      */
     public function getAge()
-    {
+    {        
         $dateInterval = $this->datenaissance->diff(new \DateTime());
  
         return $dateInterval->y;

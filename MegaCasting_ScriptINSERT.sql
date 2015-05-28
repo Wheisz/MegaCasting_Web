@@ -39,15 +39,11 @@ values
 
 insert into Utilisateur (Username, Password, Email)
 values
-	('Wheisz', 'yoyo', 'lazeriz@hotmail.fr'),
-	('Kbouss', 'bouss', 'bouss@bouss.fr'),
-	('admin', 'admin', 'admin@admin.fr');
+	('Wheisz', 'yoyo', 'lazeriz@hotmail.fr');
 
 insert into Role_Utilisateur (Role_id, Utilisateur_id)
 values
-	(1, 1),
-	(2, 2),
-	(3, 3);
+	(1, 1);
 
 insert into CaracteristiquePhysique (Poids,Taille,CouleurYeux,CouleurCheveux)
 values 

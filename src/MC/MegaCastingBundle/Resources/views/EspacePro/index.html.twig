@@ -3,16 +3,30 @@
 
 {% block body %}
 <div class="mainConteneur">
-    <div>
-        <div class="titre_view">
-            Espace pro de {{ app.user.username }}    
-        </div>
-        <div>
-            Mail : {{ app.user.email }}
-        </div>
-        <div>
-            Mot de passe : ****
-        </div>     
+    <div class="titre_view">
+        Espace pro de  {{ app.user.username }}  
+    </div>
+    <div id="annonceur">
+        <div class="annonceur_info">
+            <div class="info_compte">
+                <span class="sous-titre">Informations du compte</span>
+                <span class="artiste_name">Pseudo : {{ annonceur.utilisateur.username }}</span>
+                <span>Mail : {{ app.user.email }}</span>
+                <span>Mot de passe : *****</span>
+                <span class="lien_modifier">
+                    <a href="{{ path('mc_mega_casting_user_update') }}">
+                        Modifier</a>
+                </span>
+            </div>
+            <div class="annonceur_info_societe">
+                <span class="sous-titre">Informations société</span>                 
+                
+                <span class="lien_modifier">
+                    <a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'general'}) }}">
+                        Modifier</a>
+                </span>
+            </div>
+        </div>        
     </div>
 </div>    
 {% endblock %}

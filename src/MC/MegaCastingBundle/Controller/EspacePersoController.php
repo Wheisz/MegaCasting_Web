@@ -3,12 +3,10 @@
 namespace MC\MegaCastingBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use MC\MegaCastingBundle\Entity\Artiste;
 use MC\MegaCastingBundle\Entity\Photo;
 use MC\MegaCastingBundle\Form\ArtisteType;
 use MC\MegaCastingBundle\Form\PhotoType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class EspacePersoController extends Controller

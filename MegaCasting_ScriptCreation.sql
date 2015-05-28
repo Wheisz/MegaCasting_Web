@@ -40,19 +40,14 @@ CREATE TABLE Societe
 	RaisonSociale NVARCHAR(100) NOT NULL,
 	Email NVARCHAR(50) NOT NULL,
 	Telephone NVARCHAR(50) NOT NULL,
-	Adresse_id BIGINT NOT NULL
+	Adresse_id BIGINT NULL
 	CONSTRAINT PK_Societe PRIMARY KEY (Id),
-	CONSTRAINT FK_Societe_Adresse FOREIGN KEY (Adresse_id) REFERENCES Adresse (Id),
-	CONSTRAINT UK_Societe UNIQUE (RaisonSociale)
+	CONSTRAINT FK_Societe_Adresse FOREIGN KEY (Adresse_id) REFERENCES Adresse (Id)
 )
 GO
 
 
 CREATE INDEX IFK_Societe_Adresse ON Societe (Adresse_id)
-GO
-
-
-CREATE INDEX IUK_Societe ON Societe (RaisonSociale)
 GO
 
 

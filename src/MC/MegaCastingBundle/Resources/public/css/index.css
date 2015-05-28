@@ -275,6 +275,14 @@ header{
     border-left: 2px solid black;
 }
 
+.annonceur{
+    float: left;
+}
+
+.annonceur .annonceur_info{
+    padding: 10px 10px 3px 10px;
+}
+
 .artiste{
     float: left;
 }
