@@ -28,6 +28,14 @@ class Domaine
      */
     private $libelle;
 
+    /**
+     * 
+     * @ORM\OneToMany(
+     *      targetEntity="Metier",
+     *      mappedBy="domaine"
+     * )
+     */
+    private $metiers;
 
 
     /**
@@ -61,5 +69,45 @@ class Domaine
     public function getLibelle()
     {
         return $this->libelle;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->metiers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add metiers
+     *
+     * @param \MC\MegaCastingBundle\Entity\Metier $metiers
+     * @return Domaine
+     */
+    public function addMetier(\MC\MegaCastingBundle\Entity\Metier $metiers)
+    {
+        $this->metiers[] = $metiers;
+
+        return $this;
+    }
+
+    /**
+     * Remove metiers
+     *
+     * @param \MC\MegaCastingBundle\Entity\Metier $metiers
+     */
+    public function removeMetier(\MC\MegaCastingBundle\Entity\Metier $metiers)
+    {
+        $this->metiers->removeElement($metiers);
+    }
+
+    /**
+     * Get metiers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMetiers()
+    {
+        return $this->metiers;
     }
 }

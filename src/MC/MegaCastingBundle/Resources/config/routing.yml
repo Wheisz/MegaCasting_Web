@@ -17,6 +17,8 @@ mc_mega_casting_Offre_view:
 mc_mega_casting_Offre_Add:
     path:     /Offre/Add
     defaults: { _controller: MCMegaCastingBundle:Offre:add }
+    requirements:
+        type_user: annonceur
     
 mc_mega_casting_Offre_Domaine_Metier:
     path:     /Offre/{libelle_domaine}/{libelle_metier}
@@ -27,11 +29,11 @@ mc_mega_casting_Offre_Domaine:
     defaults: { _controller: MCMegaCastingBundle:Offre:domaine }
     
 # Offre Ajax Formulaire
-mc_mega_casting_MetiersByDomaine:
-    path:     /metiers/{id_domaine}
-    defaults: { _controller: MCMegaCastingBundle:Offre:metiers }
-    options:
-        expose: true
+#mc_mega_casting_MetiersByDomaine:
+#    path:     /metiers/{id_domaine}
+#    defaults: { _controller: MCMegaCastingBundle:Offre:metiers }
+#    options:
+#        expose: true
 
 
 # Offre API REST HTTP

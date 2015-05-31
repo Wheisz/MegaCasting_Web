@@ -3,6 +3,8 @@
 namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Offre
@@ -25,6 +27,7 @@ class Offre
      * @var string
      *
      * @ORM\Column(name="Intitule", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="L'intitulé doit être renseigné")
      */
     private $intitule;
 
@@ -32,6 +35,8 @@ class Offre
      * @var string
      *
      * @ORM\Column(name="Reference", type="string", length=100, nullable=false)
+     * 
+     * @Assert\NotBlank(message="La référence de la diffusion doit être renseignée")
      */
     private $reference;
 
@@ -46,13 +51,15 @@ class Offre
      * @var integer
      *
      * @ORM\Column(name="DureeDiffusion", type="integer", nullable=false)
+     * @Assert\NotBlank(message="La durée de la diffusion doit être renseignée")
      */
     private $dureediffusion;
 
     /**
-     * @var \DateTime
+     * @var \Date
      *
      * @ORM\Column(name="DateDebutContrat", type="date", nullable=false)
+     * @Assert\NotBlank(message="La date du début du contrat doit être renseignée")
      */
     private $datedebutcontrat;
 
@@ -60,6 +67,7 @@ class Offre
      * @var integer
      *
      * @ORM\Column(name="NbPoste", type="integer", nullable=false)
+     * @Assert\NotBlank(message="Le nombre de postes doit être renseigné")
      */
     private $nbposte;
 
@@ -67,6 +75,11 @@ class Offre
      * @var string
      *
      * @ORM\Column(name="LocalisationLattitude", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="La lattitude doit être renseignée")
+     * @Assert\Regex(
+     *      pattern="/^[0-9]{2}° [0-9]{2}' [N-S-E-O]{1}$/",
+     *      message="Veuillez respecter le schéma suivant : 10° 10' S",
+     * )
      */
     private $localisationlattitude;
 
@@ -74,6 +87,11 @@ class Offre
      * @var string
      *
      * @ORM\Column(name="LocalisationLongitude", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="La longitude doit être renseignée")
+     * @Assert\Regex(
+     *      pattern="/^[0-9]{2}° [0-9]{2}' [N-S-E-O]{1}$/",
+     *      message="Veuillez respecter le schéma suivant : 10° 10' S",
+     * )
      */
     private $localisationlongitude;
 
@@ -81,6 +99,7 @@ class Offre
      * @var string
      *
      * @ORM\Column(name="DescriptionPoste", type="text", length=16, nullable=false)
+     * @Assert\NotBlank(message="La description du poste doit être renseignée")
      */
     private $descriptionposte;
 
@@ -88,6 +107,7 @@ class Offre
      * @var string
      *
      * @ORM\Column(name="DescriptionProfil", type="text", length=16, nullable=false)
+     * @Assert\NotBlank(message="La description du profil doit être renseignée")
      */
     private $descriptionprofil;
 
@@ -95,6 +115,12 @@ class Offre
      * @var string
      *
      * @ORM\Column(name="Telephone", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="Le téléphone doit être renseigné")
+     * 
+     * @Assert\Regex(
+     *      pattern="/^0[1-68]([.-]?[0-9]{2}){4}$/",
+     *      message="{{ value }} n'est pas un numéro de téléphone valide",
+     * )
      */
     private $telephone;
 
@@ -102,6 +128,11 @@ class Offre
      * @var string
      *
      * @ORM\Column(name="Email", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="L'e-mail doit être renseigné")
+     * @Assert\Email(
+     *     message = "'{{ value }}' n'est pas un email valide.",
+     *     checkMX = true
+     * )
      */
     private $email;
 
@@ -119,6 +150,8 @@ class Offre
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Domaine_id", referencedColumnName="Id")
      * })
+     * 
+     * @Assert\NotBlank(message="Un domaine doit être renseigné")
      */
     private $domaine;
 
@@ -129,6 +162,8 @@ class Offre
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Metier_id", referencedColumnName="Id")
      * })
+     * 
+     * @Assert\NotBlank(message="Un métier doit être renseigné")
      */
     private $metier;
 
@@ -137,8 +172,10 @@ class Offre
      *
      * @ORM\ManyToOne(targetEntity="Typecontrat")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="TypeContrat_id", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="Typecontrat_id", referencedColumnName="Id")
      * })
+     * 
+     * @Assert\NotBlank(message="Un type de contrat doit être renseigné")
      */
     private $typecontrat;
 
@@ -149,6 +186,8 @@ class Offre
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Annonceur_id", referencedColumnName="Id")
      * })
+     * 
+     * 
      */
     private $annonceur;
 

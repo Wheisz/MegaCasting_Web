@@ -28,6 +28,14 @@ class Domaine
      */
     private $libelle;
 
+    /**
+     * 
+     * @ORM\OneToMany(
+     *      targetEntity="Metier",
+     *      mappedBy="domaine"
+     * )
+     */
+    private $metiers;
 
 
     /**

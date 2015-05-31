@@ -125,30 +125,37 @@ class OffreController extends Controller
         // On recupere un annonceur via la variable de SESSION
         
         $manager = $this->getDoctrine() 
-                        ->getManager(); 
+                        ->getManager();
+        
         $annonceur = $manager->getRepository('MCMegaCastingBundle:Annonceur')
-                             ->find(1);
+                             ->find(6);
+        
 
-        
+        // On definit une date de publication 
+        $offre->setDatepublication(new \DateTime('now'));
+
         // On l'insere dans l'offre que l'annonceur souhaite creer
-        
         $offre->setAnnonceur($annonceur);
         
         // On genere le formulaire depuis le formulaire type d'une offre
-        $form = $this->createForm(new OffreType($manager), $offre);
+        $form = $this->createForm(new OffreType(), $offre);
         
-        // On Recupere les informations lors de l'offre lors de la soumission de l'offre
+        // On fait le lien Requête <-> Formulaire
+        // À partir de maintenant, la variable $offre contient les valeurs entrées dans le formulaire par l'annonceur
+        $form->handleRequest($request);
         // On Verifie ensuite si l'ensemble des informations sont valides
-        if ($form->handleRequest($request)){
-                if($form->isValid()) {
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($advert);
-                    $em->flush();
+        if ($form->isValid()){
+            
+            
+            var_dump($offre);
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($offre);
+            $em->flush();
 
-                    $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+            $request->getSession()->getFlashBag()->add('notice', 'Offre bien enregistrée.');
 
-                    return $this->redirect($this->generateUrl('oc_platform_view', array('id' => $advert->getId())));
-        }
+            return $this->redirect($this->generateUrl('mc_mega_casting_homepage'));
         }
         return $this->render('MCMegaCastingBundle:Offre:add.html.twig',array(
             'form' => $form->createView(),

@@ -10,14 +10,10 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormEvent;
 
+use MC\MegaCastingBundle\Entity\Domaine;
+
 class OffreType extends AbstractType
 {
-    private $em;
-    
-    public function __construct($em) {
-        $this->em = $em;
-    }
-    
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -27,9 +23,14 @@ class OffreType extends AbstractType
         $builder
             ->add('intitule','text')
             ->add('reference','text')
-            ->add('datepublication','date')
             ->add('dureediffusion')
-            ->add('datedebutcontrat','date')
+            ->add('datedebutcontrat','date', array(
+                'empty_value' => array(
+                    'day' => 'Jour',
+                    'month' => 'Mois',
+                    'year' => 'Année'
+                )
+            ))
             ->add('nbposte')
             ->add('localisationlattitude','text')
             ->add('localisationlongitude','text')
@@ -40,39 +41,22 @@ class OffreType extends AbstractType
             ->add('domaine','entity',array(
                     'class'    => 'MCMegaCastingBundle:Domaine',
                     'property' => 'libelle',
-                    'multiple' => false
-            ))
-            ->add('metier','entity',array(
-                            'class' => 'MCMegaCastingBundle:Metier',
-                            'property' => 'libelle'
+                    'multiple' => false,
             ))
             ->add('typecontrat','entity',array(
-                    'class'    => 'MCMegaCastingBundle:TypeContrat',
+                    'class'    => 'MCMegaCastingBundle:Typecontrat',
                     'property' => 'libelle',
                     'multiple' => false
             ))
             ->add('Enregistrer','submit')
         ;
         
-        $formModifier = function(FormInterface $form, $domaine){
-
+        $formModifier = function(FormInterface $form, Domaine $domaine = null){
+            
             // On recupere l'ensemble des métiers rattachés à un domaine
-            $liste_metiers = $this->em     
-                              ->getRepository('MCMegaCastingBundle:Metier')
-                              ->findBy(array('domaine' => $domaine)); 
+            $metiers = null === $domaine ? array() : $domaine->getMetiers();
                   
-            
-            // Si la liste est non vide
-            if($liste_metiers){
-               $metiers = array();
-               // On stocke les differents metiers à l'interieur d'un tableau
-               foreach ($liste_metiers as $metier){
-                   $metiers[] = $metier;
-               }
-            }
-           
-            
-            // On ajoute le champ metier de type choice
+            // On ajoute le champ metier de type entity
             $form->add('metier','entity',array(
                             'class' => 'MCMegaCastingBundle:Metier',
                             'property' => 'libelle',
@@ -80,35 +64,17 @@ class OffreType extends AbstractType
             ));
 
         };  
-        
-               
-//        $builder->addEventListener(
-//            FormEvents::PRE_SET_DATA,
-//            function(FormEvent $event) use ($formModifier) {
-//                // ce sera votre entité, c-a-d Domaine
-////                $domaine = $event->getForm()->getData();
-////                
-////                var_dump($domaine);
-//                
-//                
-//                $domaine = $this->em
-//                                ->getRepository('MCMegaCastingBundle:Domaine')
-//                                ->find(1); 
-//               
-//
-//                $formModifier($event->getForm(), $domaine);
-//            }
-//        );
-        
-//        $builder->addEventListener(
-//                FormEvents::PRE_SET_DATA, 
-//                function(FormEvent $event) use ($formModifier){
-//                    $data = $event->getData();
-//                    
-//                    var_dump($data);
-//                    // on Envoie tout le formulaire (getParent)
-//                    $formModifier($event->getForm()->getParent(), $data);
-//        });
+
+        $builder->addEventListener(
+                FormEvents::PRE_SET_DATA, 
+                function(FormEvent $event) use ($formModifier){
+                    $data = $event->getData();
+                    
+  
+                    // on Envoie tout le formulaire (getParent)
+                    $formModifier($event->getForm(), $data->getDomaine());
+                    
+        });
         
         // On va ecouter le champ Domaine lors du changement de domaine
         // On declenche le listener 
@@ -116,9 +82,9 @@ class OffreType extends AbstractType
         $builder->get('domaine')->addEventListener(
                 FormEvents::POST_SUBMIT, 
                 function(FormEvent $event) use ($formModifier){
+                    // On recupere la valeur du champ Domaine
                     $domaine = $event->getForm()->getData();
                     
-                    var_dump($domaine);
                     // on Envoie tout le formulaire (getParent)
                     $formModifier($event->getForm()->getParent(), $domaine);
         });
