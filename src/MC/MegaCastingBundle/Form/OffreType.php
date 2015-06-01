@@ -29,7 +29,8 @@ class OffreType extends AbstractType
                     'day' => 'Jour',
                     'month' => 'Mois',
                     'year' => 'Année'
-                )
+                ),
+                'years' => range(date('Y'), date('Y') + 5)
             ))
             ->add('nbposte')
             ->add('localisationlattitude','text')
@@ -42,11 +43,13 @@ class OffreType extends AbstractType
                     'class'    => 'MCMegaCastingBundle:Domaine',
                     'property' => 'libelle',
                     'multiple' => false,
+                    'placeholder' => 'Choisir un domaine'
             ))
             ->add('typecontrat','entity',array(
                     'class'    => 'MCMegaCastingBundle:Typecontrat',
                     'property' => 'libelle',
-                    'multiple' => false
+                    'multiple' => false,
+                    'placeholder' => 'Choisir un type de contrat'
             ))
             ->add('Enregistrer','submit')
         ;

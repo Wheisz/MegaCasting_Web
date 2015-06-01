@@ -2,6 +2,13 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {# On affiche le message de confirmation de la creation de l'offre s'il existe #}
+    {% for flashMessage in app.session.flashbag.get('info') %}
+        <div id="dialog" class="info">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    
     <div class="mainConteneur">
         <div class="slider">
             <ul class="rslides">
@@ -54,6 +61,11 @@
                   pagination : true,
                   fade  : 500,                  
               });
+            });
+        </script>
+        <script>
+            $(function() {
+              $( "#dialog" ).dialog();
             });
         </script>
 {% endblock %}

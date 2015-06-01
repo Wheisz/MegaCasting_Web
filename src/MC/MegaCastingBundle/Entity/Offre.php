@@ -43,7 +43,7 @@ class Offre
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="DatePublication", type="datetime", nullable=false)
+     * @ORM\Column(name="DatePublication", type="datetime", nullable=true)
      */
     private $datepublication;
 

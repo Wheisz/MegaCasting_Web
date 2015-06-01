@@ -130,9 +130,9 @@ class OffreController extends Controller
         $annonceur = $manager->getRepository('MCMegaCastingBundle:Annonceur')
                              ->find(6);
         
-
+        
         // On definit une date de publication 
-        $offre->setDatepublication(new \DateTime('now'));
+//        $offre->setDatepublication(null);
 
         // On l'insere dans l'offre que l'annonceur souhaite creer
         $offre->setAnnonceur($annonceur);
@@ -145,15 +145,16 @@ class OffreController extends Controller
         $form->handleRequest($request);
         // On Verifie ensuite si l'ensemble des informations sont valides
         if ($form->isValid()){
-            
-            
-            var_dump($offre);
-            
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($offre);
             $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Offre bien enregistrée.');
+            
+            $this->get('session')->getFlashBag()->add(
+                    'info',
+                    'Votre offre est enregistrée et sera inspectée en vue d\' une publication'
+            );
+            
 
             return $this->redirect($this->generateUrl('mc_mega_casting_homepage'));
         }
@@ -161,40 +162,5 @@ class OffreController extends Controller
             'form' => $form->createView(),
         ));
     }
-    
-    
-    // Function qui va envoyer un tableau de metiers sous forme de Json au fichier Ajax
-    public function metiersAction(Request $request, $id_domaine){
-        
-        // On securise l'appel de la fonction en precisant que seul Ajax peut appeler cette fonction
-//        if($request->isXmlHttpRequest()){
-            $manager = $this->getDoctrine() 
-                                ->getManager(); 
-            
-            // On recupere l'ensemble des métiers rattachés à un domaine
-            $liste_metiers = $manager     
-                              ->getRepository('MCMegaCastingBundle:Metier')
-                              ->findBy(array('domaine' => $id_domaine)); 
-                  
-            
-            // Si la liste est non vide
-            if($liste_metiers){
-               $metiers = array();
-               // On stocke les differents metiers à l'interieur d'un tableau
-               foreach ($liste_metiers as $metier){
-                   $metiers[] = $metier->getLibelle();
-               }
-            }else{
-                $metier = null;
-            }
-            
-           
-            // On génere une reponse en Json pour pouvoir la réutiliser en Ajax
-            $response = new JsonResponse();
-            return $response->setData(array('metiers' => $metiers));
-//        }else{
-//            return new \Symfony\Component\Security\Acl\Exception\Exception("Erreur");
-//        }
-    }
-    
+
 }
