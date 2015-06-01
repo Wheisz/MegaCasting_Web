@@ -1,10 +1,11 @@
-{# views/EspacePerso/update #}
+{# views/EspacePro/update #}
+
 {% extends '::base.html.twig' %}
 
 {% block body %}
 <div class="mainConteneur">
     <div class="titre_view">
-        Espace perso - Mise à jour   
+        Espace pro - Mise à jour   
     </div>
     <div>
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
@@ -14,18 +15,16 @@
         
         <div id="artiste">
             <div class="artiste_info">
-                {% if type_info == "caracPhysique" %} 
-                    <div class="sous-titre">Caractéristiques physiques</div>
+                {% if type_info == "adresse" %} 
+                    {% include 'MCMegaCastingBundle:Adresse:update.html.twig' %}
+                {% elseif type_info == "general" %}
+                    <div class="sous-titre">Informations société</div>
                     {% for error in errors %}
                     <div class="form-row">
                         <div class="form-error">{{ error }}</div>                  
                     </div>
                     {% endfor %}
-                    {% include 'MCMegaCastingBundle:CaracPhysique:update.html.twig' %} 
-                {% elseif type_info == "photo-profil" %}
-                    {% include 'MCMegaCastingBundle:Photo:update.html.twig' %} 
-                {% elseif type_info == "general" %}
-                    {% include 'MCMegaCastingBundle:Artiste:update.html.twig' %} 
+                    {% include 'MCMegaCastingBundle:Annonceur:update.html.twig' %} 
                 {% endif %}
                 <div class="form-row">
                     {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}

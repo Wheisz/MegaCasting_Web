@@ -6,11 +6,11 @@
     <div class="titre_view">
         Espace pro de  {{ app.user.username }}  
     </div>
-    <div id="annonceur">
-        <div class="annonceur_info">
+    <div id="artiste">
+        <div class="artiste_info">
             <div class="info_compte">
                 <span class="sous-titre">Informations du compte</span>
-                <span class="artiste_name">Pseudo : {{ annonceur.utilisateur.username }}</span>
+                <span class="artiste_name">Pseudo : {{ app.user.username }}</span>
                 <span>Mail : {{ app.user.email }}</span>
                 <span>Mot de passe : *****</span>
                 <span class="lien_modifier">
@@ -18,11 +18,57 @@
                         Modifier</a>
                 </span>
             </div>
-            <div class="annonceur_info_societe">
-                <span class="sous-titre">Informations société</span>                 
-                
+            <div class="artiste_info_generale">
+                <span class="sous-titre">Informations société</span> 
+                <span>Numéro siret : 
+                    {% if annonceur.NumeroSiret %} 
+                        {{ annonceur.NumeroSiret }} 
+                    {% else %} Non renseigné {% endif %}
+                </span>
+                <span>Raison sociale : 
+                    {% if annonceur.RaisonSociale %} 
+                        {{ annonceur.RaisonSociale }} 
+                    {% else %} Non renseigné {% endif %}
+                </span>
+                <span>Email : 
+                    {% if annonceur.Email %} 
+                        {{ annonceur.Email }} 
+                    {% else %} Non renseigné {% endif %}
+                </span>
+                <span>Téléphone : 
+                    {% if annonceur.Telephone %} 
+                        {{ annonceur.Telephone }} 
+                    {% else %} Non renseigné {% endif %}
+                </span>
                 <span class="lien_modifier">
-                    <a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'general'}) }}">
+                    <a href="{{ path('mc_mega_casting_EspacePro_update', {'type_info': 'general'}) }}">
+                        Modifier</a>
+                </span>
+            </div>
+            <div class="artiste_info_generale">
+                <span class="sous-titre">Adresse société</span> 
+                <span>N° de voie : 
+                    {% if annonceur.Adresse and annonceur.Adresse.Numero %} 
+                        {{ annonceur.Adresse.Numero }}
+                    {% else %} Non renseigné {% endif %}
+                </span>
+                <span>Nom de la voie : 
+                    {% if annonceur.Adresse and annonceur.Adresse.Rue %} 
+                        {{ annonceur.Adresse.Rue }}
+                    {% else %} Non renseigné {% endif %}
+                </span>
+                <span>Code postal : 
+                    {% if annonceur.Adresse and annonceur.Adresse.CodePostal %}
+                        {{ annonceur.Adresse.CodePostal }}
+                    {% else %} Non renseigné {% endif %}
+                </span>
+                <span>Ville : 
+                    {% if annonceur.Adresse and annonceur.Adresse.Ville %}
+                        {{ annonceur.Adresse.Ville }} 
+                    {% else %} Non renseigné {% endif %}
+                </span>
+                <span class="lien_modifier">
+                    <a href="{{ path('mc_mega_casting_EspacePro_update', {'type_info': 'adresse'}) }}">
                         Modifier</a>
                 </span>
             </div>

@@ -275,14 +275,6 @@ header{
     border-left: 2px solid black;
 }
 
-.annonceur{
-    float: left;
-}
-
-.annonceur .annonceur_info{
-    padding: 10px 10px 3px 10px;
-}
-
 .artiste{
     float: left;
 }
@@ -499,6 +491,14 @@ footer .footer-right{
 }
 
 #artiste .artiste_info .info_compte .lien_modifier{
+    display: inline-block;
+}
+
+#artiste .artiste_info .artiste_info_generale span {
+    display: block;
+}
+
+#artiste .artiste_info .artiste_info_generale .lien_modifier{
     display: inline-block;
 }
 

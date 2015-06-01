@@ -6,8 +6,17 @@ php app/console assets:install
 
 php app/console assets:install --symlink
 
-php app/console cache:clear --env=prod
 
 
 // Création de formulaire
 php app/console doctrine:generate:form MCMegaCastingBundle:Photo
+
+
+// Mise en production
+php app/console cache:clear
+php app/console cache:clear --env=prod
+
+
+// Mise à jour bdd
+php app/console doctrine:schema:update --force
+

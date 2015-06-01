@@ -24,32 +24,40 @@ class Adresse
     /**
      * @var integer
      *
-     * @ORM\Column(name="Numero", type="integer", nullable=false)
+     * @ORM\Column(name="Numero", type="integer", nullable=true)
      */
     private $numero;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Rue", type="string", length=250, nullable=false)
+     * @ORM\Column(name="Rue", type="string", length=250, nullable=true)
      */
     private $rue;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="CodePostal", type="integer", nullable=false)
+     * @ORM\Column(name="CodePostal", type="integer", nullable=true)
      */
     private $codepostal;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Ville", type="string", length=100, nullable=false)
+     * @ORM\Column(name="Ville", type="string", length=100, nullable=true)
      */
     private $ville;
 
-
+    /**
+     * 
+     * @ORM\OneToOne(
+     *      targetEntity="Societe",
+     *      mappedBy="adresse"
+     * )
+     */
+    private $societe;
+    
 
     /**
      * Get id
@@ -151,5 +159,28 @@ class Adresse
     public function getVille()
     {
         return $this->ville;
+    }
+    
+    /**
+     * Set societe
+     *
+     * @param Societe $societe
+     * @return Societe
+     */
+    public function setSociete($societe)
+    {
+        $this->societe = $societe;
+
+        return $this;
+    }
+
+    /**
+     * Get societe
+     *
+     * @return Societe 
+     */
+    public function getSociete()
+    {
+        return $this->societe;
     }
 }

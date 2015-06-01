@@ -83,10 +83,6 @@ class SecurityController extends Controller
                 
                 $annonceur = new Annonceur();
                 $annonceur->setUtilisateur($user);
-                $annonceur->setNumeroSiret("");
-                $annonceur->setRaisonsociale("");
-                $annonceur->setEmail("");
-                $annonceur->setTelephone("");
                 $em->persist($annonceur);
             }
             
@@ -160,8 +156,17 @@ class SecurityController extends Controller
                 $em->persist($user);
                 $em->flush();
                 
-                $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_EspacePerso'));
-                return $response;
+                foreach ($user->getRoles() as $role)
+                {
+                    if ($role->getName() == "ROLE_ARTISTE") {
+                        $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_EspacePerso'));
+                        return $response;
+                    }
+                    else if ($role->getName() == "ROLE_ANNONCEUR") {
+                        $response = new RedirectResponse($this->container->get('router')->generate('mc_mega_casting_EspacePro'));
+                        return $response;
+                    }
+                }
             }  
         }
 

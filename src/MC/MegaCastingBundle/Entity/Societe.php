@@ -3,6 +3,7 @@
 namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Societe
@@ -27,41 +28,47 @@ class Societe
     /**
      * @var integer
      *
-     * @ORM\Column(name="NumeroSiret", type="bigint", nullable=false)
+     * @ORM\Column(name="NumeroSiret", type="bigint", nullable=true)
      */
     private $numerosiret;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="RaisonSociale", type="string", length=100, nullable=false)
+     * @ORM\Column(name="RaisonSociale", type="string", length=100, nullable=true)
      */
     private $raisonsociale;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Email", type="string", length=50, nullable=false)
+     * @ORM\Column(name="Email", type="string", length=50, nullable=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Telephone", type="string", length=50, nullable=false)
+     * @ORM\Column(name="Telephone", type="string", length=50, nullable=true)
+     * 
+     * @Assert\Length(
+     *      min = "10",
+     *      max = "10",
+     *      minMessage = "Un numéro de téléphone doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Un numéro de téléphone ne peut pas être plus long que {{ limit }} caractères"
+     * )
      */
     private $telephone;
 
     /**
      * @var \Adresse
      *
-     * @ORM\ManyToOne(targetEntity="Adresse")
+     * @ORM\OneToOne(targetEntity="Adresse", inversedBy="societe")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Adresse_id", referencedColumnName="Id")
      * })
      */
     private $adresse;
-
 
 
     /**

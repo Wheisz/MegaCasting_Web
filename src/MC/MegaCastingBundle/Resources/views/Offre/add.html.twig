@@ -2,179 +2,184 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+<div class="mainConteneur">
+    <div class="titre_view">
+        Espace pro de  {{ app.user.username }}  
+    </div>
+    <div id="offre">
+        <div class="offre_info">
+            <div class="sous-titre">Ajouter une offre de casting</div>
+            {{ form_start(form,{'method': 'POST', 'attr': {'class': 'form-horizontal'}}) }}
 
-<div id="offre">
-    <div class="offre_info">
-        <div class="sous-titre">Ajouter une offre de casting</div>
-        {{ form_start(form,{'method': 'POST', 'attr': {'class': 'form-horizontal'}}) }}
-    
-    
-        {# Les erreurs générales du formulaire. #}
-        {{ form_errors(form) }}
-        
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.intitule, "Intitulé", {'label_attr': {'class': 'form-label'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.intitule, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.intitule) }}
-        </div>
+            {# Les erreurs générales du formulaire. #}
+            {{ form_errors(form) }}
 
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.reference, "Référence", {'label_attr': {'class': 'form-label'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.reference, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.reference) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.dureediffusion, "Durée de la diffusion", {'label_attr': {'class': 'form-label'}}) }}
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.intitule, "Intitulé", {'label_attr': {'class': 'form-label'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.dureediffusion, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.dureediffusion) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.datedebutcontrat, "Date de début du contrat", {'label_attr': {'class': 'form-label'}}) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.intitule, {'attr': {'class': 'form-widget'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.datedebutcontrat, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.datedebutcontrat) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.nbposte, "Nombre de postes", {'label_attr': {'class': 'form-label'}}) }}
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.intitule) }}
+            </div>
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.nbposte, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.nbposte) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.localisationlattitude, "Lattitude", {'label_attr': {'class': 'form-label'}}) }}
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.reference, "Référence", {'label_attr': {'class': 'form-label'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.localisationlattitude, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.localisationlattitude) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.localisationlongitude, "Longitude", {'label_attr': {'class': 'form-label'}}) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.reference, {'attr': {'class': 'form-widget'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.localisationlongitude, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.localisationlongitude) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.descriptionposte, "Description du poste", {'label_attr': {'class': 'form-label'}}) }}
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.reference) }}
+            </div>
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.descriptionposte, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.descriptionposte) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.descriptionprofil, "Description du profil", {'label_attr': {'class': 'form-label'}}) }}
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.dureediffusion, "Durée de la diffusion", {'label_attr': {'class': 'form-label'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.descriptionprofil, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.descriptionprofil) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.telephone, "Téléphone", {'label_attr': {'class': 'form-label'}}) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.dureediffusion, {'attr': {'class': 'form-widget'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.telephone, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.telephone) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.email, "Email", {'label_attr': {'class': 'form-label'}}) }}
-            
-            {# Génération de l'input. #}
-            {{ form_widget(form.email, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.email) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.domaine, "Domaine", {'label_attr': {'class': 'form-label'}}) }}
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.dureediffusion) }}
+            </div>
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.domaine, {'attr': {'class': 'form-widget domaine'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.domaine) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.metier, "Métier", {'label_attr': {'class': 'form-label'}}) }}
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.datedebutcontrat, "Date de début du contrat", {'label_attr': {'class': 'form-label'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.metier, {'attr': {'class': 'form-widget metier'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.metier) }}
-        </div>
-        
-        <div class="form-row">
-            {# Génération du label. #}
-            {{ form_label(form.typecontrat, "Type de contrat", {'label_attr': {'class': 'form-label'}}) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.datedebutcontrat, {'attr': {'class': 'form-widget'}}) }}
 
-            {# Génération de l'input. #}
-            {{ form_widget(form.typecontrat, {'attr': {'class': 'form-widget'}}) }}
-            
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.typecontrat) }}
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.datedebutcontrat) }}
+            </div>
+
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.nbposte, "Nombre de postes", {'label_attr': {'class': 'form-label'}}) }}
+
+                {# Génération de l'input. #}
+                {{ form_widget(form.nbposte, {'attr': {'class': 'form-widget'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.nbposte) }}
+            </div>
+
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.localisationlattitude, "Lattitude", {'label_attr': {'class': 'form-label'}}) }}
+
+                {# Génération de l'input. #}
+                {{ form_widget(form.localisationlattitude, {'attr': {'class': 'form-widget'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.localisationlattitude) }}
+            </div>
+
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.localisationlongitude, "Longitude", {'label_attr': {'class': 'form-label'}}) }}
+
+                {# Génération de l'input. #}
+                {{ form_widget(form.localisationlongitude, {'attr': {'class': 'form-widget'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.localisationlongitude) }}
+            </div>
+
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.descriptionposte, "Description du poste", {'label_attr': {'class': 'form-label'}}) }}
+
+                {# Génération de l'input. #}
+                {{ form_widget(form.descriptionposte, {'attr': {'class': 'form-widget'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.descriptionposte) }}
+            </div>
+
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.descriptionprofil, "Description du profil", {'label_attr': {'class': 'form-label'}}) }}
+
+                {# Génération de l'input. #}
+                {{ form_widget(form.descriptionprofil, {'attr': {'class': 'form-widget'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.descriptionprofil) }}
+            </div>
+
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.telephone, "Téléphone", {'label_attr': {'class': 'form-label'}}) }}
+
+                {# Génération de l'input. #}
+                {{ form_widget(form.telephone, {'attr': {'class': 'form-widget'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.telephone) }}
+            </div>
+
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.email, "Email", {'label_attr': {'class': 'form-label'}}) }}
+
+                {# Génération de l'input. #}
+                {{ form_widget(form.email, {'attr': {'class': 'form-widget'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.email) }}
+            </div>
+
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.domaine, "Domaine", {'label_attr': {'class': 'form-label'}}) }}
+
+                {# Génération de l'input. #}
+                {{ form_widget(form.domaine, {'attr': {'class': 'form-widget domaine'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.domaine) }}
+            </div>
+
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.metier, "Métier", {'label_attr': {'class': 'form-label'}}) }}
+
+                {# Génération de l'input. #}
+                {{ form_widget(form.metier, {'attr': {'class': 'form-widget metier'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.metier) }}
+            </div>
+
+            <div class="form-row">
+                {# Génération du label. #}
+                {{ form_label(form.typecontrat, "Type de contrat", {'label_attr': {'class': 'form-label'}}) }}
+
+                {# Génération de l'input. #}
+                {{ form_widget(form.typecontrat, {'attr': {'class': 'form-widget'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.typecontrat) }}
+            </div>
+
+            {{ form_rest(form) }}
+
+            <div class="form-row" >
+                {{ form_widget(form.Enregistrer, {'attr':{'class':'bouton'}}) }}
+            </div>
+        </form>
         </div>
-        
-        {{ form_rest(form) }}
-        
-        <div class="form-row" >
-            {{ form_widget(form.Enregistrer, {'attr':{'class':'bouton'}}) }}
-        </div>
-    </form>
     </div>
 </div>
+
 {% endblock %}
 
 {% block javascripts %}

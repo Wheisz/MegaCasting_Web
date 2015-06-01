@@ -1,0 +1,43 @@
+{# views/Adresse/update #}
+
+<div class="sous-titre">Adresse société</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.numero, "N° voie", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.numero) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.numero, {'attr': {'class': 'form-widget'}}) }}
+</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.rue, "Nom de la voie", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.rue) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.rue, {'attr': {'class': 'form-widget'}}) }}
+</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.codepostal, "Code postal", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.codepostal) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.codepostal, {'attr': {'class': 'form-widget'}}) }}
+</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.ville, "Ville", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.ville) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.ville, {'attr': {'class': 'form-widget'}}) }}
+</div>

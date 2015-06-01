@@ -31,7 +31,7 @@ class Metier
     /**
      * @var \Domaine
      *
-     * @ORM\ManyToOne(targetEntity="Domaine")
+     * @ORM\ManyToOne(targetEntity="Domaine", inversedBy="metiers")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Domaine_id", referencedColumnName="Id")
      * })

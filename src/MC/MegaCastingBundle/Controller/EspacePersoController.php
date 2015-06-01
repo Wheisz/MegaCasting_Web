@@ -115,7 +115,14 @@ class EspacePersoController extends Controller
                 return $response;                
             } 
         }
-
+        
+        if ($type_info == 'general') {
+            return $this->render('MCMegaCastingBundle:Artiste:update.html.twig', array(
+                'form' => $form->createView(),
+                'type_info' => $type_info,
+                'errors' => $errors,
+            ));
+        }
         return $this->render('MCMegaCastingBundle:EspacePerso:update.html.twig', array(
           'form' => $form->createView(),
             'type_info' => $type_info,

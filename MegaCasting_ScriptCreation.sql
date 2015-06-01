@@ -19,27 +19,22 @@ GO
 CREATE TABLE Adresse
 (
 	Id BIGINT NOT NULL IDENTITY,
-	Numero INT NOT NULL,
-	Rue NVARCHAR(250) NOT NULL,
-	CodePostal INT NOT NULL,
-	Ville NVARCHAR(100) NOT NULL,
-	CONSTRAINT PK_Adresse PRIMARY KEY (Id),
-	CONSTRAINT UK_Adresse UNIQUE (Numero, Rue, CodePostal, Ville)
+	Numero INT NULL,
+	Rue NVARCHAR(250) NULL,
+	CodePostal INT NULL,
+	Ville NVARCHAR(100) NULL,
+	CONSTRAINT PK_Adresse PRIMARY KEY (Id)
 )
-GO
-
-
-CREATE INDEX IUK_Adresse ON Adresse (Numero, Rue, CodePostal, Ville)
 GO
 
 
 CREATE TABLE Societe
 (
 	Id BIGINT NOT NULL IDENTITY,
-	NumeroSiret BIGINT NOT NULL,
-	RaisonSociale NVARCHAR(100) NOT NULL,
-	Email NVARCHAR(50) NOT NULL,
-	Telephone NVARCHAR(50) NOT NULL,
+	NumeroSiret BIGINT NULL,
+	RaisonSociale NVARCHAR(100) NULL,
+	Email NVARCHAR(50) NULL,
+	Telephone NVARCHAR(50) NULL,
 	Adresse_id BIGINT NULL
 	CONSTRAINT PK_Societe PRIMARY KEY (Id),
 	CONSTRAINT FK_Societe_Adresse FOREIGN KEY (Adresse_id) REFERENCES Adresse (Id)

@@ -1,0 +1,42 @@
+{# views/Annonceur/update #}
+
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.numerosiret, "N° SIRET", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.numerosiret, {'attr': {'class': 'form-widget'}}) }}
+    
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.numerosiret) }}
+</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.raisonsociale, "Raison sociale", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.raisonsociale, {'attr': {'class': 'form-widget'}}) }}
+    
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.raisonsociale) }}
+</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.email, "Email", {'label_attr': {'class': 'form-label'}}) }}
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.email, {'attr': {'class': 'form-widget'}}) }}
+    
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.email) }}
+</div>
+<div class="form-row">
+    {# Génération du label. #}
+    {{ form_label(form.telephone, "N° Téléphone", {'label_attr': {'class': 'form-label'}}) }}    
+
+    {# Génération de l'input. #}
+    {{ form_widget(form.telephone, {'attr': {'class': 'form-widget'}}) }}
+    
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.telephone) }}
+</div>

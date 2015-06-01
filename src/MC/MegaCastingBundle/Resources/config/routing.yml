@@ -47,6 +47,10 @@ offres:
 mc_mega_casting_EspacePro:
     path:     /EspacePro
     defaults: { _controller: MCMegaCastingBundle:EspacePro:index }
+    
+mc_mega_casting_EspacePro_update:
+    path:     /EspacePro/modifier/{type_info}
+    defaults: { _controller: MCMegaCastingBundle:EspacePro:update }
 
 
 # EspacePerso Route
