@@ -78,3 +78,7 @@ values
 insert into Offre (Intitule,Reference,DatePublication,DureeDiffusion,DateDebutContrat,NbPoste,LocalisationLattitude,LocalisationLongitude,DescriptionPoste,DescriptionProfil,Telephone,Email,Domaine_id,Metier_id,TypeContrat_id,Annonceur_id)
 values 
 	('Recherche un animateur pour série Tf1','ref250',convert(datetime, '2015-04-22 01:02:03', 121),1,'24-04-2015',1,'12° 12'' N','14° 10'' S','Animateur pour presenter le jt de 20 heures','Jeune,dynamique et serieux','0214254758','jttf1@gmail.com',8,2,1,1);
+
+update Offre
+set EstValide = 1
+where Id = 1;
