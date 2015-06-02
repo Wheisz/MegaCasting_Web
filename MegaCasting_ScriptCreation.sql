@@ -125,7 +125,7 @@ CREATE TABLE Offre
 	Id BIGINT NOT NULL IDENTITY,
 	Intitule NVARCHAR(100) NOT NULL,
 	Reference NVARCHAR(100) NOT NULL,
-	DatePublication DATETIME NOT NULL,
+	DatePublication DATETIME2 NOT NULL,
 	DureeDiffusion INT NOT NULL,
 	DateDebutContrat DATE NOT NULL,
 	NbPoste INT NOT NULL,
@@ -236,7 +236,7 @@ GO
 CREATE TABLE Artiste
 (
 	Id BIGINT NOT NULL IDENTITY,
-	DateNaissance DATETIME NULL,
+	DateNaissance DATETIME2 NULL,
 	Sexe_id BIGINT NULL,
 	Utilisateur_id BIGINT,
 	CaracteristiquePhysique_id BIGINT NULL,
