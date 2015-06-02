@@ -52,11 +52,15 @@ class EspaceProController extends Controller
         if ($type_info == 'general') {
             $form = $this->get('form.factory')->create(new AnnonceurType(), $annonceur);
         }
+        // Si update de l'adresse
         else if ($type_info == 'adresse') {
+            // Si l'annonceur a déjà une adresse
             if ($annonceur->getAdresse() != null) {
+                // On la récupère
                 $adresse = $annonceur->getAdresse();
             }
             else {
+                // Sinon on crée une nouvelle
                 $adresse = new Adresse();
             }
             $form = $this->get('form.factory')->create(new AdresseType(), $adresse);
