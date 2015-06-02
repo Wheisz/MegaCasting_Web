@@ -4,8 +4,8 @@
 {% block body %}
     {# On affiche le message de confirmation de la creation de l'offre s'il existe #}
     {% for flashMessage in app.session.flashbag.get('info') %}
-        <div id="dialog" class="info">
-            {{ flashMessage }}
+        <div class="message_confirmation">
+            <span id="message_contenu">{{ flashMessage }}</span>
         </div>
     {% endfor %}
     
@@ -61,11 +61,6 @@
                   pagination : true,
                   fade  : 500,                  
               });
-            });
-        </script>
-        <script>
-            $(function() {
-              $( "#dialog" ).dialog();
             });
         </script>
 {% endblock %}

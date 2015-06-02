@@ -1,6 +1,6 @@
 {# views/Offre/liste #}
 
-{% if liste_offres is null %}
+{% if liste_offres is empty %}
     <p>Pas d'offres trouvé.</p>
 {% else %}
     {% for offre in liste_offres %}
