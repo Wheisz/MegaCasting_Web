@@ -39,11 +39,15 @@ values
 
 insert into Utilisateur (Username, Password, Email)
 values
-	('Wheisz', 'yoyo', 'lazeriz@hotmail.fr');
+	('kbouss', 'INO8TKeMpPqbcxu7Ran5tzSQ4Hurwv/7X4KJC1+3B8mJVW193OlWB7/YJJ3q5ZFx/yEvUxsWH/27W39XBEWC8Q==', 'kbouss@hotmail.fr'),
+	('tf1Prod', 'TkGxngJ5HOtjnoc6hTiMetAicxDWQwqLprtUHSL0Lm5A1fEpybabiKVjDwfD41jfovD+Rt/M1Rw9LyXX3F7TYg==', 'tf1Prod@gmail.com'),
+	('admin', 'nhDr7OyKlXQju+Ge/WKGrPQ9lPBSUFfpK+B1xqx/+8zLZqRNX0+5G1zBQklXUFy86lCpkAofsExlXiorUcKSNQ==', 'admin@megaproduction.fr');
 
 insert into Role_Utilisateur (Role_id, Utilisateur_id)
 values
-	(1, 1);
+	(1, 1),
+	(2, 2),
+	(3, 3);
 
 insert into CaracteristiquePhysique (Poids,Taille,CouleurYeux,CouleurCheveux)
 values 
@@ -67,9 +71,9 @@ insert into Societe (NumeroSiret,RaisonSociale,Email,Telephone,Adresse_id, discr
 values
 	(14125412563254,'tf1Production','tf1prod@gmail.com',0899377465,1, 'annonceur');
 
-insert into Annonceur (Id)
+insert into Annonceur (Id, Utilisateur_id)
 values
-	(1)
+	(1, 2);
 
 insert into Offre (Intitule,Reference,DatePublication,DureeDiffusion,DateDebutContrat,NbPoste,LocalisationLattitude,LocalisationLongitude,DescriptionPoste,DescriptionProfil,Telephone,Email,Domaine_id,Metier_id,TypeContrat_id,Annonceur_id)
 values 

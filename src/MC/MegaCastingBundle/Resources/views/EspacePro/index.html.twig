@@ -52,7 +52,8 @@
                         {% endif %}
                     {% endfor %}
                 {% endif %}    
-
+            </div>
+            <div class="artiste_info_generale">
                 <span class="sous-titre">Adresse société</span> 
                 {% if annonceur %}
                     <span>N° de voie : 
@@ -86,12 +87,18 @@
                         {% endif %}
                     {% endfor %}
                 {% endif %}
+            </div>
+            <div class="artiste_info_generale">
                 <span class="sous-titre">Offres</span>
-                <span class="lien_modifier">
-                    <a href="{{ path('mc_mega_casting_Offre_Add') }}">
-                        Ajouter une offre
-                    </a>
-                </span>
+                {% if annonceur %}
+                    <span class="lien_modifier">
+                        <a href="{{ path('mc_mega_casting_Offre_Add') }}">
+                            Ajouter une offre
+                        </a>
+                    </span>
+                {% else %}
+                    Compte administrateur
+                {% endif %}                
             </div>
         </div>        
     </div>

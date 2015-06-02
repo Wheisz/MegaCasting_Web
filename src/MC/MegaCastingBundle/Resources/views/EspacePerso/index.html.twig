@@ -7,15 +7,17 @@
         Espace perso de  {{ app.user.username }}  
     </div>
     <div id="artiste">
-        <div class="artiste_picture">
-            <span>
-            {% include 'MCMegaCastingBundle:Artiste:photoProfile.html.twig' %} 
-            </span>
-            <span class="lien_modifier">
-                    <a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'photo-profil'}) }}">
-                        Modifier</a>
-            </span>
-        </div>
+        {% if artiste %}
+            <div class="artiste_picture">
+                <span>
+                {% include 'MCMegaCastingBundle:Artiste:photoProfile.html.twig' %} 
+                </span>
+                <span class="lien_modifier">
+                        <a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'photo-profil'}) }}">
+                            Modifier</a>
+                </span>
+            </div>
+        {% endif %}        
         <div class="artiste_info">
             <div class="info_compte">
                 <span class="sous-titre">Informations du compte</span>
