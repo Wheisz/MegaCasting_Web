@@ -19,7 +19,7 @@
         <div class="artiste_info">
             <div class="info_compte">
                 <span class="sous-titre">Informations du compte</span>
-                <span class="artiste_name">Pseudo : {{ artiste.utilisateur.username }}</span>
+                <span class="artiste_name">Pseudo : {{ app.user.username }}</span>
                 <span>Mail : {{ app.user.email }}</span>
                 <span>Mot de passe : *****</span>
                 <span class="lien_modifier">
@@ -28,27 +28,45 @@
                 </span>
             </div>
             <div class="artiste_info_generale">
-                <span class="sous-titre">Informations générales</span>                 
-                {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
-                <span class="artiste_age">Date de naissance : 
-                    {% if artiste.datenaissance %}
-                        {{ artiste.datenaissance|date("m/d/Y") }}
-                    {% else %}Non renseigné{% endif %}
-                </span>  
-                <span class="artiste_sexe">Sexe : 
-                    {% if artiste.sexe %} 
-                        {{ artiste.sexe.libelle }} 
-                    {% else %} Non renseigné {% endif %}
-                </span>
-                <span class="lien_modifier">
-                    <a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'general'}) }}">
-                        Modifier</a>
-                </span>
+                <span class="sous-titre">Informations générales</span>    
+                {% if artiste %}
+                    {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
+                    <span class="artiste_age">Date de naissance : 
+                        {% if artiste.datenaissance %}
+                            {{ artiste.datenaissance|date("m/d/Y") }}
+                        {% else %}Non renseigné{% endif %}
+                    </span>  
+                    <span class="artiste_sexe">Sexe : 
+                        {% if artiste.sexe %} 
+                            {{ artiste.sexe.libelle }} 
+                        {% else %} Non renseigné {% endif %}
+                    </span>
+                    <span class="lien_modifier">
+                        <a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'general'}) }}">
+                            Modifier</a>
+                    </span>
+                {% else %}
+                    {% for role in app.user.roles %}
+                        {% if role == "ROLE_ADMIN" %}
+                            <span>Compte administrateur</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}                
             </div>   
             <div class="artiste_info_physique">
                 <span class="sous-titre">Caractéristiques physiques</span>
-                {% include 'MCMegaCastingBundle:CaracPhysique:view.html.twig' %}
-                <span class="lien_modifier"><a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'caracPhysique'}) }}">Modifier</a></span>
+                {% if artiste %}
+                    {% include 'MCMegaCastingBundle:CaracPhysique:view.html.twig' %}
+                    <span class="lien_modifier">
+                        <a href="{{ path('mc_mega_casting_EspacePerso_update', {'type_info': 'caracPhysique'}) }}">Modifier</a>
+                    </span>
+                {% else %}
+                    {% for role in app.user.roles %}
+                        {% if role == "ROLE_ADMIN" %}
+                            <span>Compte administrateur</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}                
             </div>
         </div>        
     </div>

@@ -20,56 +20,77 @@
             </div>
             <div class="artiste_info_generale">
                 <span class="sous-titre">Informations société</span> 
-                <span>Numéro siret : 
-                    {% if annonceur.NumeroSiret %} 
-                        {{ annonceur.NumeroSiret }} 
-                    {% else %} Non renseigné {% endif %}
-                </span>
-                <span>Raison sociale : 
-                    {% if annonceur.RaisonSociale %} 
-                        {{ annonceur.RaisonSociale }} 
-                    {% else %} Non renseigné {% endif %}
-                </span>
-                <span>Email : 
-                    {% if annonceur.Email %} 
-                        {{ annonceur.Email }} 
-                    {% else %} Non renseigné {% endif %}
-                </span>
-                <span>Téléphone : 
-                    {% if annonceur.Telephone %} 
-                        {{ annonceur.Telephone }} 
-                    {% else %} Non renseigné {% endif %}
-                </span>
-                <span class="lien_modifier">
-                    <a href="{{ path('mc_mega_casting_EspacePro_update', {'type_info': 'general'}) }}">
-                        Modifier</a>
-                </span>
-            </div>
-            <div class="artiste_info_generale">
+                {% if annonceur %}
+                    <span>Numéro siret : 
+                        {% if annonceur.NumeroSiret %} 
+                            {{ annonceur.NumeroSiret }} 
+                        {% else %} Non renseigné {% endif %}
+                    </span>
+                    <span>Raison sociale : 
+                        {% if annonceur.RaisonSociale %} 
+                            {{ annonceur.RaisonSociale }} 
+                        {% else %} Non renseigné {% endif %}
+                    </span>
+                    <span>Email : 
+                        {% if annonceur.Email %} 
+                            {{ annonceur.Email }} 
+                        {% else %} Non renseigné {% endif %}
+                    </span>
+                    <span>Téléphone : 
+                        {% if annonceur.Telephone %} 
+                            {{ annonceur.Telephone }} 
+                        {% else %} Non renseigné {% endif %}
+                    </span>
+                    <span class="lien_modifier">
+                        <a href="{{ path('mc_mega_casting_EspacePro_update', {'type_info': 'general'}) }}">
+                            Modifier</a>
+                    </span>
+                {% else %}
+                    {% for role in app.user.roles %}
+                        {% if role == "ROLE_ADMIN" %}
+                            <span>Compte administrateur</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}    
+
                 <span class="sous-titre">Adresse société</span> 
-                <span>N° de voie : 
-                    {% if annonceur.Adresse and annonceur.Adresse.Numero %} 
-                        {{ annonceur.Adresse.Numero }}
-                    {% else %} Non renseigné {% endif %}
-                </span>
-                <span>Nom de la voie : 
-                    {% if annonceur.Adresse and annonceur.Adresse.Rue %} 
-                        {{ annonceur.Adresse.Rue }}
-                    {% else %} Non renseigné {% endif %}
-                </span>
-                <span>Code postal : 
-                    {% if annonceur.Adresse and annonceur.Adresse.CodePostal %}
-                        {{ annonceur.Adresse.CodePostal }}
-                    {% else %} Non renseigné {% endif %}
-                </span>
-                <span>Ville : 
-                    {% if annonceur.Adresse and annonceur.Adresse.Ville %}
-                        {{ annonceur.Adresse.Ville }} 
-                    {% else %} Non renseigné {% endif %}
-                </span>
+                {% if annonceur %}
+                    <span>N° de voie : 
+                        {% if annonceur.Adresse and annonceur.Adresse.Numero %} 
+                            {{ annonceur.Adresse.Numero }}
+                        {% else %} Non renseigné {% endif %}
+                    </span>
+                    <span>Nom de la voie : 
+                        {% if annonceur.Adresse and annonceur.Adresse.Rue %} 
+                            {{ annonceur.Adresse.Rue }}
+                        {% else %} Non renseigné {% endif %}
+                    </span>
+                    <span>Code postal : 
+                        {% if annonceur.Adresse and annonceur.Adresse.CodePostal %}
+                            {{ annonceur.Adresse.CodePostal }}
+                        {% else %} Non renseigné {% endif %}
+                    </span>
+                    <span>Ville : 
+                        {% if annonceur.Adresse and annonceur.Adresse.Ville %}
+                            {{ annonceur.Adresse.Ville }} 
+                        {% else %} Non renseigné {% endif %}
+                    </span>
+                    <span class="lien_modifier">
+                        <a href="{{ path('mc_mega_casting_EspacePro_update', {'type_info': 'adresse'}) }}">
+                            Modifier</a>
+                    </span>
+                {% else %}
+                    {% for role in app.user.roles %}
+                        {% if role == "ROLE_ADMIN" %}
+                            <span>Compte administrateur</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <span class="sous-titre">Offres</span>
                 <span class="lien_modifier">
-                    <a href="{{ path('mc_mega_casting_EspacePro_update', {'type_info': 'adresse'}) }}">
-                        Modifier</a>
+                    <a href="{{ path('mc_mega_casting_Offre_Add') }}">
+                        Ajouter une offre
+                    </a>
                 </span>
             </div>
         </div>        

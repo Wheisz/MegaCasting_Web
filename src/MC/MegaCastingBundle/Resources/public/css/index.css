@@ -580,6 +580,17 @@ footer .footer-right{
     padding: 3px;
     margin-top: 5px;
     display: inline-block;
+    color: white;
+}
+
+.lien_modifier a:link {
+    color: white;
+    text-decoration: none;
+}
+
+.lien_modifier a:visited {
+    color: white;
+    text-decoration: none;
 }
 
 .bouton {

@@ -1,15 +1,18 @@
 {# views/Artiste/photoProfile #}
+
 {% set photoProfileFound = '0' %}
-    {% for photo in artiste.Photos %}
-        {% if photo.IsProfile == 1 %}
-            <a class="artiste_picture_profil" title="{{artiste.utilisateur.username}}" href="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.utilisateur.username ~ '/' ~ photo.url)}}">
-                <img  src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.utilisateur.username ~ '/' ~ photo.url)}}" height="auto" width="100px" alt="Artiste" />
+    {% if artiste and artiste.Photos %}
+        {% for photo in artiste.Photos %}
+            {% if photo.IsProfile == 1 %}
+                <a class="artiste_picture_profil" title="{{artiste.utilisateur.username}}" href="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.utilisateur.username ~ '/' ~ photo.url)}}">
+                    <img  src="{{ asset('bundles/mcmegacasting/img/artiste/' ~ artiste.utilisateur.username ~ '/' ~ photo.url)}}" height="auto" width="100px" alt="Artiste" />
+                </a>
+                {% set photoProfileFound = '1' %}
+            {% endif %}
+        {% endfor %}
+        {% if photoProfileFound == "0" %}
+            <a class="artiste_picture_profil" href="{{ asset('bundles/mcmegacasting/img/artiste/anonyme.jpg')}}">
+                <img  src="{{ asset('bundles/mcmegacasting/img/artiste/anonyme.jpg')}}" height="100px" width="100px" alt="Artiste" />
             </a>
-            {% set photoProfileFound = '1' %}
         {% endif %}
-    {% endfor %}
-    {% if photoProfileFound == "0" %}
-        <a class="artiste_picture_profil" href="{{ asset('bundles/mcmegacasting/img/artiste/anonyme.jpg')}}">
-            <img  src="{{ asset('bundles/mcmegacasting/img/artiste/anonyme.jpg')}}" height="100px" width="100px" alt="Artiste" />
-        </a>
     {% endif %}

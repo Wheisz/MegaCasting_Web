@@ -15,7 +15,7 @@ mc_mega_casting_Offre_view:
         id_offre: \d+
         
 mc_mega_casting_Offre_Add:
-    path:     /Offre/Add
+    path:     /EspacePro/Offre/Add
     defaults: { _controller: MCMegaCastingBundle:Offre:add }
     requirements:
         type_user: annonceur

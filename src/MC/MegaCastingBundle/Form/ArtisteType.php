@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormEvent;
+use MC\MegaCastingBundle\Entity\Domaine;
 
 class ArtisteType extends AbstractType
 {
