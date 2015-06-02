@@ -33,7 +33,6 @@
 # Composer PHAR
 /composer.phar
 app/AppKernel.php
-src/MC/MegaCastingBundle/Entity/Utilisateur.php
 composer.lock
 composer.json
 app/config/config.yml
