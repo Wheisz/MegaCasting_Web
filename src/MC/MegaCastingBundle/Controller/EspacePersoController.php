@@ -56,7 +56,7 @@ class EspacePersoController extends Controller
             $form = $this->get('form.factory')->create(new ArtisteType(), $artiste, 
                     array('type_info' => $type_info)); 
         }  
-        
+
         $errors = array();
 
         if ($form->handleRequest($request)->isValid()) 

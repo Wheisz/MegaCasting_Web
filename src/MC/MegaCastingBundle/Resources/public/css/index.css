@@ -554,6 +554,16 @@ footer .footer-right{
     margin: 5px;
 }
 
+.form-row .checkbox_list{
+    text-align: left;
+}
+
+
+
+.form-row .checkbox_list .form-label{
+    width: 100%;
+}
+
 .form-label {
     display: inline-block;
     float: left;

@@ -142,4 +142,9 @@ class Metier
     {
         return $this->artiste;
     }
+    
+    public function getNomComplet()
+    {
+        return '('. $this->getDomaine()->getLibelle() . ') ' . $this->libelle;
+    }
 }

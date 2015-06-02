@@ -37,24 +37,20 @@
                     {{ form_widget(form.sexe, {'attr': {'class': 'form-widget'}}) }}
                 </div>
                 <div class="form-row">
+                    <div class='checkbox_list'>
                     {# Génération du label. #}
-                    {{ form_label(form.domaine, "Domaine", {'label_attr': {'class': 'form-label'}}) }}
-
-                    {# Génération de l'input. #}
-                    {{ form_widget(form.domaine, {'attr': {'class': 'form-widget domaine'}}) }}
-
-                    {# Affichage des erreurs pour ce champ précis. #}
-                    {{ form_errors(form.domaine) }}
-                </div>
-                <div class="form-row">
-                    {# Génération du label. #}
-                    {{ form_label(form.metier, "Métier", {'label_attr': {'class': 'form-label'}}) }}
-
-                    {# Génération de l'input. #}
-                    {{ form_widget(form.metier, {'attr': {'class': 'form-widget metier'}}) }}
+                    {{ form_label(form.metier, "Mes métiers :", {'label_attr': {'class': 'form-label'}}) }}                    
+                    
+                    {% for child in form.metier %}
+                        <div>
+                        {{ form_widget(child) }}
+                        {{ form_label(child) }}
+                        </div>
+                    {% endfor %}
 
                     {# Affichage des erreurs pour ce champ précis. #}
                     {{ form_errors(form.metier) }}
+                    </div>
                 </div>
                 <div class="form-row">
                     {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
@@ -72,35 +68,4 @@
         {{ form_end(form) }}
     </div>
 </div>    
-{% endblock %}
-
-
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        var $domaine = $('.domaine');
-        // Pour un domaine selectionné
-        $domaine.change(function(){
-            // On retrouve le formulaire correspondant
-            var $form = $(this).closest('form');
-            // Données du formulaire qui va contenir que les libellés du domaine
-            var data = {};
-            data[$domaine.attr('name')] = $domaine.val();
-            
-            // Soummission des données via Ajax pour le chemin d'action du formulaire
-            $.ajax({
-                url : $form.attr('action'),
-                type: $form.attr('method'),
-                data: data,
-                success: function(html) {
-                    // Remplace la position actuelle du champ
-                    $('.metier').replaceWith(
-                            // Avec celui qui est retourné à partir de la réponse AJAX.
-                            $(html).find('.metier')
-                );
-                    // Champ Métier affiche maintenant les métiers appropriés.
-                }
-            });
-        });
-    </script>
 {% endblock %}
