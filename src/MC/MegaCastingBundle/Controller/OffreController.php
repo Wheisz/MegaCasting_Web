@@ -133,9 +133,7 @@ class OffreController extends Controller
                 ->getRepository('MCMegaCastingBundle:Annonceur')
                 ->findOneByUtilisateur($user);
         
-        
-        // On definit une date de publication 
-//        $offre->setDatepublication(null);
+ 
 
         // On l'insere dans l'offre que l'annonceur souhaite creer
         $offre->setAnnonceur($annonceur);
