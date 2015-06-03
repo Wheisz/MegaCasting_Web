@@ -56,7 +56,7 @@ values
 
 insert into Artiste (DateNaissance, Sexe_id, CaracteristiquePhysique_id, Utilisateur_id)
 values
-	(convert(datetime, '2012-02-22 01:02:03', 121), 1, 1, 1);
+	(convert(datetime, '1994-02-22 01:02:03', 121), 1, 1, 1);
 
 insert into Photo (Url, IsProfile, Artiste_id)
 values

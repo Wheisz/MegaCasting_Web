@@ -62,14 +62,15 @@ class EspacePersoController extends Controller
         if ($form->handleRequest($request)->isValid()) 
         {            
             if ($type_info == 'photo-profil') {
-                
+                // on parcour les photos de l'artiste, si il a une photo de profil
+                // On l'enlève
                 foreach ($artiste->getPhotos() as $p) {
-                    // si la photo est celle de profile on l'enlève
                     if ($p->getIsprofile() == 1) {
                         $p->setIsprofile(0);
                     }
                 }
                 
+                // Nouvelle photo de profil
                 $photo->setArtiste($artiste); // On lui met l'artiste
                 $photo->setIsprofile(1); // On la met en photo de profil
                 

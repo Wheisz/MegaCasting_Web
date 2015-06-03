@@ -7,10 +7,10 @@
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/config/routing.yml</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Form/ArtisteType.php</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Artiste/update.html.twig</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/EspacePerso/update.html.twig</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/views/Offre/add.html.twig</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Artiste.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Entity/Metier.php</file>
+            <file>file:/C:/wamp/www/MegaCasting_Web/vendor/doctrine/dbal/lib/Doctrine/DBAL/Types/DateTimeType.php</file>
             <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Resources/public/css/index.css</file>
-            <file>file:/C:/wamp/www/MegaCasting_Web/src/MC/MegaCastingBundle/Controller/OffreController.php</file>
         </group>
     </open-files>
 </project-private>
