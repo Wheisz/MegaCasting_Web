@@ -29,6 +29,11 @@ class Societe
      * @var integer
      *
      * @ORM\Column(name="NumeroSiret", type="bigint", nullable=true)
+     * 
+     * @Assert\Regex(
+     *      pattern="/^[0-9]{14}$/",
+     *      message="{{ value }} n'est pas un numéro de SIRET valide",
+     * )
      */
     private $numerosiret;
 
@@ -51,11 +56,9 @@ class Societe
      *
      * @ORM\Column(name="Telephone", type="string", length=50, nullable=true)
      * 
-     * @Assert\Length(
-     *      min = "10",
-     *      max = "10",
-     *      minMessage = "Un numéro de téléphone doit faire au moins {{ limit }} caractères",
-     *      maxMessage = "Un numéro de téléphone ne peut pas être plus long que {{ limit }} caractères"
+     * @Assert\Regex(
+     *      pattern="/^0[1-68]([.-]?[0-9]{2}){4}$/",
+     *      message="{{ value }} n'est pas un numéro de téléphone valide",
      * )
      */
     private $telephone;

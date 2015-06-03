@@ -90,13 +90,6 @@ class EspacePersoController extends Controller
             }
             
             if ($type_info == 'caracPhysique') {
-                // Si saisi et pas un entier
-                if ($artiste->getCaracteristiquephysique()->getPoids() && !is_int($artiste->getCaracteristiquephysique()->getPoids())) {
-                    $errors[] = 'Le poids doit être un nombre entier';
-                }
-                if ($artiste->getCaracteristiquephysique()->getTaille() && !is_int($artiste->getCaracteristiquephysique()->getTaille())) {
-                    $errors[] = 'La taille doit être un nombre entier';
-                }
                 
                 if (empty($errors)) {
                     $manager->persist($artiste);

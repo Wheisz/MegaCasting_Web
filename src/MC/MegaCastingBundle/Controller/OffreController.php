@@ -127,8 +127,11 @@ class OffreController extends Controller
         $manager = $this->getDoctrine() 
                         ->getManager();
         
-        $annonceur = $manager->getRepository('MCMegaCastingBundle:Annonceur')
-                             ->find(6);
+        $user = $this->getUser();
+        
+        $annonceur = $manager
+                ->getRepository('MCMegaCastingBundle:Annonceur')
+                ->findOneByUtilisateur($user);
         
         
         // On definit une date de publication 

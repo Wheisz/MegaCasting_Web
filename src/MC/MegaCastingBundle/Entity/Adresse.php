@@ -3,6 +3,7 @@
 namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Adresse
@@ -25,6 +26,11 @@ class Adresse
      * @var integer
      *
      * @ORM\Column(name="Numero", type="integer", nullable=true)
+     * 
+     * @Assert\Regex(
+     *      pattern="/^[0-9]*$/",
+     *      message="Mauvais format pour un numéro",
+     * )
      */
     private $numero;
 
@@ -32,6 +38,11 @@ class Adresse
      * @var string
      *
      * @ORM\Column(name="Rue", type="string", length=250, nullable=true)
+     * 
+     * @Assert\Regex(
+     *      pattern="/^[a-zA-Z-éèëäâàüûïîöô ]*$/",
+     *      message="Mauvais format pour une rue",
+     * )
      */
     private $rue;
 
@@ -39,6 +50,11 @@ class Adresse
      * @var integer
      *
      * @ORM\Column(name="CodePostal", type="integer", nullable=true)
+     * 
+     * @Assert\Regex(
+     *      pattern="/^[0-9]{5}$/",
+     *      message="Mauvais format pour un code postal",
+     * )
      */
     private $codepostal;
 
@@ -46,6 +62,11 @@ class Adresse
      * @var string
      *
      * @ORM\Column(name="Ville", type="string", length=100, nullable=true)
+     * 
+     * @Assert\Regex(
+     *      pattern="/^[a-zA-Z-éèëäâàüûïîöô ]*$/",
+     *      message="Mauvais format pour une ville",
+     * )
      */
     private $ville;
 

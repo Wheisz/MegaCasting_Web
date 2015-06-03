@@ -108,12 +108,7 @@ class EspaceProController extends Controller
                         $errors[] = 'Cette raison sociale est déjà utilisée';
                         $temp_annonceur = null;
                     }
-                }                
-                
-                // Si tel saisi et pas un entier
-                if ($annonceur->getTelephone() && !is_numeric($annonceur->getTelephone())) {
-                    $errors[] = 'Le numéro de téléphone doit être un nombre entier';
-                }
+                }  
                 
                 if (empty($errors)) {
                     $manager->persist($annonceur);

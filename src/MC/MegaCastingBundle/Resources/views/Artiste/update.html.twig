@@ -20,21 +20,21 @@
                     {# Génération du label. #}
                     {{ form_label(form.datenaissance, "Date de naissance", {'label_attr': {'class': 'form-label'}}) }}
 
-                    {# Affichage des erreurs pour ce champ précis. #}
-                    {{ form_errors(form.datenaissance) }}
-
                     {# Génération de l'input. #}
                     {{ form_widget(form.datenaissance, {'attr': {'class': 'form-widget'}}) }}
+                    
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.datenaissance) }}
                 </div>
                 <div class="form-row">
                     {# Génération du label. #}
                     {{ form_label(form.sexe, "Sexe", {'label_attr': {'class': 'form-label'}}) }}
 
-                    {# Affichage des erreurs pour ce champ précis. #}
-                    {{ form_errors(form.sexe) }}
-
                     {# Génération de l'input. #}
                     {{ form_widget(form.sexe, {'attr': {'class': 'form-widget'}}) }}
+                    
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.sexe) }}
                 </div>
                 <div class="form-row">
                     <div class='checkbox_list'>

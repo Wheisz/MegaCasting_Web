@@ -487,6 +487,14 @@ footer .footer-right{
     padding: 5px;
 }
 
+#artiste .artiste_info .form-row ul {
+    list-style: none;
+    color: red;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+
 #artiste .artiste_picture{
     display: inline-block; 
     position: relative;

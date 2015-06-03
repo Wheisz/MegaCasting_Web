@@ -3,6 +3,7 @@
 namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Caracteristiquephysique
@@ -25,6 +26,11 @@ class Caracteristiquephysique
      * @var integer
      *
      * @ORM\Column(name="Taille", type="integer", nullable=true)
+     * 
+     * @Assert\Regex(
+     *      pattern="/^[0-9]*$/",
+     *      message="Mauvais format pour une taille",
+     * )
      */
     private $taille;
 
@@ -32,6 +38,11 @@ class Caracteristiquephysique
      * @var integer
      *
      * @ORM\Column(name="Poids", type="integer", nullable=true)
+     * 
+     * @Assert\Regex(
+     *      pattern="/^[0-9]*$/",
+     *      message="Mauvais format pour un poids",
+     * )
      */
     private $poids;
 

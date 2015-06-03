@@ -3,43 +3,39 @@
 <div class="form-row">
     {# Génération du label. #}
     {{ form_label(form.caracteristiquephysique.taille, "Taille (cm)", {'label_attr': {'class': 'form-label'}}) }}
+    
+    {{ form_widget(form.caracteristiquephysique.taille, {'attr': {'class': 'form-widget'}}) }}
 
     {# Affichage des erreurs pour ce champ précis. #}
     {{ form_errors(form.caracteristiquephysique.taille) }}
-
-    {% if errors %}
-        {{ form_widget(form.caracteristiquephysique.taille, {'attr': {'class': 'widget-error'}}) }}
-    {% else %}
-        {{ form_widget(form.caracteristiquephysique.taille, {'attr': {'class': 'form-widget'}}) }}
-    {% endif %}
 </div>
 <div class="form-row">
     {# Génération du label. #}
     {{ form_label(form.caracteristiquephysique.poids, "Poids (Kg)", {'label_attr': {'class': 'form-label'}}) }}
+    
+    {# Génération de l'input. #}
+    {{ form_widget(form.caracteristiquephysique.poids, {'attr': {'class': 'form-widget'}}) }}
 
     {# Affichage des erreurs pour ce champ précis. #}
     {{ form_errors(form.caracteristiquephysique.poids) }}
-
-    {# Génération de l'input. #}
-    {{ form_widget(form.caracteristiquephysique.poids, {'attr': {'class': 'form-widget'}}) }}
 </div> 
 <div class="form-row">
     {# Génération du label. #}
     {{ form_label(form.caracteristiquephysique.couleuryeux, "Couleur des yeux", {'label_attr': {'class': 'form-label'}}) }}
-
-    {# Affichage des erreurs pour ce champ précis. #}
-    {{ form_errors(form.caracteristiquephysique.couleuryeux) }}
-
+    
     {# Génération de l'input. #}
     {{ form_widget(form.caracteristiquephysique.couleuryeux, {'attr': {'class': 'form-widget'}}) }}
+    
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.caracteristiquephysique.couleuryeux) }}
 </div> 
 <div class="form-row">
     {# Génération du label. #}
     {{ form_label(form.caracteristiquephysique.couleurcheveux, "Couleur des cheveux", {'label_attr': {'class': 'form-label'}}) }}
 
-    {# Affichage des erreurs pour ce champ précis. #}
-    {{ form_errors(form.caracteristiquephysique.couleurcheveux) }}
-
     {# Génération de l'input. #}
     {{ form_widget(form.caracteristiquephysique.couleurcheveux, {'attr': {'class': 'form-widget'}}) }}
+    
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.caracteristiquephysique.couleurcheveux) }}
 </div> 
