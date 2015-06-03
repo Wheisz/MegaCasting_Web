@@ -23,7 +23,7 @@ class ArtisteType extends AbstractType
                 ->add('datenaissance', 'date', array(
                     'empty_value' => array('year' => 'Année', 'month' => 'Mois', 'day' => 'Jour'),
                     'years' => range(date('Y') - 100, date('Y')),
-                    'required' => true,
+                    'required' => false,
                     ))
                 ->add('sexe', 'entity', array(
                     'class'    => 'MCMegaCastingBundle:Sexe',

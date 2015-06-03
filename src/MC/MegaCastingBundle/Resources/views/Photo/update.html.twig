@@ -5,9 +5,9 @@
     {# Génération du label. #}
     {{ form_label(form.file, "Image", {'label_attr': {'class': 'form-label'}}) }}
 
-    {# Affichage des erreurs pour ce champ précis. #}
-    {{ form_errors(form.file) }}
-
     {# Génération de l'input. #}
     {{ form_widget(form.file, {'attr': {'class': 'form-widget'}}) }}
+    
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.file) }}
 </div>
