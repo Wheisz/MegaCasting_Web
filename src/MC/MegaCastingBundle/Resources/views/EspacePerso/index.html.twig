@@ -35,7 +35,7 @@
                     {% include 'MCMegaCastingBundle:Artiste:domaineMetier.html.twig' %}  
                     <span class="artiste_age">Date de naissance : 
                         {% if artiste.datenaissance %}
-                            {{ artiste.datenaissance|date("m/d/Y") }}
+                            {{ artiste.datenaissance|date("d/m/Y") }}
                         {% else %}Non renseigné{% endif %}
                     </span>  
                     <span class="artiste_sexe">Sexe : 
