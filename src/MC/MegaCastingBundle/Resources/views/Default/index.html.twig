@@ -12,10 +12,30 @@
     <div class="mainConteneur">
         <div class="slider">
             <ul class="rslides">
-              <li><img src="{{asset('bundles/mcmegacasting/img/slider/ange.png')}}" /></li>
-              <li><img src="{{asset('bundles/mcmegacasting/img/slider/bioshock.png')}}" /></li>
-              <li><img src="{{asset('bundles/mcmegacasting/img/slider/design.png')}}" /></li>
-              <li><img src="{{asset('bundles/mcmegacasting/img/slider/robot.png')}}" /></li>
+              <li>
+                  <a href="{{ path('mc_mega_casting_Offre_Domaine',{ 'libelle_domaine' : 'TV-RADIO'})}}">
+                      <img src="{{asset('bundles/mcmegacasting/img/slider/tele_radio.jpg')}}" />
+                  </a>
+              </li>
+              <li>
+                  <a href="{{ path('mc_mega_casting_Offre_Domaine',{ 'libelle_domaine' : 'MUSIQUE'})}}">
+                      <img src="{{asset('bundles/mcmegacasting/img/slider/musique.jpg')}}" />
+                  </a>
+              </li>
+              <li>
+                  <a href="{{ path('mc_mega_casting_Offre_Domaine',{ 'libelle_domaine' : 'CINEMA'})}}">
+                      <img src="{{asset('bundles/mcmegacasting/img/slider/cinema.jpg')}}" />
+                  </a>
+              </li>
+              <li>
+                  <a href="{{ path('mc_mega_casting_Offre_Domaine',{ 'libelle_domaine' : 'THEATRE'})}}">
+                      <img src="{{asset('bundles/mcmegacasting/img/slider/theatre.jpg')}}" />
+                  </a>
+              </li>
+              <li>
+                  <a href="{{ path('mc_mega_casting_Offre_Domaine',{ 'libelle_domaine' : 'MODE-PHOTO'})}}">
+                      <img src="{{asset('bundles/mcmegacasting/img/slider/mode.jpg')}}" />
+                  </a>
             </ul>
         </div>
         <div id="sub-main">
@@ -56,7 +76,7 @@
         <script>
             $(function() {
               $(".rslides").responsiveSlides({
-                  speed : 1000,
+                  speed : 500,
                   nav   : true,
                   pagination : true,
                   fade  : 500,                  
