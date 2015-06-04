@@ -27,10 +27,6 @@ class Caracteristiquephysique
      *
      * @ORM\Column(name="Taille", type="integer", nullable=true)
      * 
-     * @Assert\Regex(
-     *      pattern="/^[0-9]*$/",
-     *      message="Mauvais format pour une taille",
-     * )
      */
     private $taille;
 
@@ -39,10 +35,6 @@ class Caracteristiquephysique
      *
      * @ORM\Column(name="Poids", type="integer", nullable=true)
      * 
-     * @Assert\Regex(
-     *      pattern="/^[0-9]*$/",
-     *      message="Mauvais format pour un poids",
-     * )
      */
     private $poids;
 

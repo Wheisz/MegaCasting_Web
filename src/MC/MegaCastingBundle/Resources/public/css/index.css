@@ -458,7 +458,15 @@ footer .footer-right{
     padding: 5px;
 }
 
-#offre .offre_info ul {
+#offre .offre_info button {
+    background-color: #731443;
+    color: white;
+}
+
+/**
+* Erreurs Formulaire Offre et Artiste
+*/
+#offre .offre_info ul , #artiste .artiste_info ul {
     list-style: none;
     color: red;
     margin: 5px;
@@ -466,10 +474,6 @@ footer .footer-right{
     text-align: left;
 }
 
-#offre .offre_info button {
-    background-color: #731443;
-    color: white;
-}
 /*
 *   Partie Artiste View
 */
