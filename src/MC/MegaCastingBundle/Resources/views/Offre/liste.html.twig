@@ -1,17 +1,21 @@
 {# views/Offre/liste #}
 
-{% if liste_offres is empty %}
-    <p>Pas d'offres trouvé.</p>
+{% set verif = false %}
+{% for offre in liste_offres %}
+    {% if offre.EstValide %}
+    <a href="{{ path('mc_mega_casting_Offre_view', {'id_offre': offre.Id}) }}" class="casting">
+        <span class="title">{{ offre.Intitule }}</span>
+        <span class="info">
+            <span class="domaine">{{ offre.domaine.Libelle }}</span>
+            <span class="date">{{ offre.DatePublication|date('d/m/Y') }}</span>
+        </span>
+    </a>
+    {% else %}
+        {% set verif = true %}
+    {% endif %}
 {% else %}
-    {% for offre in liste_offres %}
-        {% if offre.EstValide %}
-        <a href="{{ path('mc_mega_casting_Offre_view', {'id_offre': offre.Id}) }}" class="casting">
-            <span class="title">{{ offre.Intitule }}</span>
-            <span class="info">
-                <span class="domaine">{{ offre.domaine.Libelle }}</span>
-                <span class="date">{{ offre.DatePublication|date('d/m/Y') }}</span>
-            </span>
-        </a>
-        {% endif %}
-    {% endfor %}
-{% endif %}
+    <p>Pas d'offres trouvé.</p>
+{% endfor %}
+{% if  verif == true %}
+    <p>Pas d'offres trouvé.</p>
+{% endif %} 
