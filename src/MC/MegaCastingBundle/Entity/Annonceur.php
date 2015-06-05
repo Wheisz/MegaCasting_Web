@@ -1,6 +1,8 @@
 <?php
 
 namespace MC\MegaCastingBundle\Entity;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="Annonceur", indexes={@ORM\Index(name="IFK_Annonceur_Utilisateur", columns={"Utilisateur_id"})})
  * @ORM\Entity
+ * @ExclusionPolicy("all")
  */
 class Annonceur extends Societe
 {

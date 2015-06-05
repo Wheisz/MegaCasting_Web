@@ -4,11 +4,13 @@ namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Utilisateur
  *
  * @ORM\Table(name="Utilisateur", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Utilisateur_Pseudo", columns={"Username"})})
+ * @UniqueEntity("username")
  * @ORM\Entity
  */
 class Utilisateur implements UserInterface, \Serializable

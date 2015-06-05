@@ -4,6 +4,8 @@ namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 
 /**
@@ -11,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="Offre", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Offre", columns={"Reference"})}, indexes={@ORM\Index(name="IFK_Offre_Domaine", columns={"Domaine_id"}), @ORM\Index(name="IFK_Offre_Metier", columns={"Metier_id"}), @ORM\Index(name="IFK_Offre_TypeContrat", columns={"TypeContrat_id"}), @ORM\Index(name="IFK_Offre_Annonceur", columns={"Annonceur_id"})})
  * @ORM\Entity
+ * @ExclusionPolicy("all")
  */
 class Offre
 {
@@ -28,6 +31,7 @@ class Offre
      *
      * @ORM\Column(name="Intitule", type="string", length=100, nullable=false)
      * @Assert\NotBlank(message="L'intitulé doit être renseigné")
+     * @expose
      */
     private $intitule;
 
@@ -37,6 +41,7 @@ class Offre
      * @ORM\Column(name="Reference", type="string", length=100, nullable=false)
      * 
      * @Assert\NotBlank(message="La référence de la diffusion doit être renseignée")
+     * @expose
      */
     private $reference;
 
@@ -44,6 +49,7 @@ class Offre
      * @var \DateTime
      *
      * @ORM\Column(name="DatePublication", type="datetime", nullable=true)
+     * @expose
      */
     private $datepublication;
 
@@ -52,6 +58,7 @@ class Offre
      *
      * @ORM\Column(name="DureeDiffusion", type="integer", nullable=false)
      * @Assert\NotBlank(message="La durée de la diffusion doit être renseignée")
+     * @expose
      */
     private $dureediffusion;
 
@@ -60,6 +67,7 @@ class Offre
      *
      * @ORM\Column(name="DateDebutContrat", type="date", nullable=false)
      * @Assert\NotBlank(message="La date du début du contrat doit être renseignée")
+     * @expose
      */
     private $datedebutcontrat;
 
@@ -68,6 +76,7 @@ class Offre
      *
      * @ORM\Column(name="NbPoste", type="integer", nullable=false)
      * @Assert\NotBlank(message="Le nombre de postes doit être renseigné")
+     * @expose
      */
     private $nbposte;
 
@@ -80,6 +89,7 @@ class Offre
      *      pattern="/^[0-9]{2}° [0-9]{2}' [N-S-E-O]{1}$/",
      *      message="Veuillez respecter le schéma suivant : 10° 10' S",
      * )
+     * @expose
      */
     private $localisationlattitude;
 
@@ -92,6 +102,7 @@ class Offre
      *      pattern="/^[0-9]{2}° [0-9]{2}' [N-S-E-O]{1}$/",
      *      message="Veuillez respecter le schéma suivant : 10° 10' S",
      * )
+     * @expose
      */
     private $localisationlongitude;
 
@@ -100,6 +111,7 @@ class Offre
      *
      * @ORM\Column(name="DescriptionPoste", type="text", length=16, nullable=false)
      * @Assert\NotBlank(message="La description du poste doit être renseignée")
+     * @expose
      */
     private $descriptionposte;
 
@@ -108,6 +120,7 @@ class Offre
      *
      * @ORM\Column(name="DescriptionProfil", type="text", length=16, nullable=false)
      * @Assert\NotBlank(message="La description du profil doit être renseignée")
+     * @expose
      */
     private $descriptionprofil;
 
@@ -121,6 +134,7 @@ class Offre
      *      pattern="/^0[1-68]([.-]?[0-9]{2}){4}$/",
      *      message="{{ value }} n'est pas un numéro de téléphone valide",
      * )
+     * @expose
      */
     private $telephone;
 
@@ -133,6 +147,7 @@ class Offre
      *     message = "'{{ value }}' n'est pas un email valide.",
      *     checkMX = true
      * )
+     * @expose
      */
     private $email;
 
@@ -140,6 +155,7 @@ class Offre
      * @var boolean
      *
      * @ORM\Column(name="EstValide", type="boolean", nullable=false)
+     * @expose
      */
     private $estvalide = 'false';
 
@@ -152,6 +168,7 @@ class Offre
      * })
      * 
      * @Assert\NotBlank(message="Un domaine doit être renseigné")
+     * @expose
      */
     private $domaine;
 
@@ -164,6 +181,7 @@ class Offre
      * })
      * 
      * @Assert\NotBlank(message="Un métier doit être renseigné")
+     * @expose
      */
     private $metier;
 
@@ -176,6 +194,7 @@ class Offre
      * })
      * 
      * @Assert\NotBlank(message="Un type de contrat doit être renseigné")
+     * @expose
      */
     private $typecontrat;
 
@@ -186,8 +205,7 @@ class Offre
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Annonceur_id", referencedColumnName="Id")
      * })
-     * 
-     * 
+     * @expose
      */
     private $annonceur;
 

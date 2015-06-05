@@ -3,12 +3,15 @@
 namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Typecontrat
  *
  * @ORM\Table(name="TypeContrat", uniqueConstraints={@ORM\UniqueConstraint(name="UK_TypeContrat", columns={"Libelle"})})
  * @ORM\Entity
+ * @ExclusionPolicy("all")
  */
 class Typecontrat
 {
@@ -25,6 +28,7 @@ class Typecontrat
      * @var string
      *
      * @ORM\Column(name="Libelle", type="string", length=100, nullable=false)
+     * @expose
      */
     private $libelle;
 

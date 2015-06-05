@@ -4,6 +4,8 @@ namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Societe
@@ -13,6 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"annonceur" = "MC\MegaCastingBundle\Entity\Annonceur", "diffuseur" = "MC\MegaCastingBundle\Entity\Diffuseur"})
+ * @ExclusionPolicy("all")
  */
 class Societe
 {
@@ -34,6 +37,7 @@ class Societe
      *      pattern="/^[0-9]{14}$/",
      *      message="{{ value }} n'est pas un numéro de SIRET valide",
      * )
+     * @expose
      */
     private $numerosiret;
 
@@ -41,6 +45,7 @@ class Societe
      * @var string
      *
      * @ORM\Column(name="RaisonSociale", type="string", length=100, nullable=true)
+     * @expose
      */
     private $raisonsociale;
 
@@ -48,6 +53,7 @@ class Societe
      * @var string
      *
      * @ORM\Column(name="Email", type="string", length=50, nullable=true)
+     * @expose
      */
     private $email;
 
@@ -60,6 +66,7 @@ class Societe
      *      pattern="/^0[1-68]([.-]?[0-9]{2}){4}$/",
      *      message="{{ value }} n'est pas un numéro de téléphone valide",
      * )
+     * @expose
      */
     private $telephone;
 
@@ -70,6 +77,7 @@ class Societe
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Adresse_id", referencedColumnName="Id")
      * })
+     * @expose
      */
     private $adresse;
 

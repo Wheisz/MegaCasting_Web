@@ -4,12 +4,15 @@ namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Adresse
  *
  * @ORM\Table(name="Adresse", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Adresse", columns={"Numero", "Rue", "CodePostal", "Ville"})})
  * @ORM\Entity
+ * @ExclusionPolicy("all")
  */
 class Adresse
 {
@@ -31,6 +34,7 @@ class Adresse
      *      pattern="/^[0-9]*$/",
      *      message="Mauvais format pour un numéro",
      * )
+     * @expose
      */
     private $numero;
 
@@ -43,6 +47,7 @@ class Adresse
      *      pattern="/^[a-zA-Z-éèëäâàüûïîöô ]*$/",
      *      message="Mauvais format pour une rue",
      * )
+     * @expose
      */
     private $rue;
 
@@ -67,6 +72,7 @@ class Adresse
      *      pattern="/^[a-zA-Z-éèëäâàüûïîöô ]*$/",
      *      message="Mauvais format pour une ville",
      * )
+     * @expose
      */
     private $ville;
 
@@ -76,6 +82,7 @@ class Adresse
      *      targetEntity="Societe",
      *      mappedBy="adresse"
      * )
+     * @expose
      */
     private $societe;
     

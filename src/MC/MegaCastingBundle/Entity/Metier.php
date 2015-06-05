@@ -3,12 +3,15 @@
 namespace MC\MegaCastingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Metier
  *
  * @ORM\Table(name="Metier", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Metier", columns={"Libelle"})}, indexes={@ORM\Index(name="IDX_560C08BAD2FFF4F", columns={"Domaine_id"})})
  * @ORM\Entity
+ * @ExclusionPolicy("all")
  */
 class Metier
 {
@@ -25,6 +28,7 @@ class Metier
      * @var string
      *
      * @ORM\Column(name="Libelle", type="string", length=100, nullable=false)
+     * @expose
      */
     private $libelle;
 

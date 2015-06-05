@@ -1,6 +1,8 @@
 <?php
 
 namespace MC\MegaCastingBundle\Entity;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="Domaine", uniqueConstraints={@ORM\UniqueConstraint(name="UK_Domaine", columns={"Libelle"})})
  * @ORM\Entity
+ * @ExclusionPolicy("all")
  */
 class Domaine
 {
@@ -25,6 +28,7 @@ class Domaine
      * @var string
      *
      * @ORM\Column(name="Libelle", type="string", length=100, nullable=false)
+     * @expose
      */
     private $libelle;
 

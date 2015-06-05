@@ -23,21 +23,21 @@
                     {# Génération du label. #}
                     {{ form_label(form.username, "Login", {'label_attr': {'class': 'form-label'}}) }}
 
-                    {# Affichage des erreurs pour ce champ précis. #}
-                    {{ form_errors(form.username) }}
-
                     {# Génération de l'input. #}
                     {{ form_widget(form.username, {'attr': {'class': 'form-widget'}}) }}
+                    
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.username) }}
                 </div>
                 <div class="form-row">
                     {# Génération du label. #}
                     {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'form-label'}}) }}
 
-                    {# Affichage des erreurs pour ce champ précis. #}
-                    {{ form_errors(form.password) }}
-
                     {# Génération de l'input. #}
                     {{ form_widget(form.password, {'attr': {'class': 'form-widget'}}) }}
+                    
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.password) }}
                 </div>  
                 <div class="form-row">
                     {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
