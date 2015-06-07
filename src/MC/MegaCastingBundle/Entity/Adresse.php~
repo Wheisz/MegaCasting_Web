@@ -24,32 +24,39 @@ class Adresse
     /**
      * @var integer
      *
-     * @ORM\Column(name="Numero", type="integer", nullable=false)
+     * @ORM\Column(name="Numero", type="integer", nullable=true)
      */
     private $numero;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Rue", type="string", length=250, nullable=false)
+     * @ORM\Column(name="Rue", type="string", length=250, nullable=true)
      */
     private $rue;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="CodePostal", type="integer", nullable=false)
+     * @ORM\Column(name="CodePostal", type="string", length=5, nullable=true)
      */
     private $codepostal;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Ville", type="string", length=100, nullable=false)
+     * @ORM\Column(name="Ville", type="string", length=100, nullable=true)
      */
     private $ville;
 
-
+    /**
+     * 
+     * @ORM\OneToOne(
+     *      targetEntity="Societe",
+     *      mappedBy="adresse"
+     * )
+     */
+    private $societe;
 
     /**
      * Get id
@@ -110,7 +117,7 @@ class Adresse
     /**
      * Set codepostal
      *
-     * @param integer $codepostal
+     * @param string $codepostal
      * @return Adresse
      */
     public function setCodepostal($codepostal)
@@ -123,7 +130,7 @@ class Adresse
     /**
      * Get codepostal
      *
-     * @return integer 
+     * @return string 
      */
     public function getCodepostal()
     {

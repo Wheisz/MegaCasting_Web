@@ -52,9 +52,9 @@ class Adresse
     private $rue;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="CodePostal", type="integer", nullable=true)
+     * @ORM\Column(name="CodePostal", type="string", length=5, nullable=true)
      * 
      * @Assert\Regex(
      *      pattern="/^[0-9]{5}$/",
@@ -82,10 +82,8 @@ class Adresse
      *      targetEntity="Societe",
      *      mappedBy="adresse"
      * )
-     * @expose
      */
     private $societe;
-    
 
     /**
      * Get id
@@ -146,7 +144,7 @@ class Adresse
     /**
      * Set codepostal
      *
-     * @param integer $codepostal
+     * @param string $codepostal
      * @return Adresse
      */
     public function setCodepostal($codepostal)
@@ -159,7 +157,7 @@ class Adresse
     /**
      * Get codepostal
      *
-     * @return integer 
+     * @return string 
      */
     public function getCodepostal()
     {
@@ -188,14 +186,14 @@ class Adresse
     {
         return $this->ville;
     }
-    
+
     /**
      * Set societe
      *
-     * @param Societe $societe
-     * @return Societe
+     * @param \MC\MegaCastingBundle\Entity\Societe $societe
+     * @return Adresse
      */
-    public function setSociete($societe)
+    public function setSociete(\MC\MegaCastingBundle\Entity\Societe $societe = null)
     {
         $this->societe = $societe;
 
@@ -205,7 +203,7 @@ class Adresse
     /**
      * Get societe
      *
-     * @return Societe 
+     * @return \MC\MegaCastingBundle\Entity\Societe 
      */
     public function getSociete()
     {
