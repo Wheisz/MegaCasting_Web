@@ -1,8 +1,9 @@
 {# views/Offre/liste #}
 
 {% set verif = false %}
+{% set i = 0 %}
 {% for offre in liste_offres %}
-    {% if offre.EstValide %}
+    {% if (offre.EstValide) and (i <= 4)%}
     <a href="{{ path('mc_mega_casting_Offre_view', {'id_offre': offre.Id}) }}" class="casting">
         <span class="title">{{ offre.Intitule }}</span>
         <span class="info">
@@ -10,6 +11,7 @@
             <span class="date">{{ offre.DatePublication|date('d/m/Y') }}</span>
         </span>
     </a>
+    {%set  i = i +1 %}
     {% else %}
         {% set verif = true %}
     {% endif %}
