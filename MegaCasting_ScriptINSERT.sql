@@ -3,7 +3,9 @@ use MegaCasting
 insert into TypeContrat (Libelle)
 values
 	('CDD'),
-	('CDI');
+	('CDI'),
+	('INTERIM'),
+	('STAGE');
 
 insert into Domaine (Libelle)
 values
