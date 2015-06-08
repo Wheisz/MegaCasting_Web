@@ -12,14 +12,14 @@
                 <span class="date">{{ offre.DatePublication|date('d/m/Y') }}</span>
             </span>
         </a>
-        {% else %}
-            {% set verif = true %}
+        {% set verif = true %}
         {% endif %}
     {% endif %}
     {%set  i = i +1 %}
 {% else %}
     <p>Pas d'offres trouvé.</p>
+    {% set verif = true %}
 {% endfor %}
-{% if  verif == true %}
+{% if  verif == false %}
     <p>Pas d'offres trouvé.</p>
 {% endif %} 
