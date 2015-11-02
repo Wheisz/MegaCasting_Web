@@ -35,7 +35,8 @@ CREATE TABLE Societe
 	RaisonSociale NVARCHAR(100) NULL,
 	Email NVARCHAR(50) NULL,
 	Telephone NVARCHAR(50) NULL,
-	Adresse_id BIGINT NULL
+	Adresse_id BIGINT NULL,
+        Discr NVARCHAR(10) NOT NULL,
 	CONSTRAINT PK_Societe PRIMARY KEY (Id),
 	CONSTRAINT FK_Societe_Adresse FOREIGN KEY (Adresse_id) REFERENCES Adresse (Id)
 )

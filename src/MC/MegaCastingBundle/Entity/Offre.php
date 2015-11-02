@@ -209,7 +209,20 @@ class Offre
      */
     private $annonceur;
 
-
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Artiste", inversedBy="offres")
+     * @ORM\JoinTable(name="Offre_Artiste",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="Offre_id", referencedColumnName="Id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="Artiste_id", referencedColumnName="Id")
+     *   }
+     * )
+     */
+    private $artistes;
 
     /**
      * Get id
@@ -610,5 +623,45 @@ class Offre
     public function getAnnonceur()
     {
         return $this->annonceur;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->artistes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add artistes
+     *
+     * @param \MC\MegaCastingBundle\Entity\Artiste $artistes
+     * @return Offre
+     */
+    public function addArtiste(\MC\MegaCastingBundle\Entity\Artiste $artistes)
+    {
+        $this->artistes[] = $artistes;
+
+        return $this;
+    }
+
+    /**
+     * Remove artistes
+     *
+     * @param \MC\MegaCastingBundle\Entity\Artiste $artistes
+     */
+    public function removeArtiste(\MC\MegaCastingBundle\Entity\Artiste $artistes)
+    {
+        $this->artistes->removeElement($artistes);
+    }
+
+    /**
+     * Get artistes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArtistes()
+    {
+        return $this->artistes;
     }
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MC\MegaCastingBundle\Entity\Offre" table="Offre">
+    <indexes>
+      <index name="IFK_Offre_Domaine" columns="Domaine_id"/>
+      <index name="IFK_Offre_Metier" columns="Metier_id"/>
+      <index name="IFK_Offre_TypeContrat" columns="TypeContrat_id"/>
+      <index name="IFK_Offre_Annonceur" columns="Annonceur_id"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="UK_Offre" columns="Reference"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="intitule" type="string" column="Intitule" length="100" precision="0" scale="0" nullable="false"/>
+    <field name="reference" type="string" column="Reference" length="100" precision="0" scale="0" nullable="false"/>
+    <field name="datepublication" type="datetime" column="DatePublication" precision="0" scale="0" nullable="true"/>
+    <field name="dureediffusion" type="integer" column="DureeDiffusion" precision="0" scale="0" nullable="false"/>
+    <field name="datedebutcontrat" type="date" column="DateDebutContrat" precision="0" scale="0" nullable="false"/>
+    <field name="nbposte" type="integer" column="NbPoste" precision="0" scale="0" nullable="false"/>
+    <field name="localisationlattitude" type="string" column="LocalisationLattitude" length="50" precision="0" scale="0" nullable="false"/>
+    <field name="localisationlongitude" type="string" column="LocalisationLongitude" length="50" precision="0" scale="0" nullable="false"/>
+    <field name="descriptionposte" type="text" column="DescriptionPoste" length="16" precision="0" scale="0" nullable="false"/>
+    <field name="descriptionprofil" type="text" column="DescriptionProfil" length="16" precision="0" scale="0" nullable="false"/>
+    <field name="telephone" type="string" column="Telephone" length="50" precision="0" scale="0" nullable="false"/>
+    <field name="email" type="string" column="Email" length="50" precision="0" scale="0" nullable="false"/>
+    <field name="estvalide" type="boolean" column="EstValide" precision="0" scale="0" nullable="false"/>
+    <many-to-one field="annonceur" target-entity="MC\MegaCastingBundle\Entity\Annonceur">
+      <join-columns>
+        <join-column name="Annonceur_id" referenced-column-name="Id" nullable="1"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="typecontrat" target-entity="MC\MegaCastingBundle\Entity\Typecontrat">
+      <join-columns>
+        <join-column name="Typecontrat_id" referenced-column-name="Id" nullable="1"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="metier" target-entity="MC\MegaCastingBundle\Entity\Metier">
+      <join-columns>
+        <join-column name="Metier_id" referenced-column-name="Id" nullable="1"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="domaine" target-entity="MC\MegaCastingBundle\Entity\Domaine">
+      <join-columns>
+        <join-column name="Domaine_id" referenced-column-name="Id" nullable="1"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

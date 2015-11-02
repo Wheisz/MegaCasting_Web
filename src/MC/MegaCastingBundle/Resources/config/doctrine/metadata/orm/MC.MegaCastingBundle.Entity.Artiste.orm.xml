@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="MC\MegaCastingBundle\Repository\ArtisteRepository" name="MC\MegaCastingBundle\Entity\Artiste" table="Artiste">
+    <indexes>
+      <index name="IFK_Artiste_Sexe" columns="Sexe_id"/>
+      <index name="IFK_Artiste_Utilisateur" columns="Utilisateur_id"/>
+      <index name="IFK_Artiste_CaracPhysique" columns="CaracteristiquePhysique_id"/>
+    </indexes>
+    <id name="id" type="bigint" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="datenaissance" type="datetime" column="DateNaissance" precision="0" scale="0" nullable="true"/>
+    <one-to-many field="photos" target-entity="MC\MegaCastingBundle\Entity\Photo" mapped-by="artiste"/>
+    <many-to-one field="sexe" target-entity="MC\MegaCastingBundle\Entity\Sexe">
+      <join-columns>
+        <join-column name="Sexe_id" referenced-column-name="Id" nullable="1"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="caracteristiquephysique" target-entity="MC\MegaCastingBundle\Entity\Caracteristiquephysique">
+      <join-columns>
+        <join-column name="CaracteristiquePhysique_id" referenced-column-name="Id" nullable="1"/>
+      </join-columns>
+      <cascade>
+        <cascade-persist/>
+      </cascade>
+    </many-to-one>
+    <many-to-one field="utilisateur" target-entity="MC\MegaCastingBundle\Entity\Utilisateur">
+      <join-columns>
+        <join-column name="Utilisateur_id" referenced-column-name="Id" nullable="1"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="metier" target-entity="MC\MegaCastingBundle\Entity\Metier" inversed-by="artiste">
+      <join-table name="artiste_metier">
+        <join-columns>
+          <join-column name="Artiste_id" referenced-column-name="Id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="Metier_id" referenced-column-name="Id" nullable="1"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

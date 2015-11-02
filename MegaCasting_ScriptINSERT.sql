@@ -69,7 +69,7 @@ insert into Adresse (Numero,Rue,CodePostal,Ville)
 values
 	(1,'quai du point jour','92100','Boulogne Billancourt');
 
-insert into Societe (NumeroSiret,RaisonSociale,Email,Telephone,Adresse_id, discr)
+insert into Societe (NumeroSiret,RaisonSociale,Email,Telephone,Adresse_id, Discr)
 values
 	(14125412563254,'tf1Production','tf1prod@gmail.com','0899377465',1, 'annonceur');
 

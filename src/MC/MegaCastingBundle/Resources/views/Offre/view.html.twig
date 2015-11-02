@@ -35,6 +35,16 @@
                 <span id="email"><label>Email : </label>{{ offre.email }}</span>
                 <span id="telephone"><label>Telephone : </label>{{ offre.telephone }}</span>
             </div>
+            
+            {% if app.user %}
+                {% for role in  app.user.roles %}
+                    {% if role == 'ROLE_ARTISTE' %}
+                        <div class="row center">
+                            <a href="{{ path('mc_mega_casting_Offre_Postuler', {'id_offre':offre.id,'type_info':'valider'})}}">Postuler</a>
+                        </div>
+                    {% endif%}
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 {% endblock %}
