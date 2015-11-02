@@ -163,47 +163,5 @@ class OffreController extends Controller
             'form' => $form->createView(),
         ));
     }
-    
-    public function postulerAction($id_offre, $type_info)
-    {
-        // On recupere l'utilisateur ( artiste ) qui postule
-        $user = $this->getUser();
-        
-        // On instancie un manager 
-        $manager = $this->getDoctrine() 
-                        ->getManager();
-        
-       $artiste =  $manager
-                            ->getRepository("MCMegaCastingBundle:Artiste")
-                            ->findOneByUtilisateur($user);
-       
-       // On recupere l'offre 
-       $offre = $manager 
-                        ->getRepository("MCMegaCastingBundle:Offre")
-                        ->find($id_offre);
-
-       if(($offre != null) && ($artiste != null)){
-           
-       if ( $type_info == 'valider'){
-           $artiste->addOffre($offre);
-           $offre->addArtiste($artiste); 
-       }elseif ($type_info == 'annuler') {
-           $artiste->removeOffre($offre);
-           $offre->removeArtiste($artiste);  
-       }
-
-           $manager->persist($artiste);
-           $manager->persist($offre);
-           
-           $manager->flush();
-           
-           return $this->redirect($this->generateUrl('mc_mega_casting_homepage'));
-
-       }
-       
-        return $this->render('MCMegaCastingBundle:Offre:view.html.twig', array(
-            'artiste' => $artiste
-        ));
-    }
 
 }

@@ -70,12 +70,6 @@
                     {% endfor %}
                 {% endif %}                
             </div>
-           <div class="artiste_offres">
-               <span class="sous-titre">Offres</span>
-                 {% for offre in artiste.offres %}
-                     <span> {{ offre.intitule }} <a href="{{ path('mc_mega_casting_Offre_Postuler', {'id_offre' : offre.id ,'type_info' : 'annuler'})}}">Annuler</a></span>
-                 {% endfor %}
-            </div>
         </div>        
     </div>
 </div>    

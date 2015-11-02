@@ -81,13 +81,6 @@ class Artiste
      * )
      */
     private $photos;
-    
-     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Offre", mappedBy="artistes")
-     */
-    private $offres;
 
     /**
      * Constructor
@@ -277,38 +270,5 @@ class Artiste
         $dateInterval = $this->datenaissance->diff(new \DateTime());
  
         return $dateInterval->y;
-    }
-
-    /**
-     * Add offres
-     *
-     * @param \MC\MegaCastingBundle\Entity\Offre $offres
-     * @return Artiste
-     */
-    public function addOffre(\MC\MegaCastingBundle\Entity\Offre $offres)
-    {
-        $this->offres[] = $offres;
-
-        return $this;
-    }
-
-    /**
-     * Remove offres
-     *
-     * @param \MC\MegaCastingBundle\Entity\Offre $offres
-     */
-    public function removeOffre(\MC\MegaCastingBundle\Entity\Offre $offres)
-    {
-        $this->offres->removeElement($offres);
-    }
-
-    /**
-     * Get offres
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getOffres()
-    {
-        return $this->offres;
     }
 }

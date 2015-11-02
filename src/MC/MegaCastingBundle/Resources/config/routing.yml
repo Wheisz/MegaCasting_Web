@@ -28,10 +28,6 @@ mc_mega_casting_Offre_Domaine:
     path:     /Offre/{libelle_domaine}
     defaults: { _controller: MCMegaCastingBundle:Offre:domaine }
     
-mc_mega_casting_Offre_Postuler:
-    path:    /Postuler/Offre/{id_offre}/{type_info}
-    defaults: { _controller: MCMegaCastingBundle:Offre:postuler }
-    
 
 # Offre API REST HTTP
 
